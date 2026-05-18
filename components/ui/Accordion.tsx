@@ -1,9 +1,9 @@
 'use client';
 
 import * as RA from '@radix-ui/react-accordion';
-import {ChevronDown} from 'lucide-react';
-import type {ReactNode} from 'react';
-import {cn} from '@/lib/cn';
+import { ChevronDown } from 'lucide-react';
+import type { ReactNode } from 'react';
+import { cn } from '@/lib/cn';
 
 type AccordionItemData = {
     id: string;
@@ -17,7 +17,7 @@ type AccordionProps = {
     className?: string;
 };
 
-export function Accordion({items, defaultOpenId, className}: AccordionProps) {
+export function Accordion({ items, defaultOpenId, className }: AccordionProps) {
     return (
         <RA.Root
             type="single"
@@ -32,7 +32,7 @@ export function Accordion({items, defaultOpenId, className}: AccordionProps) {
                             className={cn(
                                 'group flex w-full items-center justify-between gap-4 py-4',
                                 'text-left text-h3 text-neutral-900',
-                                'outline-none focus-visible:ring-2 focus-visible:ring-primary-300 rounded-sm',
+                                'outline-none focus-visible:ring-2 focus-visible:ring-primary-300 rounded-sm'
                             )}
                         >
                             <span>{item.q}</span>
@@ -46,7 +46,7 @@ export function Accordion({items, defaultOpenId, className}: AccordionProps) {
                         className={cn(
                             'overflow-hidden',
                             'data-[state=open]:animate-[accordion-down_200ms_ease]',
-                            'data-[state=closed]:animate-[accordion-up_200ms_ease]',
+                            'data-[state=closed]:animate-[accordion-up_200ms_ease]'
                         )}
                     >
                         <div className="pb-4 text-body text-neutral-700">{item.a}</div>

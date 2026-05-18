@@ -1,15 +1,15 @@
 'use client';
 
-import type {EmblaCarouselType} from 'embla-carousel';
-import {useCallback, useLayoutEffect, useState} from 'react';
-import {cn} from '@/lib/cn';
+import type { EmblaCarouselType } from 'embla-carousel';
+import { useCallback, useLayoutEffect, useState } from 'react';
+import { cn } from '@/lib/cn';
 
 type CarouselDotsProps = {
     embla: EmblaCarouselType | undefined;
     className?: string;
 };
 
-export function CarouselDots({embla, className}: CarouselDotsProps) {
+export function CarouselDots({ embla, className }: CarouselDotsProps) {
     const [snaps, setSnaps] = useState<number[]>([]);
     const [selected, setSelected] = useState(0);
 
@@ -52,15 +52,15 @@ export function CarouselDots({embla, className}: CarouselDotsProps) {
                         onClick={() => embla?.scrollTo(i)}
                         className={cn(
                             // Кликабельная область 44px (touch-target), визуал — точка 8px
-                            'inline-flex h-11 w-11 items-center justify-center',
+                            'inline-flex h-11 w-11 items-center justify-center'
                         )}
                     >
-            <span
-                className={cn(
-                    'block size-2 rounded-pill transition-colors',
-                    isActive ? 'bg-accent-500' : 'bg-primary-300',
-                )}
-            />
+                        <span
+                            className={cn(
+                                'block size-2 rounded-pill transition-colors',
+                                isActive ? 'bg-accent-500' : 'bg-primary-300'
+                            )}
+                        />
                     </button>
                 );
             })}

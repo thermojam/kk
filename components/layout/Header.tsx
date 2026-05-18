@@ -1,18 +1,18 @@
 'use client';
 
-import {Menu} from 'lucide-react';
+import { Menu } from 'lucide-react';
 import Link from 'next/link';
-import {useEffect, useRef, useState} from 'react';
-import {Button} from '@/components/ui/Button';
-import {Logo} from '@/components/ui/Logo';
-import {MobileMenu} from '@/components/layout/MobileMenu';
-import {cn} from '@/lib/cn';
+import { useEffect, useRef, useState } from 'react';
+import { Button } from '@/components/ui/Button';
+import { Logo } from '@/components/ui/Logo';
+import { MobileMenu } from '@/components/layout/MobileMenu';
+import { cn } from '@/lib/cn';
 
 const NAV = [
-    {href: '/#about', label: 'Обо мне'},
-    {href: '/#services', label: 'Услуги'},
-    {href: '/#materials', label: 'Материалы'},
-    {href: '/#contact', label: 'Контакт'},
+    { href: '/#about', label: 'Обо мне' },
+    { href: '/#services', label: 'Услуги' },
+    { href: '/#materials', label: 'Материалы' },
+    { href: '/#contact', label: 'Контакт' },
 ];
 
 const COMPACT_THRESHOLD_PX = 20;
@@ -51,7 +51,7 @@ export function Header() {
             });
         }
 
-        window.addEventListener('scroll', onScroll, {passive: true});
+        window.addEventListener('scroll', onScroll, { passive: true });
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
@@ -62,12 +62,12 @@ export function Header() {
                     'sticky top-0 z-30 w-full bg-neutral-0/95 backdrop-blur transition-[height,border-color] duration-150',
                     compact
                         ? 'h-14 border-b border-neutral-100'
-                        : 'h-20 border-b border-transparent',
+                        : 'h-20 border-b border-transparent'
                 )}
             >
                 <div className="container-page flex h-full items-center justify-between">
                     <Link href="/" aria-label="На главную" className="text-primary-500">
-                        <Logo variant="mark+text"/>
+                        <Logo variant="mark+text" />
                     </Link>
 
                     {/* Десктоп-нав */}
@@ -102,15 +102,15 @@ export function Header() {
                             'inline-flex h-11 w-11 items-center justify-center rounded-md',
                             'text-neutral-900 hover:bg-neutral-100',
                             'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300',
-                            'lg:hidden',
+                            'lg:hidden'
                         )}
                     >
-                        <Menu className="size-6" aria-hidden="true"/>
+                        <Menu className="size-6" aria-hidden="true" />
                     </button>
                 </div>
             </header>
 
-            <MobileMenu open={menuOpen} onOpenChange={setMenuOpen}/>
+            <MobileMenu open={menuOpen} onOpenChange={setMenuOpen} />
         </>
     );
 }

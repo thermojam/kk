@@ -1,17 +1,17 @@
 'use client';
 
-import {Card} from '@/components/ui/Card';
-import {EmblaCarousel} from '@/components/carousel/EmblaCarousel';
+import { Card } from '@/components/ui/Card';
+import { EmblaCarousel } from '@/components/carousel/EmblaCarousel';
 
 const placeholderSlides = (n: number, prefix: string) =>
-    Array.from({length: n}, (_, i) => ({id: `${prefix}-${i + 1}`, label: `Слайд ${i + 1}`}));
+    Array.from({ length: n }, (_, i) => ({ id: `${prefix}-${i + 1}`, label: `Слайд ${i + 1}` }));
 
 const workAreasDemo = placeholderSlides(3, 'wa');
 const casesDemo = placeholderSlides(3, 'case');
 const servicesDemo = placeholderSlides(5, 'svc');
 const materialsDemo = placeholderSlides(4, 'mat');
 
-function Placeholder({label}: { label: string }) {
+function Placeholder({ label }: { label: string }) {
     return (
         <Card className="flex h-40 items-center justify-center text-h3 text-primary-500">
             {label}
@@ -19,7 +19,7 @@ function Placeholder({label}: { label: string }) {
     );
 }
 
-function SectionHeading({children}: { children: string }) {
+function SectionHeading({ children }: { children: string }) {
     return (
         <h2 className="text-h2 text-neutral-900 mb-6">
             {children} <span className="text-neutral-500">(плейсхолдер)</span>
@@ -32,9 +32,7 @@ export default function HomePage() {
         <>
             <section id="hero" className="container-page py-16 lg:py-24">
                 <SectionHeading>Hero</SectionHeading>
-                <p className="text-body text-neutral-700">
-                    Здесь будет первый экран — Sprint 2.
-                </p>
+                <p className="text-body text-neutral-700">Здесь будет первый экран — Sprint 2.</p>
             </section>
 
             <section id="about" className="container-page py-16 lg:py-24">
@@ -51,9 +49,9 @@ export default function HomePage() {
                 <div className="lg:hidden">
                     <EmblaCarousel
                         items={workAreasDemo}
-                        renderItem={(item) => <Placeholder label={item.label}/>}
-                        options={{loop: false}}
-                        slidesPerView={{base: 1}}
+                        renderItem={(item) => <Placeholder label={item.label} />}
+                        options={{ loop: false }}
+                        slidesPerView={{ base: 1 }}
                         showArrows={false}
                         showDots
                         ariaLabel="Демо-карусель: сферы работы"
@@ -61,7 +59,7 @@ export default function HomePage() {
                 </div>
                 <div className="hidden lg:grid grid-cols-3 gap-4">
                     {workAreasDemo.map((item) => (
-                        <Placeholder key={item.id} label={item.label}/>
+                        <Placeholder key={item.id} label={item.label} />
                     ))}
                 </div>
             </section>
@@ -73,9 +71,9 @@ export default function HomePage() {
                 <div className="lg:hidden">
                     <EmblaCarousel
                         items={casesDemo}
-                        renderItem={(item) => <Placeholder label={item.label}/>}
-                        options={{loop: false}}
-                        slidesPerView={{base: 1}}
+                        renderItem={(item) => <Placeholder label={item.label} />}
+                        options={{ loop: false }}
+                        slidesPerView={{ base: 1 }}
                         showArrows={false}
                         showDots
                         ariaLabel="Демо-карусель: кейсы"
@@ -83,7 +81,7 @@ export default function HomePage() {
                 </div>
                 <div className="hidden lg:grid grid-cols-3 gap-4">
                     {casesDemo.map((item) => (
-                        <Placeholder key={item.id} label={item.label}/>
+                        <Placeholder key={item.id} label={item.label} />
                     ))}
                 </div>
             </section>
@@ -93,9 +91,9 @@ export default function HomePage() {
                 <SectionHeading>Услуги</SectionHeading>
                 <EmblaCarousel
                     items={servicesDemo}
-                    renderItem={(item) => <Placeholder label={item.label}/>}
-                    options={{loop: true}}
-                    slidesPerView={{base: 1, lg: 3}}
+                    renderItem={(item) => <Placeholder label={item.label} />}
+                    options={{ loop: true }}
+                    slidesPerView={{ base: 1, lg: 3 }}
                     showArrows
                     showDots
                     ariaLabel="Демо-карусель: услуги"
@@ -104,16 +102,12 @@ export default function HomePage() {
 
             <section id="faq" className="container-page py-16 lg:py-24">
                 <SectionHeading>FAQ</SectionHeading>
-                <p className="text-body text-neutral-700">
-                    Здесь будет FAQ — Sprint 2.
-                </p>
+                <p className="text-body text-neutral-700">Здесь будет FAQ — Sprint 2.</p>
             </section>
 
             <section id="contact" className="container-page py-16 lg:py-24">
                 <SectionHeading>Записаться</SectionHeading>
-                <p className="text-body text-neutral-700">
-                    Здесь будет форма — Sprint 3.
-                </p>
+                <p className="text-body text-neutral-700">Здесь будет форма — Sprint 3.</p>
             </section>
 
             {/* Демо-карусель #3 (materials поведение) — рендерим в отдельной секции */}
@@ -123,9 +117,9 @@ export default function HomePage() {
                 <div className="lg:hidden">
                     <EmblaCarousel
                         items={materialsDemo}
-                        renderItem={(item) => <Placeholder label={item.label}/>}
-                        options={{loop: false}}
-                        slidesPerView={{base: 1}}
+                        renderItem={(item) => <Placeholder label={item.label} />}
+                        options={{ loop: false }}
+                        slidesPerView={{ base: 1 }}
                         showArrows={false}
                         showDots
                         ariaLabel="Демо-карусель: материалы"
@@ -133,7 +127,7 @@ export default function HomePage() {
                 </div>
                 <div className="hidden lg:grid grid-cols-3 gap-4">
                     {materialsDemo.map((item) => (
-                        <Placeholder key={item.id} label={item.label}/>
+                        <Placeholder key={item.id} label={item.label} />
                     ))}
                 </div>
             </section>

@@ -1,16 +1,16 @@
 'use client';
 
-import type {EmblaCarouselType} from 'embla-carousel';
-import {ChevronLeft, ChevronRight} from 'lucide-react';
-import {useCallback, useLayoutEffect, useState} from 'react';
-import {cn} from '@/lib/cn';
+import type { EmblaCarouselType } from 'embla-carousel';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useCallback, useLayoutEffect, useState } from 'react';
+import { cn } from '@/lib/cn';
 
 type CarouselArrowsProps = {
     embla: EmblaCarouselType | undefined;
     className?: string;
 };
 
-export function CarouselArrows({embla, className}: CarouselArrowsProps) {
+export function CarouselArrows({ embla, className }: CarouselArrowsProps) {
     const [canPrev, setCanPrev] = useState(false);
     const [canNext, setCanNext] = useState(false);
 
@@ -47,7 +47,7 @@ export function CarouselArrows({embla, className}: CarouselArrowsProps) {
                 onClick={() => embla?.scrollPrev()}
                 className={btn}
             >
-                <ChevronLeft className="size-5" aria-hidden="true"/>
+                <ChevronLeft className="size-5" aria-hidden="true" />
             </button>
             <button
                 type="button"
@@ -56,7 +56,7 @@ export function CarouselArrows({embla, className}: CarouselArrowsProps) {
                 onClick={() => embla?.scrollNext()}
                 className={btn}
             >
-                <ChevronRight className="size-5" aria-hidden="true"/>
+                <ChevronRight className="size-5" aria-hidden="true" />
             </button>
         </div>
     );

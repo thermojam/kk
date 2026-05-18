@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* ============================================================
    Дизайн-токены (SPEC.md §T4)
@@ -37,7 +37,7 @@
 /* Шрифты пробрасываются inline, чтобы переменные из next/font
    (--font-nunito / --font-cormorant) попали в утилиты font-sans / font-serif */
 @theme inline {
-    --font-sans: var(--font-nunito), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-sans: var(--font-nunito), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-serif: var(--font-cormorant), Georgia, serif;
 }
 

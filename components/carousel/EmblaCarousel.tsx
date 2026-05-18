@@ -1,11 +1,11 @@
 'use client';
 
-import type {EmblaOptionsType} from 'embla-carousel';
+import type { EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
-import {useEffect, type CSSProperties, type KeyboardEvent, type ReactNode} from 'react';
-import {CarouselArrows} from '@/components/carousel/CarouselArrows';
-import {CarouselDots} from '@/components/carousel/CarouselDots';
-import {cn} from '@/lib/cn';
+import { useEffect, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react';
+import { CarouselArrows } from '@/components/carousel/CarouselArrows';
+import { CarouselDots } from '@/components/carousel/CarouselDots';
+import { cn } from '@/lib/cn';
 
 type SlidesPerView = { base: number; lg?: number };
 
@@ -21,15 +21,15 @@ export type EmblaCarouselProps<T> = {
 };
 
 export function EmblaCarousel<T>({
-                                     items,
-                                     renderItem,
-                                     options,
-                                     showArrows = false,
-                                     showDots = true,
-                                     slidesPerView = {base: 1},
-                                     className,
-                                     ariaLabel,
-                                 }: EmblaCarouselProps<T>) {
+    items,
+    renderItem,
+    options,
+    showArrows = false,
+    showDots = true,
+    slidesPerView = { base: 1 },
+    className,
+    ariaLabel,
+}: EmblaCarouselProps<T>) {
     const [viewportRef, embla] = useEmblaCarousel({
         align: 'start',
         containScroll: 'trimSnaps',
@@ -82,10 +82,8 @@ export function EmblaCarousel<T>({
 
             {(showArrows || showDots) && (
                 <div className="flex items-center justify-between gap-4">
-                    <div className="flex-1">
-                        {showDots && <CarouselDots embla={embla}/>}
-                    </div>
-                    {showArrows && <CarouselArrows embla={embla}/>}
+                    <div className="flex-1">{showDots && <CarouselDots embla={embla} />}</div>
+                    {showArrows && <CarouselArrows embla={embla} />}
                 </div>
             )}
         </div>

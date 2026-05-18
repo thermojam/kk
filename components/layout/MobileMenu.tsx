@@ -1,14 +1,14 @@
 'use client';
 
-import {Button} from '@/components/ui/Button';
-import {Dialog} from '@/components/ui/Dialog';
-import {Logo} from '@/components/ui/Logo';
+import { Button } from '@/components/ui/Button';
+import { Dialog } from '@/components/ui/Dialog';
+import { Logo } from '@/components/ui/Logo';
 
 const NAV = [
-    {href: '/#about', label: 'Обо мне'},
-    {href: '/#services', label: 'Услуги'},
-    {href: '/#materials', label: 'Материалы'},
-    {href: '/#contact', label: 'Контакт'},
+    { href: '/#about', label: 'Обо мне' },
+    { href: '/#services', label: 'Услуги' },
+    { href: '/#materials', label: 'Материалы' },
+    { href: '/#contact', label: 'Контакт' },
 ];
 
 type MobileMenuProps = {
@@ -16,20 +16,14 @@ type MobileMenuProps = {
     onOpenChange: (open: boolean) => void;
 };
 
-export function MobileMenu({open, onOpenChange}: MobileMenuProps) {
+export function MobileMenu({ open, onOpenChange }: MobileMenuProps) {
     const close = () => onOpenChange(false);
 
     return (
-        <Dialog
-            open={open}
-            onOpenChange={onOpenChange}
-            title="Меню"
-            hideTitle
-            position="right"
-        >
+        <Dialog open={open} onOpenChange={onOpenChange} title="Меню" hideTitle position="right">
             <div className="flex h-full flex-col px-6 pt-6 pb-8">
                 <div className="mb-8 flex items-center">
-                    <Logo variant="mark+text"/>
+                    <Logo variant="mark+text" />
                 </div>
 
                 <nav aria-label="Главная навигация" className="flex flex-col gap-4">
@@ -45,7 +39,7 @@ export function MobileMenu({open, onOpenChange}: MobileMenuProps) {
                     ))}
                 </nav>
 
-                <div className="my-8 border-t border-neutral-100"/>
+                <div className="my-8 border-t border-neutral-100" />
 
                 <Button
                     href="/#contact"
