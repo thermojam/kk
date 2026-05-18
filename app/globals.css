@@ -4,135 +4,149 @@
    Дизайн-токены (SPEC.md §T4)
    ============================================================ */
 @theme {
-  /* Primary */
-  --color-primary-50: #f7f1fc;
-  --color-primary-300: #c9a3e8;
-  --color-primary-400: #9b5fd1;
-  --color-primary-500: #7b2cbf;
-  --color-primary-600: #6a1faa;
+    /* Primary */
+    --color-primary-50: #f7f1fc;
+    --color-primary-300: #c9a3e8;
+    --color-primary-400: #9b5fd1;
+    --color-primary-500: #7b2cbf;
+    --color-primary-600: #6a1faa;
 
-  /* Accent (НИКОГДА не цвет текста на белом фоне) */
-  --color-accent-50: #fff4e8;
-  --color-accent-500: #ffa552;
+    /* Accent (НИКОГДА не цвет текста на белом фоне) */
+    --color-accent-50: #fff4e8;
+    --color-accent-500: #ffa552;
 
-  /* Neutral */
-  --color-neutral-0: #ffffff;
-  --color-neutral-50: #faf8fc;
-  --color-neutral-100: #e6e6ec;
-  --color-neutral-500: #6b6b80;
-  --color-neutral-700: #3a3a52;
-  --color-neutral-900: #1e1e2e;
+    /* Neutral */
+    --color-neutral-0: #ffffff;
+    --color-neutral-50: #faf8fc;
+    --color-neutral-100: #e6e6ec;
+    --color-neutral-500: #6b6b80;
+    --color-neutral-700: #3a3a52;
+    --color-neutral-900: #1e1e2e;
 
-  /* Семантика */
-  --color-success: #4caf7a;
-  --color-error: #d13a5c;
+    /* Семантика */
+    --color-success: #4caf7a;
+    --color-error: #d13a5c;
 
-  /* Радиусы */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-pill: 999px;
+    /* Радиусы */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-pill: 999px;
 }
 
 /* Шрифты пробрасываются inline, чтобы переменные из next/font
    (--font-nunito / --font-cormorant) попали в утилиты font-sans / font-serif */
 @theme inline {
-  --font-sans: var(--font-nunito), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-serif: var(--font-cormorant), Georgia, serif;
+    --font-sans: var(--font-nunito), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-serif: var(--font-cormorant), Georgia, serif;
 }
 
 /* ============================================================
    База
    ============================================================ */
 body {
-  background: var(--color-neutral-0);
-  color: var(--color-neutral-900);
+    background: var(--color-neutral-0);
+    color: var(--color-neutral-900);
 }
 
 /* Учитываем sticky-хедер при якорном скролле (точная высота
    синхронизируется с Header в задаче 15). */
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 section[id] {
-  scroll-margin-top: 80px;
+    scroll-margin-top: 80px;
 }
 
 /* ============================================================
    Контейнер (SPEC.md §T1)
    ============================================================ */
 @layer components {
-  .container-page {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  @media (min-width: 640px) {
     .container-page {
-      padding-left: 24px;
-      padding-right: 24px;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 16px;
+        padding-right: 16px;
     }
-  }
 
-  @media (min-width: 1024px) {
-    .container-page {
-      padding-left: 32px;
-      padding-right: 32px;
+    @media (min-width: 640px) {
+        .container-page {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
     }
-  }
+
+    @media (min-width: 1024px) {
+        .container-page {
+            padding-left: 32px;
+            padding-right: 32px;
+        }
+    }
 }
 
 /* ============================================================
    Типографика (SPEC.md §T1)
    ============================================================ */
 @layer utilities {
-  .font-display {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-weight: 400;
-    font-size: 48px;
-    line-height: 1.05;
-  }
+    .font-display {
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-weight: 400;
+        font-size: 48px;
+        line-height: 1.05;
+    }
 
-  .text-h1 {
-    font-family: var(--font-sans);
-    font-weight: 800;
-    font-size: 32px;
-    line-height: 1.15;
-  }
+    .text-h1 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 32px;
+        line-height: 1.15;
+    }
 
-  .text-h2 {
-    font-family: var(--font-sans);
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 1.2;
-  }
+    .text-h2 {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 1.2;
+    }
 
-  .text-h3 {
-    font-family: var(--font-sans);
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 1.25;
-  }
+    .text-h3 {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 1.25;
+    }
 
-  .text-body {
-    font-family: var(--font-sans);
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 1.55;
-  }
+    .text-body {
+        font-family: var(--font-sans);
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 1.55;
+    }
 
-  @media (min-width: 1024px) {
-    .font-display { font-size: 72px; }
-    .text-h1 { font-size: 48px; }
-    .text-h2 { font-size: 36px; }
-    .text-h3 { font-size: 24px; }
-    .text-body { font-size: 16px; }
-  }
+    @media (min-width: 1024px) {
+        .font-display {
+            font-size: 72px;
+        }
+
+        .text-h1 {
+            font-size: 48px;
+        }
+
+        .text-h2 {
+            font-size: 36px;
+        }
+
+        .text-h3 {
+            font-size: 24px;
+        }
+
+        .text-body {
+            font-size: 16px;
+        }
+    }
 }
 
 /* ============================================================
@@ -141,37 +155,45 @@ section[id] {
    --slide-size-lg, которые EmblaCarousel прокидывает inline.
    ============================================================ */
 .embla__viewport {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .embla__container {
-  display: flex;
-  touch-action: pan-y;
+    display: flex;
+    touch-action: pan-y;
 }
 
 .embla__slide {
-  flex: 0 0 var(--slide-size-base, 100%);
-  min-width: 0;
-  padding-left: 16px;
+    flex: 0 0 var(--slide-size-base, 100%);
+    min-width: 0;
+    padding-left: 16px;
 }
 
 .embla__slide:first-child {
-  padding-left: 0;
+    padding-left: 0;
 }
 
 @media (min-width: 1024px) {
-  .embla__slide {
-    flex: 0 0 var(--slide-size-lg, var(--slide-size-base, 100%));
-  }
+    .embla__slide {
+        flex: 0 0 var(--slide-size-lg, var(--slide-size-base, 100%));
+    }
 }
 
 /* Radix Accordion — анимация collapse через CSS-переменную --radix-accordion-content-height */
 @keyframes accordion-down {
-  from { height: 0; }
-  to { height: var(--radix-accordion-content-height); }
+    from {
+        height: 0;
+    }
+    to {
+        height: var(--radix-accordion-content-height);
+    }
 }
 
 @keyframes accordion-up {
-  from { height: var(--radix-accordion-content-height); }
-  to { height: 0; }
+    from {
+        height: var(--radix-accordion-content-height);
+    }
+    to {
+        height: 0;
+    }
 }

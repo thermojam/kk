@@ -6,35 +6,57 @@ type LogoProps = {
     className?: string;
 };
 
-export function Logo({size = 40, variant = 'mark', className}: LogoProps) {
+export function Logo({
+                         size = 60,
+                         variant = 'mark',
+                         className,
+                     }: LogoProps) {
     return (
-        <span className={cn('inline-flex items-center gap-3', className)}>
+        <span className={cn('inline-flex items-center gap-2', className)}>
       <svg
           width={size}
           height={size}
-          viewBox="0 0 40 40"
+          viewBox="0 0 96 96"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
       >
-        <circle cx="20" cy="20" r="19" stroke="currentColor" strokeWidth="1.5"/>
-        <path
-            d="M12 11 V29 M12 20 L20 11 M12 20 L20 29"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        />
-        <path
-            d="M22 11 V29 M22 20 L30 11 M22 20 L30 29"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        />
+        {/* Background */}
+          <circle
+              cx="48"
+              cy="48"
+              r="44"
+              fill="currentColor"
+              fillOpacity="0.04"
+              stroke="currentColor"
+              strokeOpacity="0.12"
+              strokeWidth="2"
+          />
+
+          {/* KK */}
+          <g
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+          >
+          {/* Left K */}
+              <path d="M28 24 V72"/>
+          <path d="M28 48 L42 26"/>
+          <path d="M28 48 L42 70"/>
+
+              {/* Right K */}
+              <path d="M68 24 V72"/>
+          <path d="M68 48 L54 26"/>
+          <path d="M68 48 L54 70"/>
+        </g>
+
+          {/* Center dot */}
+          <circle cx="48" cy="48" r="4.5" fill="currentColor"/>
       </svg>
+
             {variant === 'mark+text' && (
-                <span className="font-serif italic text-[16px] text-neutral-900">
+                <span className="font-serif italic text-[16px] leading-none">
           Ксения Каменская
         </span>
             )}
