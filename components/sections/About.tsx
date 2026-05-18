@@ -1,0 +1,64 @@
+import Image from 'next/image';
+import type { Qualification } from '@/content/home';
+
+type AboutProps = { qualifications: Qualification[] };
+
+export function About({ qualifications }: AboutProps) {
+    return (
+        <section id="about" className="container-page py-16 lg:py-24">
+            <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 lg:items-center">
+                <div className="order-1 lg:order-1">
+                    <Image
+                        src="/images/about.webp"
+                        alt="Ксения Каменская"
+                        width={1086}
+                        height={1448}
+                        sizes="(min-width: 1024px) 480px, 100vw"
+                        className="w-full rounded-lg object-cover aspect-[3/4] max-w-[480px] mx-auto lg:mx-0"
+                        priority={false}
+                    />
+                </div>
+                <div className="order-2 lg:order-2 flex flex-col gap-8">
+                    <h2 className="text-h2 text-neutral-900">Обо мне</h2>
+                    <div className="flex flex-col gap-4 text-body text-neutral-700">
+                        <p>
+                            Лишний вес. ПМС, который выбивал из жизни. Эмоциональное переедание и
+                            срывы. Я знаю этот путь изнутри — не из учебника.
+                        </p>
+                        <p>
+                            Через психосоматику, нутрициологию и славянские практики я вернула себе
+                            энергию, гармонию и тело, в котором мне хорошо.
+                        </p>
+                        <p>
+                            Прошла путь от страха камеры и публичных выступлений — к норме «быть
+                            видимой и яркой». Занялась тем, что действительно мне по душе. Теперь
+                            помогаю другим женщинам пройти этот путь. В работе соединяю
+                            восстановление контакта с телом и свободу быть проявленной.
+                        </p>
+                    </div>
+                    <ul className="flex flex-col gap-3 text-body text-neutral-700">
+                        {qualifications.map((q) => (
+                            <li key={q.title} className="flex gap-3">
+                                <span
+                                    aria-hidden="true"
+                                    className="mt-2 size-1.5 shrink-0 rounded-full bg-accent-500"
+                                />
+                                <span>
+                                    {q.title}
+                                    {q.institution && (
+                                        <>
+                                            <br />
+                                            <span className="text-neutral-500">
+                                                {q.institution}
+                                            </span>
+                                        </>
+                                    )}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </section>
+    );
+}

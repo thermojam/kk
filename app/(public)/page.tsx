@@ -2,6 +2,8 @@
 
 import { Card } from '@/components/ui/Card';
 import { EmblaCarousel } from '@/components/carousel/EmblaCarousel';
+import { About } from '@/components/sections/About';
+import { qualifications } from '@/content/home';
 
 const placeholderSlides = (n: number, prefix: string) =>
     Array.from({ length: n }, (_, i) => ({ id: `${prefix}-${i + 1}`, label: `Слайд ${i + 1}` }));
@@ -35,12 +37,7 @@ export default function HomePage() {
                 <p className="text-body text-neutral-700">Здесь будет первый экран — Sprint 2.</p>
             </section>
 
-            <section id="about" className="container-page py-16 lg:py-24">
-                <SectionHeading>Обо мне</SectionHeading>
-                <p className="text-body text-neutral-700">
-                    Здесь будет секция «Обо мне» — Sprint 2.
-                </p>
-            </section>
+            <About qualifications={qualifications} />
 
             {/* Демо-карусель #1: секции 3/4 — mobile-only Embla + desktop grid 3 (loop: false) */}
             <section id="work-areas" className="container-page py-16 lg:py-24">
