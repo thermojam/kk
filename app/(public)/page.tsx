@@ -4,12 +4,12 @@ import { Card } from '@/components/ui/Card';
 import { EmblaCarousel } from '@/components/carousel/EmblaCarousel';
 import { About } from '@/components/sections/About';
 import { FAQ } from '@/components/sections/FAQ';
-import { faq, qualifications } from '@/content/home';
+import { WorkAreas } from '@/components/sections/WorkAreas';
+import { faq, qualifications, workAreas } from '@/content/home';
 
 const placeholderSlides = (n: number, prefix: string) =>
     Array.from({ length: n }, (_, i) => ({ id: `${prefix}-${i + 1}`, label: `Слайд ${i + 1}` }));
 
-const workAreasDemo = placeholderSlides(3, 'wa');
 const casesDemo = placeholderSlides(3, 'case');
 const servicesDemo = placeholderSlides(5, 'svc');
 const materialsDemo = placeholderSlides(4, 'mat');
@@ -40,27 +40,7 @@ export default function HomePage() {
 
             <About qualifications={qualifications} />
 
-            {/* Демо-карусель #1: секции 3/4 — mobile-only Embla + desktop grid 3 (loop: false) */}
-            <section id="work-areas" className="container-page py-16 lg:py-24">
-                <SectionHeading>С чем я работаю</SectionHeading>
-
-                <div className="lg:hidden">
-                    <EmblaCarousel
-                        items={workAreasDemo}
-                        renderItem={(item) => <Placeholder label={item.label} />}
-                        options={{ loop: false }}
-                        slidesPerView={{ base: 1 }}
-                        showArrows={false}
-                        showDots
-                        ariaLabel="Демо-карусель: сферы работы"
-                    />
-                </div>
-                <div className="hidden lg:grid grid-cols-3 gap-4">
-                    {workAreasDemo.map((item) => (
-                        <Placeholder key={item.id} label={item.label} />
-                    ))}
-                </div>
-            </section>
+            <WorkAreas items={workAreas} />
 
             {/* Демо повторяет #1, но с кейсами — структурно то же */}
             <section id="cases" className="container-page py-16 lg:py-24">
