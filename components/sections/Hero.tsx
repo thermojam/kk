@@ -24,8 +24,8 @@ export function Hero() {
         >
             <HeroBackground />
 
-            <div className="container-page relative z-10 grid gap-10 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-12 lg:py-24 lg:min-h-[720px]">
-                <div className="flex flex-col gap-6 lg:order-1 lg:max-w-[560px]">
+            <div className="container-page relative z-10 grid gap-10 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-12 lg:py-24 lg:min-h-180">
+                <div className="flex flex-col gap-6 lg:order-1 lg:max-w-140">
                     <motion.span
                         {...fadeUp(0)}
                         className="font-sans font-bold uppercase tracking-[0.4em] text-[11px]"
@@ -47,7 +47,7 @@ export function Hero() {
 
                     <motion.p
                         {...fadeUp(0.15)}
-                        className="text-body max-w-[460px]"
+                        className="text-body max-w-115"
                         style={{ color: 'rgba(255,255,255,0.78)' }}
                     >
                         Помогаю женщинам перестать носить эмоции в&nbsp;теле, разобраться
@@ -62,7 +62,7 @@ export function Hero() {
                         <Button href="#contact" variant="accent" size="lg">
                             Записаться на бесплатную консультацию · 20 минут
                         </Button>
-                        <Button href="#services" variant="ghost" size="md" className="!text-white">
+                        <Button href="#services" variant="ghost" size="md" className="text-white!">
                             Узнать о программе →
                         </Button>
                     </motion.div>
@@ -72,7 +72,7 @@ export function Hero() {
                     <motion.div
                         {...fadeUp(0.3)}
                         whileHover={reduced ? undefined : { scale: 1.02 }}
-                        className="relative w-[min(70vw,320px)] aspect-[3/4] lg:w-[300px] lg:h-[380px] lg:aspect-auto"
+                        className="relative w-[min(70vw,320px)] aspect-3/4 lg:w-75 lg:h-95 lg:aspect-auto"
                     >
                         {/* Offset-рамка (только на десктопе, под фото) */}
                         <span
