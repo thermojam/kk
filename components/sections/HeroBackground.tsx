@@ -19,42 +19,34 @@ export function HeroBackground() {
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 hidden lg:block overflow-hidden"
         >
-            <svg
-                className="absolute inset-0 h-full w-full"
-                viewBox="0 0 1200 720"
-                preserveAspectRatio="xMidYMid slice"
-            >
-                <motion.ellipse
-                    cx="120"
-                    cy="160"
-                    rx="240"
-                    ry="160"
-                    fill="var(--color-primary-300)"
-                    opacity="0.4"
-                    animate={{ x: [-15, 15, -15], y: [-10, 10, -10] }}
-                    transition={{ duration: 18, ease: 'easeInOut', repeat: Infinity }}
-                />
-                <motion.ellipse
-                    cx="720"
-                    cy="540"
-                    rx="180"
-                    ry="130"
-                    fill="var(--color-primary-400)"
-                    opacity="0.3"
-                    animate={{ x: [20, -20, 20], y: [12, -12, 12] }}
-                    transition={{ duration: 22, ease: 'easeInOut', repeat: Infinity }}
-                />
-                <motion.ellipse
-                    cx="980"
-                    cy="80"
-                    rx="100"
-                    ry="80"
-                    fill="var(--color-primary-300)"
-                    opacity="0.5"
-                    animate={{ x: [-8, 8, -8], y: [-6, 6, -6] }}
-                    transition={{ duration: 14, ease: 'easeInOut', repeat: Infinity }}
-                />
-            </svg>
+            <motion.div
+                className="absolute"
+                style={{
+                    left: '-160px',
+                    bottom: '-180px',
+                    width: '460px',
+                    height: '460px',
+                    background:
+                        'radial-gradient(circle, var(--color-primary-500) 0%, transparent 70%)',
+                    opacity: 0.55,
+                }}
+                animate={{ x: [-15, 15, -15], y: [-10, 10, -10] }}
+                transition={{ duration: 18, ease: 'easeInOut', repeat: Infinity }}
+            />
+            <motion.div
+                className="absolute"
+                style={{
+                    right: '35%',
+                    top: '-120px',
+                    width: '320px',
+                    height: '320px',
+                    background:
+                        'radial-gradient(circle, var(--color-primary-400) 0%, transparent 70%)',
+                    opacity: 0.35,
+                }}
+                animate={{ x: [15, -15, 15], y: [10, -10, 10] }}
+                transition={{ duration: 22, ease: 'easeInOut', repeat: Infinity }}
+            />
 
             {PARTICLES.map((p, i) => (
                 <span
