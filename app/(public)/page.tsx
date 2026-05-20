@@ -3,7 +3,8 @@
 import { Card } from '@/components/ui/Card';
 import { EmblaCarousel } from '@/components/carousel/EmblaCarousel';
 import { About } from '@/components/sections/About';
-import { qualifications } from '@/content/home';
+import { FAQ } from '@/components/sections/FAQ';
+import { faq, qualifications } from '@/content/home';
 
 const placeholderSlides = (n: number, prefix: string) =>
     Array.from({ length: n }, (_, i) => ({ id: `${prefix}-${i + 1}`, label: `Слайд ${i + 1}` }));
@@ -97,10 +98,7 @@ export default function HomePage() {
                 />
             </section>
 
-            <section id="faq" className="container-page py-16 lg:py-24">
-                <SectionHeading>FAQ</SectionHeading>
-                <p className="text-body text-neutral-700">Здесь будет FAQ — Sprint 2.</p>
-            </section>
+            <FAQ items={faq} />
 
             <section id="contact" className="container-page py-16 lg:py-24">
                 <SectionHeading>Записаться</SectionHeading>
