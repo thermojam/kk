@@ -3,14 +3,14 @@
 import { Card } from '@/components/ui/Card';
 import { EmblaCarousel } from '@/components/carousel/EmblaCarousel';
 import { About } from '@/components/sections/About';
+import { Cases } from '@/components/sections/Cases';
 import { FAQ } from '@/components/sections/FAQ';
 import { WorkAreas } from '@/components/sections/WorkAreas';
-import { faq, qualifications, workAreas } from '@/content/home';
+import { cases, faq, qualifications, workAreas } from '@/content/home';
 
 const placeholderSlides = (n: number, prefix: string) =>
     Array.from({ length: n }, (_, i) => ({ id: `${prefix}-${i + 1}`, label: `Слайд ${i + 1}` }));
 
-const casesDemo = placeholderSlides(3, 'case');
 const servicesDemo = placeholderSlides(5, 'svc');
 const materialsDemo = placeholderSlides(4, 'mat');
 
@@ -42,27 +42,7 @@ export default function HomePage() {
 
             <WorkAreas items={workAreas} />
 
-            {/* Демо повторяет #1, но с кейсами — структурно то же */}
-            <section id="cases" className="container-page py-16 lg:py-24">
-                <SectionHeading>Истории клиенток</SectionHeading>
-
-                <div className="lg:hidden">
-                    <EmblaCarousel
-                        items={casesDemo}
-                        renderItem={(item) => <Placeholder label={item.label} />}
-                        options={{ loop: false }}
-                        slidesPerView={{ base: 1 }}
-                        showArrows={false}
-                        showDots
-                        ariaLabel="Демо-карусель: кейсы"
-                    />
-                </div>
-                <div className="hidden lg:grid grid-cols-3 gap-4">
-                    {casesDemo.map((item) => (
-                        <Placeholder key={item.id} label={item.label} />
-                    ))}
-                </div>
-            </section>
+            <Cases items={cases} />
 
             {/* Демо-карусель #2: секция 5 — Embla везде, lg=3 / base=1, loop: true */}
             <section id="services" className="container-page py-16 lg:py-24">
