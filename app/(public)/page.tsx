@@ -6,6 +6,7 @@ import { About } from '@/components/sections/About';
 import { Cases } from '@/components/sections/Cases';
 import { ContactForm } from '@/components/sections/ContactForm';
 import { FAQ } from '@/components/sections/FAQ';
+import { Hero } from '@/components/sections/Hero';
 import { Services } from '@/components/sections/Services';
 import { WorkAreas } from '@/components/sections/WorkAreas';
 import { cases, faq, qualifications, services, workAreas } from '@/content/home';
@@ -34,10 +35,7 @@ function SectionHeading({ children }: { children: string }) {
 export default function HomePage() {
     return (
         <>
-            <section id="hero" className="container-page py-16 lg:py-24">
-                <SectionHeading>Hero</SectionHeading>
-                <p className="text-body text-neutral-700">Здесь будет первый экран — Sprint 2.</p>
-            </section>
+            <Hero />
 
             <About qualifications={qualifications} />
 

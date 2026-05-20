@@ -197,3 +197,33 @@ section[id] {
         height: 0;
     }
 }
+
+/* Hero · частицы Accent (SPEC §1) */
+@keyframes hero-particle {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.hero-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: var(--color-accent-500);
+    opacity: 0.7;
+    animation-name: hero-particle;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-particle {
+        animation: none;
+    }
+}
