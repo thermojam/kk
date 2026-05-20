@@ -5,13 +5,13 @@ import { EmblaCarousel } from '@/components/carousel/EmblaCarousel';
 import { About } from '@/components/sections/About';
 import { Cases } from '@/components/sections/Cases';
 import { FAQ } from '@/components/sections/FAQ';
+import { Services } from '@/components/sections/Services';
 import { WorkAreas } from '@/components/sections/WorkAreas';
-import { cases, faq, qualifications, workAreas } from '@/content/home';
+import { cases, faq, qualifications, services, workAreas } from '@/content/home';
 
 const placeholderSlides = (n: number, prefix: string) =>
     Array.from({ length: n }, (_, i) => ({ id: `${prefix}-${i + 1}`, label: `Слайд ${i + 1}` }));
 
-const servicesDemo = placeholderSlides(5, 'svc');
 const materialsDemo = placeholderSlides(4, 'mat');
 
 function Placeholder({ label }: { label: string }) {
@@ -44,19 +44,7 @@ export default function HomePage() {
 
             <Cases items={cases} />
 
-            {/* Демо-карусель #2: секция 5 — Embla везде, lg=3 / base=1, loop: true */}
-            <section id="services" className="container-page py-16 lg:py-24">
-                <SectionHeading>Услуги</SectionHeading>
-                <EmblaCarousel
-                    items={servicesDemo}
-                    renderItem={(item) => <Placeholder label={item.label} />}
-                    options={{ loop: true }}
-                    slidesPerView={{ base: 1, lg: 3 }}
-                    showArrows
-                    showDots
-                    ariaLabel="Демо-карусель: услуги"
-                />
-            </section>
+            <Services items={services} />
 
             <FAQ items={faq} />
 
