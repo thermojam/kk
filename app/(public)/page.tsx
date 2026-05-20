@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/Card';
 import { EmblaCarousel } from '@/components/carousel/EmblaCarousel';
 import { About } from '@/components/sections/About';
 import { Cases } from '@/components/sections/Cases';
+import { ContactForm } from '@/components/sections/ContactForm';
 import { FAQ } from '@/components/sections/FAQ';
 import { Services } from '@/components/sections/Services';
 import { WorkAreas } from '@/components/sections/WorkAreas';
@@ -48,10 +49,7 @@ export default function HomePage() {
 
             <FAQ items={faq} />
 
-            <section id="contact" className="container-page py-16 lg:py-24">
-                <SectionHeading>Записаться</SectionHeading>
-                <p className="text-body text-neutral-700">Здесь будет форма — Sprint 3.</p>
-            </section>
+            <ContactForm />
 
             {/* Демо-карусель #3 (materials поведение) — рендерим в отдельной секции */}
             <section id="materials" className="container-page py-16 lg:py-24">
