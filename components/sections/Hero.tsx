@@ -60,7 +60,7 @@ export function Hero() {
                         className="flex flex-col items-start gap-3"
                     >
                         <Button href="#contact" variant="accent" size="lg">
-                            Записаться на консультацию
+                            Записаться на бесплатную консультацию · 20 минут
                         </Button>
                         <Button href="#services" variant="ghost" size="md" className="text-white!">
                             Узнать о программе →
