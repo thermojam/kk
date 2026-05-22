@@ -2,11 +2,13 @@ import { cn } from '@/lib/cn';
 
 type LogoProps = {
     size?: number;
-    variant?: 'mark' | 'mark+text';
+    tone?: 'mono' | 'duotone';
     className?: string;
 };
 
-export function Logo({ size = 60, variant = 'mark', className }: LogoProps) {
+export function Logo({ size = 60, tone = 'mono', className }: LogoProps) {
+    const isDuotone = tone === 'duotone';
+
     return (
         <span className={cn('inline-flex items-center gap-2', className)}>
             <svg
@@ -17,21 +19,21 @@ export function Logo({ size = 60, variant = 'mark', className }: LogoProps) {
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
             >
-                {/* Background */}
+                {/* Background ring */}
                 <circle
                     cx="48"
                     cy="48"
                     r="44"
-                    fill="currentColor"
-                    fillOpacity="0.04"
-                    stroke="currentColor"
-                    strokeOpacity="0.12"
+                    fill={isDuotone ? 'rgba(106,90,200,0.08)' : 'currentColor'}
+                    fillOpacity={isDuotone ? undefined : 0.04}
+                    stroke={isDuotone ? 'var(--color-primary-500)' : 'currentColor'}
+                    strokeOpacity={isDuotone ? 1 : 0.12}
                     strokeWidth="2"
                 />
 
                 {/* KK */}
                 <g
-                    stroke="currentColor"
+                    stroke={isDuotone ? 'var(--color-neutral-0)' : 'currentColor'}
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -48,12 +50,13 @@ export function Logo({ size = 60, variant = 'mark', className }: LogoProps) {
                 </g>
 
                 {/* Center dot */}
-                <circle cx="48" cy="48" r="4.5" fill="currentColor" />
+                <circle
+                    cx="48"
+                    cy="48"
+                    r="4.5"
+                    fill={isDuotone ? 'var(--color-accent-500)' : 'currentColor'}
+                />
             </svg>
-
-            {variant === 'mark+text' && (
-                <span className="font-serif italic text-[16px] leading-none">Ксения Каменская</span>
-            )}
         </span>
     );
 }

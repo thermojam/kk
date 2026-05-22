@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
+import { DisclaimerToggle } from '@/components/sections/DisclaimerToggle';
 import type { Service } from '@/content/home';
 import { cn } from '@/lib/cn';
 
@@ -11,7 +12,7 @@ export function ServiceCard({ item }: ServiceCardProps) {
     return (
         <article
             className={cn(
-                'flex h-full flex-col gap-4 rounded-lg p-6',
+                'relative flex h-full flex-col gap-4 rounded-lg p-6',
                 featured
                     ? 'bg-primary-500 text-neutral-0'
                     : 'bg-neutral-0 text-neutral-900 border border-neutral-100 shadow-sm'
@@ -21,8 +22,13 @@ export function ServiceCard({ item }: ServiceCardProps) {
                 {item.badge}
             </Badge>
 
-            <div className="flex flex-col gap-1">
-                <h3 className={cn('text-h3', featured ? 'text-neutral-0' : 'text-neutral-900')}>
+            <div className="flex min-h-[5.5rem] flex-col gap-1">
+                <h3
+                    className={cn(
+                        'text-h3 line-clamp-2 min-h-[2lh]',
+                        featured ? 'text-neutral-0' : 'text-neutral-900'
+                    )}
+                >
                     {item.title}
                 </h3>
                 {item.subtitle && (
@@ -39,39 +45,74 @@ export function ServiceCard({ item }: ServiceCardProps) {
 
             <p
                 className={cn(
-                    'text-body flex-1',
+                    'text-body line-clamp-[6] min-h-[6lh]',
                     featured ? 'text-neutral-0/90' : 'text-neutral-700'
                 )}
             >
                 {item.description}
             </p>
 
-            {item.pricing.length > 0 && (
-                <ul
+            {(item.prices.length > 0 || item.pricingNote) && (
+                <div
                     className={cn(
-                        'flex flex-col gap-1 text-[14px]',
-                        featured ? 'text-neutral-0/85' : 'text-neutral-500'
+                        'mt-auto flex flex-col gap-2 border-t pt-3.5',
+                        featured ? 'border-neutral-0/20' : 'border-neutral-100'
                     )}
                 >
-                    {item.pricing.map((line) => (
-                        <li key={line}>{line}</li>
-                    ))}
-                </ul>
+                    {item.prices.length > 0 && (
+                        <ul className="flex flex-col gap-2">
+                            {item.prices.map((price) => (
+                                <li
+                                    key={price.value + (price.meta ?? '')}
+                                    className="flex flex-wrap items-baseline gap-x-3 gap-y-1"
+                                >
+                                    <span
+                                        className={cn(
+                                            'font-serif italic font-medium leading-none tracking-[-0.01em] text-[32px] lg:text-[36px]',
+                                            featured ? 'text-accent-500' : 'text-primary-500'
+                                        )}
+                                    >
+                                        {price.value}
+                                    </span>
+                                    {price.meta && (
+                                        <span
+                                            className={cn(
+                                                'text-[13px]',
+                                                featured ? 'text-neutral-0/85' : 'text-neutral-500'
+                                            )}
+                                        >
+                                            {price.meta}
+                                        </span>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                    {item.pricingNote && (
+                        <p
+                            className={cn(
+                                'font-serif italic text-[13px]',
+                                featured ? 'text-neutral-0/85' : 'text-neutral-500'
+                            )}
+                        >
+                            {item.pricingNote}
+                        </p>
+                    )}
+                </div>
             )}
+
+            {item.disclaimer && <DisclaimerToggle text={item.disclaimer} />}
 
             <Button
                 href={item.cta.href}
                 variant="primary"
-                className={featured ? '!bg-neutral-0 !text-primary-500 hover:!bg-neutral-50' : ''}
+                className={cn(
+                    item.prices.length === 0 && !item.pricingNote && 'mt-auto',
+                    featured && '!bg-neutral-0 !text-primary-500 hover:!bg-neutral-50'
+                )}
             >
                 {item.cta.label}
             </Button>
-
-            {item.disclaimer && (
-                <p className="border-t border-neutral-100 pt-4 text-[13px] text-neutral-500 leading-snug">
-                    {item.disclaimer}
-                </p>
-            )}
         </article>
     );
 }

@@ -1,14 +1,16 @@
 'use client';
 
+import { type ReactNode } from 'react';
 import { EmblaCarousel } from '@/components/carousel/EmblaCarousel';
 import { ServiceCard } from '@/components/sections/ServiceCard';
 import type { Service } from '@/content/home';
 
-type ServicesCarouselProps = { items: Service[] };
+type ServicesCarouselProps = { items: Service[]; heading?: ReactNode };
 
-export function ServicesCarousel({ items }: ServicesCarouselProps) {
+export function ServicesCarousel({ items, heading }: ServicesCarouselProps) {
     return (
         <EmblaCarousel
+            heading={heading}
             items={items}
             renderItem={(item) => <ServiceCard item={item} />}
             options={{ loop: true }}

@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-05-22T17:31:37.926Z",
+  "files": {
+    "total": 39,
+    "over100": 4,
+    "over200": 1
+  },
+  "codeQuality": {
+    "eslintErrors": 0,
+    "eslintWarnings": 0,
+    "tsErrors": 0,
+    "anyUsages": 0,
+    "tsIgnores": 0,
+    "consoleLogs": 0,
+    "todoMarkers": 0
+  },
+  "uiConsistency": {
+    "hardcodedHex": 0,
+    "inlineRgb": 4
+  },
+  "a11y": {
+    "rawImgUsage": 0,
+    "imgWithoutAlt": 0,
+    "nextImageUsage": 2,
+    "ariaLabelUsage": 13,
+    "semanticMainCount": 1
+  },
+  "perf": {
+    "bundleStaticBytes": 1499136
+  },
+  "manualNotes": {
+    "semanticMainInLayout": true,
+    "iconButtonsMissingAriaLabel": [],
+    "imgsMissingAlt": [],
+    "eslintWarningDetails": [],
+    "remainingInlineRgba": [
+      "components/ui/Logo.tsx fill rgba(106,90,200,0.08) — purple tint, no token equivalent",
+      "components/sections/WorkAreaCard.tsx shadow rgba(30,30,46,0.55) — design shadow",
+      "components/sections/WorkAreaCard.tsx shadow rgba(255,165,82,0.7) — design glow",
+      "components/sections/CaseCard.tsx shadow rgba(30,30,46,0.15) — design shadow"
+    ]
+  }
+}

@@ -7,7 +7,7 @@ export function ContactCtaBanner() {
                 Не знаешь, с чего начать? Начни с бесплатного звонка.
             </p>
             <Button href="#contact" variant="primary" size="md">
-                Бесплатная консультация · 20 минут
+                Бесплатная консультация
             </Button>
         </div>
     );

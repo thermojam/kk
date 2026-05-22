@@ -1,7 +1,7 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 import { cn } from '@/lib/cn';
 
-type Variant = 'primary' | 'secondary' | 'ghost';
+type Variant = 'primary' | 'secondary' | 'ghost' | 'accent';
 type Size = 'md' | 'lg';
 
 type CommonProps = {
@@ -28,6 +28,7 @@ const variantClasses: Record<Variant, string> = {
     secondary:
         'border border-primary-500 text-primary-500 bg-transparent hover:bg-primary-50 focus-visible:ring-primary-300',
     ghost: 'text-primary-500 bg-transparent hover:underline focus-visible:ring-primary-300',
+    accent: 'bg-accent-500 text-neutral-900 hover:opacity-90 focus-visible:ring-accent-500',
 };
 
 const sizeClasses: Record<Size, string> = {
@@ -36,35 +37,30 @@ const sizeClasses: Record<Size, string> = {
 };
 
 const base =
-    'inline-flex items-center justify-center gap-2 rounded-md font-sans font-bold ' +
+    'inline-flex items-center justify-center gap-2 rounded-full font-sans font-bold ' +
     'transition-colors duration-150 outline-none ' +
     'focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-0 ' +
     'disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none';
 
-export function Button(props: ButtonProps) {
-    const { variant = 'primary', size = 'md', className, children } = props;
+export function Button({
+    variant = 'primary',
+    size = 'md',
+    className,
+    children,
+    ...rest
+}: ButtonProps) {
     const classes = cn(base, variantClasses[variant], sizeClasses[size], className);
 
-    if ('href' in props && props.href !== undefined) {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { href, variant: _v, size: _s, className: _c, children: _ch, ...rest } = props;
+    if ('href' in rest && rest.href !== undefined) {
         return (
-            <a href={href} className={classes} {...rest}>
+            <a className={classes} {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}>
                 {children}
             </a>
         );
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const {
-        variant: _v,
-        size: _s,
-        className: _c,
-        children: _ch,
-        ...rest
-    } = props as ButtonAsButton;
     return (
-        <button className={classes} {...rest}>
+        <button className={classes} {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}>
             {children}
         </button>
     );
