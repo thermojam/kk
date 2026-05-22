@@ -10,7 +10,7 @@ export function CasesMobileCarousel({ items }: CasesMobileCarouselProps) {
     return (
         <EmblaCarousel
             items={items}
-            renderItem={(item) => <CaseCard item={item} />}
+            renderItem={(item, idx) => <CaseCard item={item} number={idx + 1} />}
             options={{ loop: false }}
             slidesPerView={{ base: 1 }}
             showArrows={false}

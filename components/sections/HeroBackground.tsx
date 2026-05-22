@@ -37,7 +37,7 @@ export function HeroBackground() {
                 className="absolute"
                 style={{
                     right: '35%',
-                    top: '-120px',
+                    top: '220px',
                     width: '320px',
                     height: '320px',
                     background:

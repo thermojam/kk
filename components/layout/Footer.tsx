@@ -9,7 +9,7 @@ const NAV = [
 
 export function Footer() {
     return (
-        <footer className="mt-24 border-t border-neutral-100 bg-neutral-50">
+        <footer className="mt-24 border-t border-border rounded-t-[4rem] md:rounded-t-[6rem] border-neutral-100 bg-neutral-50">
             <div className="container-page py-12">
                 <div className="grid gap-10 lg:grid-cols-3">
                     {/* Левая колонка */}

@@ -37,7 +37,7 @@ const sizeClasses: Record<Size, string> = {
 };
 
 const base =
-    'inline-flex items-center justify-center gap-2 rounded-md font-sans font-bold ' +
+    'inline-flex items-center justify-center gap-2 rounded-full font-sans font-bold ' +
     'transition-colors duration-150 outline-none ' +
     'focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-0 ' +
     'disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none';

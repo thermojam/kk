@@ -18,6 +18,7 @@ export type EmblaCarouselProps<T> = {
     slidesPerView?: SlidesPerView;
     className?: string;
     ariaLabel: string;
+    heading?: ReactNode;
 };
 
 export function EmblaCarousel<T>({
@@ -29,6 +30,7 @@ export function EmblaCarousel<T>({
     slidesPerView = { base: 1 },
     className,
     ariaLabel,
+    heading,
 }: EmblaCarouselProps<T>) {
     const [viewportRef, embla] = useEmblaCarousel({
         align: 'start',
@@ -70,6 +72,13 @@ export function EmblaCarousel<T>({
             tabIndex={0}
             onKeyDown={handleKeyDown}
         >
+            {heading && (
+                <div className="flex items-end justify-between gap-4">
+                    {heading}
+                    {showArrows && <CarouselArrows embla={embla} />}
+                </div>
+            )}
+
             <div ref={viewportRef} className="embla__viewport" style={style}>
                 <div className="embla__container">
                     {items.map((item, i) => (
@@ -80,12 +89,18 @@ export function EmblaCarousel<T>({
                 </div>
             </div>
 
-            {(showArrows || showDots) && (
-                <div className="flex items-center justify-between gap-4">
-                    <div className="flex-1">{showDots && <CarouselDots embla={embla} />}</div>
-                    {showArrows && <CarouselArrows embla={embla} />}
-                </div>
-            )}
+            {heading
+                ? showDots && (
+                      <div className="flex justify-center">
+                          <CarouselDots embla={embla} />
+                      </div>
+                  )
+                : (showArrows || showDots) && (
+                      <div className="flex items-center justify-between gap-4">
+                          <div className="flex-1">{showDots && <CarouselDots embla={embla} />}</div>
+                          {showArrows && <CarouselArrows embla={embla} />}
+                      </div>
+                  )}
         </div>
     );
 }

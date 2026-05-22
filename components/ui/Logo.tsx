@@ -58,10 +58,6 @@ export function Logo({ size = 60, variant = 'mark', tone = 'mono', className }: 
                     fill={isDuotone ? 'var(--color-accent-500)' : 'currentColor'}
                 />
             </svg>
-
-            {variant === 'mark+text' && (
-                <span className="font-serif italic text-[16px] leading-none">Ксения Каменская</span>
-            )}
         </span>
     );
 }

@@ -19,7 +19,7 @@ export function Hero() {
     return (
         <section
             id="hero"
-            className="relative isolate overflow-hidden"
+            className="relative isolate overflow-hidden border-border rounded-b-[4rem] md:rounded-b-[6rem]"
             style={{ background: 'var(--color-neutral-900)' }}
         >
             <HeroBackground />
