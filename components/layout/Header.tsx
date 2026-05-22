@@ -7,19 +7,23 @@ import { Button } from '@/components/ui/Button';
 import { Logo } from '@/components/ui/Logo';
 import { MobileMenu } from '@/components/layout/MobileMenu';
 import { cn } from '@/lib/cn';
+import { useActiveSection } from '@/lib/hooks/useActiveSection';
 
 const NAV = [
-    { href: '/#about', label: 'Обо мне' },
-    { href: '/#services', label: 'Услуги' },
-    { href: '/#materials', label: 'Материалы' },
-    { href: '/#contact', label: 'Контакт' },
+    { href: '/#about', id: 'about', label: 'Обо мне' },
+    { href: '/#services', id: 'services', label: 'Услуги' },
+    { href: '/#materials', id: 'materials', label: 'Материалы' },
+    { href: '/#contact', id: 'contact', label: 'Контакт' },
 ];
+
+const SECTION_IDS = NAV.map((item) => item.id);
 
 const COMPACT_THRESHOLD_PX = 20;
 
 export function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [compact, setCompact] = useState(false);
+    const activeId = useActiveSection(SECTION_IDS);
 
     // Hysteresis: переход вниз → компакт срабатывает после 20px накопления.
     const lastYRef = useRef(0);
@@ -59,15 +63,15 @@ export function Header() {
         <>
             <header
                 className={cn(
-                    'sticky top-0 z-30 w-full bg-neutral-0/95 backdrop-blur transition-[height,border-color] duration-150',
+                    'sticky top-0 z-30 w-full bg-neutral-900 transition-[height,border-color] duration-150',
                     compact
-                        ? 'h-14 border-b border-neutral-100'
+                        ? 'h-14 border-b border-white/10'
                         : 'h-20 border-b border-transparent'
                 )}
             >
                 <div className="container-page flex h-full items-center justify-between">
-                    <Link href="/" aria-label="На главную" className="text-primary-500">
-                        <Logo variant="mark+text" />
+                    <Link href="/" aria-label="На главную">
+                        <Logo variant="mark" tone="duotone" />
                     </Link>
 
                     {/* Десктоп-нав */}
@@ -75,20 +79,38 @@ export function Header() {
                         aria-label="Главная навигация"
                         className="hidden lg:flex items-center gap-8"
                     >
-                        {NAV.map((item) => (
-                            <a
-                                key={item.href}
-                                href={item.href}
-                                className="text-body text-neutral-700 hover:text-primary-500"
-                            >
-                                {item.label}
-                            </a>
-                        ))}
+                        {NAV.map((item) => {
+                            const isActive = activeId === item.id;
+                            return (
+                                <a
+                                    key={item.href}
+                                    href={item.href}
+                                    className={cn(
+                                        'text-body relative py-2 transition-colors duration-150',
+                                        isActive
+                                            ? 'font-bold text-accent-500'
+                                            : 'text-white/85 hover:text-accent-500'
+                                    )}
+                                >
+                                    {item.label}
+                                    {isActive && (
+                                        <span
+                                            aria-hidden
+                                            className="absolute left-0 right-0 -bottom-0.5 rounded-sm"
+                                            style={{
+                                                height: 3,
+                                                background: 'var(--color-accent-500)',
+                                            }}
+                                        />
+                                    )}
+                                </a>
+                            );
+                        })}
                     </nav>
 
                     {/* Десктоп-CTA */}
                     <div className="hidden lg:block">
-                        <Button href="/#contact" variant="primary" size="md">
+                        <Button href="/#contact" variant="accent" size="md">
                             Записаться
                         </Button>
                     </div>
@@ -99,9 +121,9 @@ export function Header() {
                         aria-label="Открыть меню"
                         onClick={() => setMenuOpen(true)}
                         className={cn(
-                            'inline-flex h-11 w-11 items-center justify-center rounded-md',
-                            'text-neutral-900 hover:bg-neutral-100',
-                            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300',
+                            'inline-flex h-11 w-11 items-center justify-center rounded-full',
+                            'text-white hover:bg-white/10',
+                            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500',
                             'lg:hidden'
                         )}
                     >
