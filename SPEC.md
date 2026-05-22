@@ -40,16 +40,16 @@ Secondary CTA:
 - Фон: solid `--color-neutral-900` на всех вьюпортах
 - Декор (lg+): два radial-glow через CSS-градиенты — primary-500 нижний-левый (460×460px, opacity 0.55) и primary-400 верхний-правый (320×320px, opacity 0.35); движение через Framer Motion translate ±15px по X и ±10px по Y, длительности 18s и 22s в противофазе, easeInOut, repeat Infinity
 - Частицы: 5 точек `--color-accent-500` через `.hero-particle` keyframes (амплитуда 8px, периоды 5–7 сек)
-- Портрет: duotone — фильтр `grayscale(1) contrast(1.1)` + два overlay-слоя `mix-blend-mode: multiply` (primary-500, тени) и `mix-blend-mode: lighten` (accent-500, света); fallback при провале визуальной проверки — `filter: contrast(1.05) saturate(0.6) brightness(0.95)`
-- Портрет: `scale(1.02)` при hover (Framer Motion)
+- Портрет — без цветовых фильтров. Фон удалён, силуэт в натуральных цветах на neutral-900.
+- Портрет: `scale(1.01)` при hover (Framer Motion)
 - Входной fade-up: eyebrow 0s, заголовок 0.05s, подзаголовок 0.15s, CTA 0.25s, портрет 0.3s
 - На мобайле (< 1024px): без glow и без частиц, статичный тёмный фон, только входной fade-up
 - `prefers-reduced-motion: reduce` → всё статично, glow и частицы отключены
 
 #### Адаптив
 
-- **Десктоп (lg+):** двухколоночный grid `1.15fr / 0.85fr`, gap 48px, min-height 720px; слева — eyebrow + заголовок + подзаголовок + CTA-стек; справа — портрет 300×380px с offset-рамкой 1px accent-500 (смещение -14px по top/right, +14px по left/bottom)
-- **Мобайл:** single column, тёмный фон сохраняется; порядок eyebrow → заголовок → подзаголовок → портрет (`min(70vw, 320px)`, aspect 3/4, без offset-рамки) → CTA-стек; высота auto
+- **Десктоп (lg+):** двухколоночный grid `1.15fr / 0.85fr`, gap 48px, min-height 720px, `pt-24 pb-0` (нижний padding=0, чтобы фото касалось пола); слева — eyebrow + заголовок + подзаголовок + CTA-стек; справа — портрет full-bleed на всю высоту секции (720px), ширина авто по aspect фото, выровнен по нижнему краю секции, без offset-рамки и без border-radius
+- **Мобайл:** single column, тёмный фон сохраняется, `pt-16 pb-0`; порядок eyebrow → заголовок → подзаголовок → CTA-стек → портрет на всю ширину секции (`w-full h-auto`), нижняя кромка вплотную к низу секции; высота auto
 
 #### Цвета и контраст
 
