@@ -52,8 +52,18 @@ export function MobileMenu({ open, onOpenChange }: MobileMenuProps) {
                 </Button>
 
                 <div className="mt-auto flex flex-col gap-2 pt-8 text-body text-white/60">
-                    <a href="https://t.me/xenia_kamensky">@xenia_kamensky</a>
-                    <a href="mailto:hello@kamenskaya.ru">hello@kamenskaya.ru</a>
+                    <a
+                        href="https://t.me/xenia_kamensky"
+                        className="transition-colors duration-150 hover:text-white"
+                    >
+                        @xenia_kamensky
+                    </a>
+                    <a
+                        href="mailto:hello@kamenskaya.ru"
+                        className="transition-colors duration-150 hover:text-white"
+                    >
+                        hello@kamenskaya.ru
+                    </a>
                 </div>
             </div>
         </Dialog>
