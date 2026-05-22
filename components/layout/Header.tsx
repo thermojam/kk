@@ -96,11 +96,7 @@ export function Header() {
                                     {isActive && (
                                         <span
                                             aria-hidden
-                                            className="absolute left-0 right-0 -bottom-0.5 rounded-sm"
-                                            style={{
-                                                height: 3,
-                                                background: 'var(--color-accent-500)',
-                                            }}
+                                            className="absolute left-0 right-0 -bottom-0.5 h-[3px] rounded-sm bg-accent-500"
                                         />
                                     )}
                                 </a>
