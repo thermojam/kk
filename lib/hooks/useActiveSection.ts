@@ -2,6 +2,11 @@
 
 import { useEffect, useState } from 'react';
 
+/**
+ * Returns the id of the section currently visible in the viewport's middle band,
+ * or null if none. Pass a stable `sectionIds` reference (declare at module scope
+ * or memoize) — inline array literals re-subscribe on every render.
+ */
 export function useActiveSection(sectionIds: string[]): string | null {
     const [activeId, setActiveId] = useState<string | null>(null);
 
