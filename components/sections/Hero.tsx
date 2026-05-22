@@ -24,7 +24,7 @@ export function Hero() {
         >
             <HeroBackground />
 
-            <div className="container-page relative z-10 grid gap-10 pt-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-12 lg:pt-24 lg:pb-0 lg:min-h-180">
+            <div className="container-page relative z-10 grid gap-10 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-12 lg:pt-24 lg:pb-0 lg:min-h-180">
                 <div className="flex flex-col gap-6 lg:order-1 lg:max-w-140">
                     <motion.span
                         {...fadeUp(0)}
@@ -60,7 +60,7 @@ export function Hero() {
                         className="flex flex-col items-start gap-3"
                     >
                         <Button href="#contact" variant="accent" size="lg">
-                            Записаться на бесплатную консультацию · 20 минут
+                            Записаться на консультацию
                         </Button>
                         <Button href="#services" variant="ghost" size="md" className="text-white!">
                             Узнать о программе →
@@ -71,7 +71,7 @@ export function Hero() {
                 <motion.div
                     {...fadeUp(0.3)}
                     whileHover={reduced ? undefined : { scale: 1.01 }}
-                    className="lg:order-2 w-full lg:h-180 lg:self-end lg:flex lg:justify-end"
+                    className="hidden lg:order-2 w-full lg:h-180 lg:self-end lg:flex lg:justify-end"
                 >
                     <Image
                         src="/images/hero.webp"
