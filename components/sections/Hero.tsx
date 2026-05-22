@@ -24,7 +24,7 @@ export function Hero() {
         >
             <HeroBackground />
 
-            <div className="container-page relative z-10 grid gap-10 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-12 lg:py-24 lg:min-h-180">
+            <div className="container-page relative z-10 grid gap-10 pt-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-12 lg:pt-24 lg:pb-0 lg:min-h-180">
                 <div className="flex flex-col gap-6 lg:order-1 lg:max-w-140">
                     <motion.span
                         {...fadeUp(0)}
@@ -60,7 +60,7 @@ export function Hero() {
                         className="flex flex-col items-start gap-3"
                     >
                         <Button href="#contact" variant="accent" size="lg">
-                            Записаться на бесплатную консультацию · 20 минут
+                            Записаться на консультацию
                         </Button>
                         <Button href="#services" variant="ghost" size="md" className="text-white!">
                             Узнать о программе →
@@ -68,65 +68,21 @@ export function Hero() {
                     </motion.div>
                 </div>
 
-                <div className="lg:order-2 flex items-center justify-center lg:justify-self-end">
-                    <motion.div
-                        {...fadeUp(0.3)}
-                        whileHover={reduced ? undefined : { scale: 1.02 }}
-                        className="relative w-[min(70vw,320px)] aspect-3/4 lg:w-75 lg:h-95 lg:aspect-auto"
-                    >
-                        {/* Offset-рамка (только на десктопе, под фото) */}
-                        <span
-                            aria-hidden
-                            className="hidden lg:block absolute pointer-events-none"
-                            style={{
-                                top: '-14px',
-                                right: '-14px',
-                                left: '14px',
-                                bottom: '14px',
-                                border: '1px solid var(--color-accent-500)',
-                                borderRadius: 'var(--radius-sm)',
-                                zIndex: 0,
-                            }}
-                        />
-
-                        {/* Фото + duotone-стек */}
-                        <div
-                            className="relative overflow-hidden w-full h-full"
-                            style={{
-                                borderRadius: 'var(--radius-sm)',
-                                background: 'var(--color-neutral-100)',
-                                zIndex: 1,
-                            }}
-                        >
-                            <Image
-                                src="/images/hero.webp"
-                                alt="Ксения Каменская"
-                                fill
-                                sizes="(min-width: 1024px) 300px, 70vw"
-                                priority
-                                className="object-cover"
-                                style={{ filter: 'grayscale(1) contrast(1.1)' }}
-                            />
-                            <span
-                                aria-hidden
-                                className="absolute inset-0 pointer-events-none"
-                                style={{
-                                    background: 'var(--color-primary-500)',
-                                    mixBlendMode: 'multiply',
-                                }}
-                            />
-                            <span
-                                aria-hidden
-                                className="absolute inset-0 pointer-events-none"
-                                style={{
-                                    background: 'var(--color-accent-500)',
-                                    mixBlendMode: 'lighten',
-                                    opacity: 0.85,
-                                }}
-                            />
-                        </div>
-                    </motion.div>
-                </div>
+                <motion.div
+                    {...fadeUp(0.3)}
+                    whileHover={reduced ? undefined : { scale: 1.01 }}
+                    className="lg:order-2 relative w-full flex justify-center lg:h-180 lg:self-end lg:justify-end"
+                >
+                    <Image
+                        src="/images/hero.webp"
+                        alt="Ксения Каменская"
+                        width={1086}
+                        height={1448}
+                        priority
+                        sizes="(min-width: 1024px) 540px, 100vw"
+                        className="block w-full h-auto object-bottom lg:w-auto lg:h-full"
+                    />
+                </motion.div>
             </div>
         </section>
     );
