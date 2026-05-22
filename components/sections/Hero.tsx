@@ -71,7 +71,7 @@ export function Hero() {
                 <motion.div
                     {...fadeUp(0.3)}
                     whileHover={reduced ? undefined : { scale: 1.01 }}
-                    className="lg:order-2 relative w-full flex justify-center lg:h-180 lg:self-end lg:justify-end"
+                    className="lg:order-2 w-full lg:h-180 lg:self-end lg:flex lg:justify-end"
                 >
                     <Image
                         src="/images/hero.webp"
