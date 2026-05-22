@@ -42,30 +42,25 @@ const base =
     'focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-0 ' +
     'disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none';
 
-export function Button(props: ButtonProps) {
-    const { variant = 'primary', size = 'md', className, children } = props;
+export function Button({
+    variant = 'primary',
+    size = 'md',
+    className,
+    children,
+    ...rest
+}: ButtonProps) {
     const classes = cn(base, variantClasses[variant], sizeClasses[size], className);
 
-    if ('href' in props && props.href !== undefined) {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { href, variant: _v, size: _s, className: _c, children: _ch, ...rest } = props;
+    if ('href' in rest && rest.href !== undefined) {
         return (
-            <a href={href} className={classes} {...rest}>
+            <a className={classes} {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}>
                 {children}
             </a>
         );
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const {
-        variant: _v,
-        size: _s,
-        className: _c,
-        children: _ch,
-        ...rest
-    } = props as ButtonAsButton;
     return (
-        <button className={classes} {...rest}>
+        <button className={classes} {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}>
             {children}
         </button>
     );

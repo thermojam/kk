@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Refactor Audit Dashboard — sprint-3-foundation</title>
+    <style>
+        :root {
+            --bg: #0f1115;
+            --surface: #1a1d24;
+            --surface-2: #232732;
+            --text: #e8e8e8;
+            --muted: #9aa3b2;
+            --accent: #4ade80;
+            --warn: #f59e0b;
+            --bad: #ef4444;
+            --border: #2a2f3a;
+            --info: #60a5fa;
+        }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; }
+        body {
+            padding: 32px 24px 64px;
+            background: var(--bg);
+            color: var(--text);
+            font: 14px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-variant-numeric: tabular-nums;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        h1 { font-size: 30px; margin: 0 0 6px; letter-spacing: -0.01em; }
+        .subtitle { color: var(--muted); margin: 0 0 36px; font-size: 13px; }
+        .subtitle code { background: var(--surface); padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 40px;
+        }
+        @media (max-width: 720px) {
+            .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .kpi {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 20px;
+        }
+        .kpi-label {
+            color: var(--muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            margin-bottom: 8px;
+        }
+        .kpi-value {
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+        .kpi-sub {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 6px;
+        }
+        .kpi-delta {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 8px;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .delta-good { color: var(--accent); background: rgba(74, 222, 128, 0.1); }
+        .delta-bad { color: var(--bad); background: rgba(239, 68, 68, 0.1); }
+        .delta-neutral { color: var(--muted); background: rgba(154, 163, 178, 0.08); }
+
+        h2 {
+            font-size: 17px;
+            margin: 40px 0 14px;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+        }
+        h2 .h2-sub {
+            color: var(--muted);
+            font-weight: 400;
+            font-size: 13px;
+            margin-left: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+        tr:last-child td { border-bottom: none; }
+        th {
+            color: var(--muted);
+            font-weight: 500;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: var(--surface-2);
+        }
+        td.num, th.num { text-align: right; }
+        td.metric { width: 50%; }
+        td.delta { font-weight: 600; }
+
+        .rec {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin: 10px 0;
+        }
+        .rec-header {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        .pri {
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            letter-spacing: 0.7px;
+        }
+        .pri-P0 { background: var(--bad); color: #fff; }
+        .pri-P1 { background: var(--warn); color: #1a1d24; }
+        .pri-P2 { background: var(--border); color: var(--text); }
+        .rec-title { font-weight: 600; font-size: 14px; }
+        .rec-body { color: var(--muted); font-size: 13px; line-height: 1.5; }
+        .rec-body strong { color: var(--text); font-weight: 500; }
+
+        .summary-band {
+            background: linear-gradient(135deg, rgba(74,222,128,0.06), rgba(96,165,250,0.04));
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+        .summary-band strong { color: var(--text); font-weight: 500; }
+
+        footer.foot {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 12px;
+        }
+        footer.foot code { background: var(--surface); padding: 2px 5px; border-radius: 3px; font-size: 11px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Refactor Audit Dashboard</h1>
+    <p class="subtitle">
+        Branch: <code>sprint-3-foundation</code> · Snapshots: <code>refactor-baseline.json</code> → <code>refactor-after.json</code> · 2026-05-22
+    </p>
+
+    <div class="summary-band">
+        <strong>Сводка.</strong> Консервативный рефакторинг: качество кода, UI-консистентность, a11y/perf. Без визуальных изменений UI. Проект уже был в очень хорошем состоянии (0 TS-ошибок, 0 raw <code>&lt;img&gt;</code>, 13 ARIA-лейблов в baseline) — поэтому правки точечные, а основной value сейчас — в разделе «Рекомендации».
+    </div>
+
+    <div class="kpi-grid">
+        <div class="kpi">
+            <div class="kpi-label">ESLint warnings</div>
+            <div class="kpi-value">0</div>
+            <div class="kpi-sub">было 6</div>
+            <span class="kpi-delta delta-good">−6 · −100%</span>
+        </div>
+        <div class="kpi">
+            <div class="kpi-label">Hard-coded hex</div>
+            <div class="kpi-value">0</div>
+            <div class="kpi-sub">было 2</div>
+            <span class="kpi-delta delta-good">−2 · −100%</span>
+        </div>
+        <div class="kpi">
+            <div class="kpi-label">Inline rgba</div>
+            <div class="kpi-value">4</div>
+            <div class="kpi-sub">было 5</div>
+            <span class="kpi-delta delta-good">−1</span>
+        </div>
+        <div class="kpi">
+            <div class="kpi-label">Dead props убраны</div>
+            <div class="kpi-value">1</div>
+            <div class="kpi-sub">Logo.variant</div>
+            <span class="kpi-delta delta-good">+API чистота</span>
+        </div>
+    </div>
+
+    <!-- =========================================================== -->
+    <h2>Code Quality <span class="h2-sub">Track A</span></h2>
+    <table>
+        <thead>
+        <tr>
+            <th class="metric">Метрика</th>
+            <th class="num">До</th>
+            <th class="num">После</th>
+            <th class="num">Δ</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>ESLint errors</td><td class="num">0</td><td class="num">0</td><td class="num delta delta-neutral">0</td></tr>
+        <tr><td>ESLint warnings</td><td class="num">6</td><td class="num">0</td><td class="num delta delta-good">−6</td></tr>
+        <tr><td>TypeScript errors</td><td class="num">0</td><td class="num">0</td><td class="num delta delta-neutral">0</td></tr>
+        <tr><td>Использований <code style="color:var(--muted)">any</code></td><td class="num">0</td><td class="num">0</td><td class="num delta delta-neutral">0</td></tr>
+        <tr><td><code style="color:var(--muted)">@ts-ignore</code> / <code style="color:var(--muted)">@ts-expect-error</code></td><td class="num">0</td><td class="num">0</td><td class="num delta delta-neutral">0</td></tr>
+        <tr><td><code style="color:var(--muted)">console.log/debug/info</code></td><td class="num">0</td><td class="num">0</td><td class="num delta delta-neutral">0</td></tr>
+        <tr><td>TODO / FIXME / HACK маркеры</td><td class="num">0</td><td class="num">0</td><td class="num delta delta-neutral">0</td></tr>
+        <tr><td>Файлы &gt; 100 строк</td><td class="num">4</td><td class="num">4</td><td class="num delta delta-neutral">0</td></tr>
+        <tr><td>Файлы &gt; 200 строк</td><td class="num">1</td><td class="num">1</td><td class="num delta delta-neutral">0</td></tr>
+        </tbody>
+    </table>
+
+    <!-- =========================================================== -->
+    <h2>UI Consistency <span class="h2-sub">Track B</span></h2>
+    <table>
+        <thead>
+        <tr>
+            <th class="metric">Метрика</th>
+            <th class="num">До</th>
+            <th class="num">После</th>
+            <th class="num">Δ</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>Hard-coded HEX-цвета в TSX</td><td class="num">2</td><td class="num">0</td><td class="num delta delta-good">−2</td></tr>
+        <tr><td>Inline <code style="color:var(--muted)">rgba()</code> в TSX</td><td class="num">5</td><td class="num">4</td><td class="num delta delta-good">−1</td></tr>
+        </tbody>
+    </table>
+    <p style="color: var(--muted); font-size: 12px; margin-top: 8px;">
+        Оставшиеся 4 <code>rgba()</code> — намеренные design-shadows и duotone purple-tint без точного эквивалента в Tailwind-токенах. См. рекомендации.
+    </p>
+
+    <!-- =========================================================== -->
+    <h2>A11y <span class="h2-sub">Track C</span></h2>
+    <table>
+        <thead>
+        <tr>
+            <th class="metric">Метрика</th>
+            <th class="num">До</th>
+            <th class="num">После</th>
+            <th class="num">Δ</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>Использований <code style="color:var(--muted)">&lt;img&gt;</code> (raw)</td><td class="num">0</td><td class="num">0</td><td class="num delta delta-neutral">0</td></tr>
+        <tr><td><code style="color:var(--muted)">&lt;img&gt;</code> без <code style="color:var(--muted)">alt</code></td><td class="num">0</td><td class="num">0</td><td class="num delta delta-neutral">0</td></tr>
+        <tr><td>Использований <code style="color:var(--muted)">&lt;Image&gt;</code> (next/image)</td><td class="num">2</td><td class="num">2</td><td class="num delta delta-neutral">0</td></tr>
+        <tr><td>Атрибутов <code style="color:var(--muted)">aria-label</code></td><td class="num">13</td><td class="num">13</td><td class="num delta delta-neutral">0</td></tr>
+        <tr><td>Landmark <code style="color:var(--muted)">&lt;main&gt;</code></td><td class="num">1</td><td class="num">1</td><td class="num delta delta-neutral">0</td></tr>
+        <tr><td>Иконочные кнопки без <code style="color:var(--muted)">aria-label</code></td><td class="num">0</td><td class="num">0</td><td class="num delta delta-neutral">0</td></tr>
+        </tbody>
+    </table>
+    <p style="color: var(--muted); font-size: 12px; margin-top: 8px;">
+        a11y-покрытие уже было полным до рефакторинга — нечего добавлять. Декоративные SVG (Logo, lucide-react) уже имели <code>aria-hidden="true"</code>; все интерактивные элементы — текст или <code>aria-label</code>.
+    </p>
+
+    <!-- =========================================================== -->
+    <h2>Perf <span class="h2-sub">Track C</span></h2>
+    <table>
+        <thead>
+        <tr>
+            <th class="metric">Метрика</th>
+            <th class="num">До</th>
+            <th class="num">После</th>
+            <th class="num">Δ</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>Размер <code style="color:var(--muted)">.next/static</code></td><td class="num">1 464 KB</td><td class="num">1 464 KB</td><td class="num delta delta-neutral">0</td></tr>
+        </tbody>
+    </table>
+    <p style="color: var(--muted); font-size: 12px; margin-top: 8px;">
+        Изменения только в classes/типах, без удаления кода — bundle тот же. Рекомендации по сокращению bundle — ниже.
+    </p>
+
+    <!-- =========================================================== -->
+    <h2>Что конкретно изменилось</h2>
+    <div class="rec">
+        <div class="rec-title" style="margin-bottom: 6px;">5 файлов · ~25 строк</div>
+        <div class="rec-body">
+            <strong>components/ui/Button.tsx</strong> — переписан destructuring через единый <code>...rest</code> вместо двух <code>_v/_s/_c/_ch</code>-блоков с <code>eslint-disable</code>. Поведение и API не изменились.<br>
+            <strong>components/ui/Logo.tsx</strong> — удалён dead prop <code>variant</code> (был в типе, но не использовался в рендере). <code>#ffffff</code> заменён на <code>var(--color-neutral-0)</code> для консистентности.<br>
+            <strong>components/sections/Hero.tsx</strong> — 4 inline-стиля переведены на Tailwind-классы (<code>bg-neutral-900</code>, <code>text-accent-500</code>, <code>text-white</code>, <code>text-white/[0.78]</code>).<br>
+            <strong>components/layout/Footer.tsx · Header.tsx · MobileMenu.tsx</strong> — убран prop <code>variant="..."</code> из вызовов <code>&lt;Logo&gt;</code>.
+        </div>
+    </div>
+
+    <!-- =========================================================== -->
+    <h2>Рекомендации <span class="h2-sub">за пределами этого рефакторинга</span></h2>
+
+    <div class="rec">
+        <div class="rec-header">
+            <span class="pri pri-P1">P1</span>
+            <span class="rec-title">Visual regression testing</span>
+        </div>
+        <div class="rec-body">
+            Сейчас «без визуальных изменений» — обещание на честном слове. Установить Playwright + screenshot-сравнение для главной страницы (desktop + mobile) — это разблокирует более смелые UI-рефакторинги. Стоимость: ~1-2 часа на инфраструктуру, далее CI запускает автоматически.
+        </div>
+    </div>
+
+    <div class="rec">
+        <div class="rec-header">
+            <span class="pri pri-P1">P1</span>
+            <span class="rec-title">Выделить <code>&lt;Section&gt;</code>-обёртку</span>
+        </div>
+        <div class="rec-body">
+            7 секций используют одинаковую разметку <code>&lt;section className="container-page py-16 lg:py-24"&gt;</code>. Выделить компонент <code>Section</code> с props <code>{id, className?, children}</code> и заменить копии. Это даст единую точку для будущих изменений spacing-системы. Риск низкий, экономия — ~1-2 строки на секцию + единая семантика. <strong>Не сделал в этом проходе:</strong> CLAUDE.md §2 — «не выделять абстракции, если не просили»; пользователь не подтверждал такое выделение явно.
+        </div>
+    </div>
+
+    <div class="rec">
+        <div class="rec-header">
+            <span class="pri pri-P1">P1</span>
+            <span class="rec-title">Footer: «мёртвые» ссылки <code>href="#"</code></span>
+        </div>
+        <div class="rec-body">
+            Три ссылки в нижней панели футера (<strong>Политика ПДн</strong>, <strong>Оферта</strong>, <strong>Cookie</strong>) ведут на <code>#</code> — нерабочие. По SPEC они обязательны (юридический минимум). Либо завести страницы <code>/legal/privacy</code>, <code>/legal/offer</code>, <code>/legal/cookies</code>, либо временно убрать ссылки до момента появления контента.
+        </div>
+    </div>
+
+    <div class="rec">
+        <div class="rec-header">
+            <span class="pri pri-P1">P1</span>
+            <span class="rec-title">Open Graph / Twitter metadata</span>
+        </div>
+        <div class="rec-body">
+            В <code>app/layout.tsx</code> нет блока <code>metadata.openGraph</code> и <code>metadata.twitter</code>. При шеринге в мессенджерах / соцсетях карточка будет пустой. Добавить картинку <code>public/og.png</code> 1200×630 и заполнить <code>title/description/image</code>.
+        </div>
+    </div>
+
+    <div class="rec">
+        <div class="rec-header">
+            <span class="pri pri-P1">P1</span>
+            <span class="rec-title"><code>sitemap.xml</code> + <code>robots.txt</code></span>
+        </div>
+        <div class="rec-body">
+            Для SEO single-page лендинга нужен минимальный <code>sitemap</code> и <code>robots</code>. Next 16 поддерживает их через файлы <code>app/sitemap.ts</code> и <code>app/robots.ts</code>. Реализация — ~10 строк каждый.
+        </div>
+    </div>
+
+    <div class="rec">
+        <div class="rec-header">
+            <span class="pri pri-P2">P2</span>
+            <span class="rec-title">Дизайн-токены для теней и duotone-tint</span>
+        </div>
+        <div class="rec-body">
+            Оставшиеся 4 <code>rgba()</code> в коде — design-shadows карточек (WorkAreaCard, CaseCard) и purple-tint фона логотипа. Их стоит вынести в CSS-переменные (<code>--shadow-card-soft</code>, <code>--shadow-card-glow</code>, <code>--color-primary-500-tint8</code>) или использовать <code>color-mix()</code> для tint. Это даст single source of truth для shadow-системы.
+        </div>
+    </div>
+
+    <div class="rec">
+        <div class="rec-header">
+            <span class="pri pri-P2">P2</span>
+            <span class="rec-title">Bundle analyzer</span>
+        </div>
+        <div class="rec-body">
+            Static bundle сейчас 1.46 MB. <code>@next/bundle-analyzer</code> покажет, что весит больше всего (вероятно — framer-motion ~80KB и embla-carousel). После анализа — оценить, нужны ли все эти зависимости или их можно lazy-load (<code>next/dynamic</code>).
+        </div>
+    </div>
+
+    <div class="rec">
+        <div class="rec-header">
+            <span class="pri pri-P2">P2</span>
+            <span class="rec-title">Lighthouse / Web Vitals аудит</span>
+        </div>
+        <div class="rec-body">
+            Запустить <code>npx lighthouse</code> или Chrome DevTools → Lighthouse в продакшен-сборке. Метрики LCP/CLS/INP. Hero-картинка уже с <code>priority</code> и <code>sizes</code> — LCP должен быть хорош. CLS — проверить, что нет layout-shift при загрузке шрифтов (использовать <code>next/font</code> если ещё не).
+        </div>
+    </div>
+
+    <div class="rec">
+        <div class="rec-header">
+            <span class="pri pri-P2">P2</span>
+            <span class="rec-title">Контраст текста на тёмном фоне</span>
+        </div>
+        <div class="rec-body">
+            <code>text-white/[0.78]</code> на <code>bg-neutral-900</code> в Hero — на грани WCAG AA для body. Проверить через <code>npm i -D @axe-core/cli</code> или вручную через <code>https://webaim.org/resources/contrastchecker/</code>. Если ниже — поднять до 0.85 (визуальная разница незаметна).
+        </div>
+    </div>
+
+    <div class="rec">
+        <div class="rec-header">
+            <span class="pri pri-P2">P2</span>
+            <span class="rec-title">Унифицировать <code>fadeUp</code>-анимацию</span>
+        </div>
+        <div class="rec-body">
+            Helper <code>fadeUp(delay)</code> определён локально в <code>Hero.tsx</code>. Похожая анимация — кандидат и для других секций (About, Services карточки). Если такая нужна — вынести в <code>lib/motion.ts</code>. <strong>Не делать «на будущее»</strong> — только если реально появится 2-й/3-й кейс использования.
+        </div>
+    </div>
+
+    <div class="rec">
+        <div class="rec-header">
+            <span class="pri pri-P2">P2</span>
+            <span class="rec-title">Заменить <code>useLayoutEffect</code>-хаки Embla на нативный API</span>
+        </div>
+        <div class="rec-body">
+            <code>CarouselArrows.tsx</code> и <code>CarouselDots.tsx</code> используют <code>useLayoutEffect</code> + <code>eslint-disable react-hooks/set-state-in-effect</code>. Это legitimate (Embla — imperative API), но можно посмотреть, нет ли в Embla React-bindings нового хука <code>useEmblaCarousel().selectedSnap</code> или подобного — он мог бы избавить от ручной синхронизации.
+        </div>
+    </div>
+
+    <div class="rec">
+        <div class="rec-header">
+            <span class="pri pri-P2">P2</span>
+            <span class="rec-title">Skip-link «к содержимому»</span>
+        </div>
+        <div class="rec-body">
+            Для клавиатурной навигации полезен скрытый <code>&lt;a href="#main"&gt;Перейти к содержимому&lt;/a&gt;</code>, который становится видимым при <code>:focus</code>. Сейчас при <code>Tab</code> с самого верха пользователь сначала проходит по всем пунктам шапки. Добавляется одна строка в <code>app/(public)/layout.tsx</code>.
+        </div>
+    </div>
+
+    <footer class="foot">
+        Generated locally from <code>docs/refactor-baseline.json</code> + <code>docs/refactor-after.json</code>.
+        Run <code>node scripts/refactor-audit.mjs</code> to refresh.
+    </footer>
+</div>
+</body>
+</html>

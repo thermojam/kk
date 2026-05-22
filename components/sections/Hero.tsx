@@ -19,8 +19,7 @@ export function Hero() {
     return (
         <section
             id="hero"
-            className="relative isolate overflow-hidden border-border rounded-b-[4rem] md:rounded-b-[6rem]"
-            style={{ background: 'var(--color-neutral-900)' }}
+            className="relative isolate overflow-hidden border-border rounded-b-[4rem] md:rounded-b-[6rem] bg-neutral-900"
         >
             <HeroBackground />
 
@@ -28,27 +27,23 @@ export function Hero() {
                 <div className="flex flex-col gap-6 lg:order-1 lg:max-w-140">
                     <motion.span
                         {...fadeUp(0)}
-                        className="font-sans font-bold uppercase tracking-[0.4em] text-[11px]"
-                        style={{ color: 'var(--color-accent-500)' }}
+                        className="font-sans font-bold uppercase tracking-[0.4em] text-[11px] text-accent-500"
                     >
                         Ksenia Kamenskaya
                     </motion.span>
 
                     <motion.h1
                         {...fadeUp(0.05)}
-                        className="font-display"
-                        style={{ color: '#ffffff', lineHeight: 0.98 }}
+                        className="font-display text-white"
+                        style={{ lineHeight: 0.98 }}
                     >
                         Психология женского тела{' '}
-                        <span style={{ color: 'var(--color-accent-500)' }}>
-                            и&nbsp;проявленности.
-                        </span>
+                        <span className="text-accent-500">и&nbsp;проявленности.</span>
                     </motion.h1>
 
                     <motion.p
                         {...fadeUp(0.15)}
-                        className="text-body max-w-115"
-                        style={{ color: 'rgba(255,255,255,0.78)' }}
+                        className="text-body max-w-115 text-white/[0.78]"
                     >
                         Помогаю женщинам перестать носить эмоции в&nbsp;теле, разобраться
                         с&nbsp;эмоциональным перееданием и&nbsp;вернуть себе ощущение

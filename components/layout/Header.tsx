@@ -71,7 +71,7 @@ export function Header() {
             >
                 <div className="container-page flex h-full items-center justify-between">
                     <Link href="/" aria-label="На главную">
-                        <Logo variant="mark" tone="duotone" />
+                        <Logo tone="duotone" />
                     </Link>
 
                     {/* Десктоп-нав */}

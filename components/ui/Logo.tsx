@@ -2,12 +2,11 @@ import { cn } from '@/lib/cn';
 
 type LogoProps = {
     size?: number;
-    variant?: 'mark' | 'mark+text';
     tone?: 'mono' | 'duotone';
     className?: string;
 };
 
-export function Logo({ size = 60, variant = 'mark', tone = 'mono', className }: LogoProps) {
+export function Logo({ size = 60, tone = 'mono', className }: LogoProps) {
     const isDuotone = tone === 'duotone';
 
     return (
@@ -34,7 +33,7 @@ export function Logo({ size = 60, variant = 'mark', tone = 'mono', className }: 
 
                 {/* KK */}
                 <g
-                    stroke={isDuotone ? '#ffffff' : 'currentColor'}
+                    stroke={isDuotone ? 'var(--color-neutral-0)' : 'currentColor'}
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeLinejoin="round"

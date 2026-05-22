@@ -23,7 +23,7 @@ export function MobileMenu({ open, onOpenChange }: MobileMenuProps) {
         <Dialog open={open} onOpenChange={onOpenChange} title="Меню" hideTitle position="right">
             <div className="flex h-full flex-col bg-neutral-900 px-6 pt-6 pb-8">
                 <div className="mb-8 flex items-center text-white">
-                    <Logo variant="mark+text" tone="duotone" />
+                    <Logo tone="duotone" />
                 </div>
 
                 <nav aria-label="Главная навигация" className="flex flex-col gap-4">
