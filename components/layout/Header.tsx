@@ -1,13 +1,10 @@
 'use client';
 
-import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Logo } from '@/components/ui/Logo';
-import { MobileMenu } from '@/components/layout/MobileMenu';
 import { cn } from '@/lib/cn';
-import { useActiveSection } from '@/lib/hooks/useActiveSection';
 
 const NAV = [
     { href: '/#about', id: 'about', label: 'Обо мне' },
@@ -16,14 +13,10 @@ const NAV = [
     { href: '/#contact', id: 'contact', label: 'Контакт' },
 ];
 
-const SECTION_IDS = NAV.map((item) => item.id);
-
 const COMPACT_THRESHOLD_PX = 20;
 
 export function Header() {
-    const [menuOpen, setMenuOpen] = useState(false);
     const [compact, setCompact] = useState(false);
-    const activeId = useActiveSection(SECTION_IDS);
 
     // Hysteresis: переход вниз → компакт срабатывает после 20px накопления.
     const lastYRef = useRef(0);
@@ -60,8 +53,7 @@ export function Header() {
     }, []);
 
     return (
-        <>
-            <header
+        <header
                 className={cn(
                     'sticky top-0 z-30 w-full bg-neutral-900 transition-[height,border-color] duration-150',
                     compact
@@ -79,29 +71,15 @@ export function Header() {
                         aria-label="Главная навигация"
                         className="hidden lg:flex items-center gap-8"
                     >
-                        {NAV.map((item) => {
-                            const isActive = activeId === item.id;
-                            return (
-                                <a
-                                    key={item.href}
-                                    href={item.href}
-                                    className={cn(
-                                        'text-body relative py-2 transition-colors duration-150',
-                                        isActive
-                                            ? 'font-bold text-accent-500'
-                                            : 'text-white/85 hover:text-accent-500'
-                                    )}
-                                >
-                                    {item.label}
-                                    {isActive && (
-                                        <span
-                                            aria-hidden
-                                            className="absolute left-0 right-0 -bottom-0.5 h-[3px] rounded-sm bg-accent-500"
-                                        />
-                                    )}
-                                </a>
-                            );
-                        })}
+                        {NAV.map((item) => (
+                            <a
+                                key={item.href}
+                                href={item.href}
+                                className="text-body relative py-2 transition-colors duration-150 text-white/85 hover:text-accent-500"
+                            >
+                                {item.label}
+                            </a>
+                        ))}
                     </nav>
 
                     {/* Десктоп-CTA */}
@@ -111,24 +89,7 @@ export function Header() {
                         </Button>
                     </div>
 
-                    {/* Мобайл-меню кнопка */}
-                    <button
-                        type="button"
-                        aria-label="Открыть меню"
-                        onClick={() => setMenuOpen(true)}
-                        className={cn(
-                            'inline-flex h-11 w-11 items-center justify-center rounded-full',
-                            'text-white hover:bg-white/10',
-                            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500',
-                            'lg:hidden'
-                        )}
-                    >
-                        <Menu className="size-6" aria-hidden="true" />
-                    </button>
                 </div>
-            </header>
-
-            <MobileMenu open={menuOpen} onOpenChange={setMenuOpen} />
-        </>
+        </header>
     );
 }
