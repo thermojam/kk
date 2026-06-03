@@ -2,8 +2,12 @@
 
 import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Button } from '@/components/ui/Button';
+import { TelegramButton } from '@/components/ui/TelegramButton';
+import { TG_GOALS } from '@/lib/telegram';
 import { HeroBackground } from '@/components/sections/HeroBackground';
+
+const HERO_TG_TEXT =
+    'Здравствуйте, Ксения! Пишу с сайта — хочу записаться на бесплатную консультацию.';
 
 export function Hero() {
     const reduced = useReducedMotion();
@@ -54,12 +58,14 @@ export function Hero() {
                         {...fadeUp(0.25)}
                         className="flex flex-col items-start gap-3"
                     >
-                        <Button href="#contact" variant="accent" size="lg">
-                            Записаться на консультацию
-                        </Button>
-                        <Button href="#services" variant="ghost" size="md" className="text-white!">
-                            Узнать о программе →
-                        </Button>
+                        <TelegramButton
+                            goal={TG_GOALS.hero}
+                            text={HERO_TG_TEXT}
+                            variant="accent"
+                            size="lg"
+                        >
+                            Написать в Telegram · бесплатная консультация
+                        </TelegramButton>
                     </motion.div>
                 </div>
 
