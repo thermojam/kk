@@ -67,14 +67,14 @@ export function Hero() {
 
                     <motion.div
                         {...fadeUp(0.25)}
-                        className="flex flex-col items-start gap-3 sm:flex-row"
+                        className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row"
                     >
                         <TelegramButton
                             goal={TG_GOALS.hero}
                             text={HERO_TG_TEXT}
                             variant="accent"
                             size="lg"
-                            className="px-8"
+                            className="w-full px-8 sm:w-auto"
                         >
                             Написать в Telegram
                         </TelegramButton>
@@ -82,7 +82,7 @@ export function Hero() {
                             href="#services"
                             variant="secondary"
                             size="lg"
-                            className="border-white/50 text-white hover:bg-white/10"
+                            className="w-full border-white/50 text-white hover:bg-white/10 sm:w-auto"
                         >
                             Смотреть услуги
                         </Button>
