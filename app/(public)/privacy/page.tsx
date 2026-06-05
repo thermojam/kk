@@ -3,7 +3,7 @@ import { LegalPageShell } from '@/components/legal/LegalPageShell';
 import { privacyPolicy } from '@/content/legal/privacy';
 
 export const metadata: Metadata = {
-    title: 'Политика обработки персональных данных · Ксения Каменская',
+    title: 'Политика обработки персональных данных',
     robots: { index: false, follow: false },
 };
 

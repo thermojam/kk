@@ -18,12 +18,31 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-    title: 'Ксения Каменская',
-    description: 'Психология женского тела и проявленности',
-
+    metadataBase: new URL('https://kamenskaya.ru'),
+    title: {
+        default: 'Ксения Каменская · Психолог · Женские практики',
+        template: '%s · Ксения Каменская',
+    },
+    description:
+        'Психолог, специалист по работе с телом и эмоциями. Консультации, длительное сопровождение «Путь к себе», славянская гимнастика «Сила Берегини».',
+    keywords: ['психолог', 'женские практики', 'консультация психолога', 'Сила Берегини', 'СПб'],
+    authors: [{ name: 'Ксения Каменская' }],
     icons: {
         icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
     },
+    openGraph: {
+        type: 'website',
+        locale: 'ru_RU',
+        url: 'https://kamenskaya.ru',
+        siteName: 'Ксения Каменская',
+        title: 'Ксения Каменская · Психолог · Женские практики',
+        description:
+            'Психолог, специалист по работе с телом и эмоциями. Консультации, программа «Путь к себе», «Сила Берегини».',
+        images: [
+            { url: '/images/og.jpg', width: 1200, height: 630, alt: 'Ксения Каменская — психолог' },
+        ],
+    },
+    robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

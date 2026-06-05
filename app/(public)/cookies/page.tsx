@@ -3,7 +3,7 @@ import { LegalPageShell } from '@/components/legal/LegalPageShell';
 import { cookiesPolicy } from '@/content/legal/cookies';
 
 export const metadata: Metadata = {
-    title: 'Политика cookie · Ксения Каменская',
+    title: 'Политика cookie',
     robots: { index: false, follow: false },
 };
 
