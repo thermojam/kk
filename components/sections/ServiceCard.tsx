@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/Button';
+import { TelegramButton } from '@/components/ui/TelegramButton';
 import { Badge } from '@/components/ui/Badge';
 import { DisclaimerToggle } from '@/components/sections/DisclaimerToggle';
 import type { Service } from '@/content/home';
@@ -103,8 +103,9 @@ export function ServiceCard({ item }: ServiceCardProps) {
 
             {item.disclaimer && <DisclaimerToggle text={item.disclaimer} />}
 
-            <Button
-                href={item.cta.href}
+            <TelegramButton
+                goal={item.cta.tgGoal}
+                text={item.cta.tgText}
                 variant="primary"
                 className={cn(
                     item.prices.length === 0 && !item.pricingNote && 'mt-auto',
@@ -112,7 +113,7 @@ export function ServiceCard({ item }: ServiceCardProps) {
                 )}
             >
                 {item.cta.label}
-            </Button>
+            </TelegramButton>
         </article>
     );
 }

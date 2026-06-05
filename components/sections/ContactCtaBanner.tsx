@@ -1,4 +1,8 @@
-import { Button } from '@/components/ui/Button';
+import { TelegramButton } from '@/components/ui/TelegramButton';
+import { TG_GOALS } from '@/lib/telegram';
+
+const BANNER_TG_TEXT =
+    'Здравствуйте! Хочу начать с бесплатного звонка 20 минут.';
 
 export function ContactCtaBanner() {
     return (
@@ -6,9 +10,14 @@ export function ContactCtaBanner() {
             <p className="text-body text-neutral-700 max-w-md">
                 Не знаешь, с чего начать? Начни с бесплатного звонка.
             </p>
-            <Button href="#contact" variant="primary" size="md">
+            <TelegramButton
+                goal={TG_GOALS.servicesBanner}
+                text={BANNER_TG_TEXT}
+                variant="primary"
+                size="md"
+            >
                 Бесплатная консультация
-            </Button>
+            </TelegramButton>
         </div>
     );
 }
