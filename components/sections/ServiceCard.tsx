@@ -45,7 +45,7 @@ export function ServiceCard({ item }: ServiceCardProps) {
 
             <p
                 className={cn(
-                    'text-body line-clamp-[6] min-h-[6lh]',
+                    'text-body flex-1',
                     featured ? 'text-neutral-0/90' : 'text-neutral-700'
                 )}
             >

@@ -9,7 +9,11 @@ export function Services({ items }: ServicesProps) {
         <section id="services" className="container-page py-16 lg:py-24">
             <ServicesCarousel
                 items={items}
-                heading={<h2 className="text-h2 text-neutral-900">Услуги</h2>}
+                heading={
+                    <h2 key="services-heading" className="text-h2 text-neutral-900">
+                        Услуги
+                    </h2>
+                }
             />
             <ContactCtaBanner />
         </section>

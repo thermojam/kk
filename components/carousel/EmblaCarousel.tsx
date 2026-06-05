@@ -62,7 +62,7 @@ export function EmblaCarousel<T>({
     const base = slidesPerView.base;
     const lg = slidesPerView.lg ?? base;
     const style: CSSProperties = {
-        ['--slide-size-base' as string]: `${100 / base}%`,
+        ['--slide-size-base' as string]: base === 1 ? '85vw' : `${100 / base}%`,
         ['--slide-size-lg' as string]: `${100 / lg}%`,
     };
 

@@ -39,7 +39,7 @@ export function CarouselArrows({ embla, className }: CarouselArrowsProps) {
         'disabled:opacity-40 disabled:cursor-not-allowed';
 
     return (
-        <div className={cn('hidden md:flex items-center justify-center gap-3', className)}>
+        <div className={cn('hidden min-[861px]:flex items-center justify-center gap-3', className)}>
             <button
                 type="button"
                 aria-label="Предыдущий слайд"

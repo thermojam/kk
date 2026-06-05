@@ -9,12 +9,9 @@ export function CaseCard({ item, number }: CaseCardProps) {
                 relative flex h-full flex-col gap-3 overflow-hidden
                 rounded-xl bg-neutral-0 py-7 pl-8 pr-7
                 shadow-[0_8px_24px_-18px_rgba(30,30,46,0.15)]
+                before:absolute before:inset-y-0 before:left-0 before:w-[3px] before:bg-primary-400
             "
         >
-            <span
-                aria-hidden="true"
-                className="absolute left-0 top-5 bottom-5 w-[3px] rounded bg-primary-400"
-            />
             <span
                 aria-hidden="true"
                 className="pointer-events-none absolute right-5 top-3 select-none font-serif text-[64px] italic leading-none text-primary-300/40"
@@ -26,9 +23,7 @@ export function CaseCard({ item, number }: CaseCardProps) {
                 «{item.title}»
             </h3>
 
-            <p className="line-clamp-[8] min-h-[8lh] text-body leading-relaxed text-neutral-700">
-                {item.body}
-            </p>
+            <p className="text-body leading-relaxed text-neutral-700">{item.body}</p>
         </article>
     );
 }

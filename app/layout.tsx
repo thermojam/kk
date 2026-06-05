@@ -39,8 +39,19 @@ export const metadata: Metadata = {
         description:
             'Психолог, специалист по работе с телом и эмоциями. Консультации, программа «Путь к себе», «Сила Берегини».',
         images: [
-            { url: '/images/og.jpg', width: 1200, height: 630, alt: 'Ксения Каменская — психолог' },
+            {
+                url: '/images/about.webp',
+                width: 960,
+                height: 1280,
+                alt: 'Ксения Каменская — психолог',
+            },
         ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Ксения Каменская · Психолог · Женские практики',
+        description: 'Психология женского тела и проявленности.',
+        images: ['/images/about.webp'],
     },
     robots: { index: true, follow: true },
 };

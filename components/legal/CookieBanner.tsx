@@ -29,11 +29,6 @@ export function CookieBanner() {
         initMetrika();
     }
 
-    function handleDecline() {
-        writeConsent('declined');
-        setVisible(false);
-    }
-
     return (
         <div
             role="region"
@@ -46,9 +41,9 @@ export function CookieBanner() {
         >
             <div className="container-page flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                 <p className="text-[14px] text-neutral-700 lg:max-w-3xl">
-                    Сайт использует cookie и Яндекс.Метрику для обезличенной
-                    статистики посещений (IP, страницы, время визита). Оператор
-                    данных — ООО «Яндекс». Срок хранения — 12 месяцев. Подробнее:{' '}
+                    Сайт использует cookie и Яндекс.Метрику для обезличенной статистики посещений
+                    (IP, страницы, время визита). Оператор данных — ООО «Яндекс». Срок хранения — 12
+                    месяцев. Подробнее:{' '}
                     <Link href="/cookies/" className="underline hover:text-primary-500">
                         Политика cookie
                     </Link>
@@ -58,10 +53,7 @@ export function CookieBanner() {
                     </Link>
                     .
                 </p>
-                <div className="flex shrink-0 gap-3">
-                    <Button variant="ghost" size="md" onClick={handleDecline}>
-                        Отказаться
-                    </Button>
+                <div className="flex shrink-0">
                     <Button variant="accent" size="md" onClick={handleAccept}>
                         Принять
                     </Button>

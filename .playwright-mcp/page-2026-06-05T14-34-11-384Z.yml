@@ -1,0 +1,293 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - link "На главную" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e7]
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - generic [ref=e17]: Ksenia Kamenskaya
+          - heading "Психология женского тела и проявленности." [level=1] [ref=e18]
+          - paragraph [ref=e19]: Помогаю женщинам перестать носить эмоции в теле, разобраться с эмоциональным перееданием и вернуть себе ощущение «я живу свою жизнь».
+          - generic [ref=e20]:
+            - link "Написать в Telegram · бесплатная консультация" [ref=e21] [cursor=pointer]:
+              - /url: https://t.me/xenia_kamensky
+            - link "Смотреть услуги" [ref=e22] [cursor=pointer]:
+              - /url: "#services"
+        - img "Ксения Каменская" [ref=e24]
+    - generic [ref=e26]:
+      - img "Ксения Каменская" [ref=e28]
+      - generic [ref=e29]:
+        - heading "Обо мне" [level=2] [ref=e30]
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Лишний вес. ПМС, который выбивал из жизни. Эмоциональное переедание и срывы. Я знаю этот путь изнутри — не из учебника.
+          - paragraph [ref=e33]: Через психосоматику, нутрициологию и славянские практики я вернула себе энергию, гармонию и тело, в котором мне хорошо.
+          - paragraph [ref=e34]: Прошла путь от страха камеры и публичных выступлений — к норме «быть видимой и яркой». Занялась тем, что действительно мне по душе. Теперь помогаю другим женщинам пройти этот путь. В работе соединяю восстановление контакта с телом и свободу быть проявленной.
+        - generic [ref=e35]:
+          - paragraph [ref=e36]: Квалификации
+          - list [ref=e37]:
+            - listitem [ref=e38]:
+              - img [ref=e39]
+              - generic [ref=e41]:
+                - paragraph [ref=e42]: Сертифицированный психолог
+                - paragraph [ref=e43]: Академия репарационной психологии и терапии iARPT
+            - listitem [ref=e44]:
+              - img [ref=e45]
+              - generic [ref=e47]:
+                - paragraph [ref=e48]: Психолог-консультант, «Психосоматика и телесная терапия»
+                - paragraph [ref=e49]: Институт «Хронос»
+            - listitem [ref=e50]:
+              - img [ref=e51]
+              - generic [ref=e53]:
+                - paragraph [ref=e54]: Магистр нутрициологии
+                - paragraph [ref=e55]: СПбПУ Петра Великого
+            - listitem [ref=e56]:
+              - img [ref=e57]
+              - generic [ref=e59]:
+                - paragraph [ref=e60]: Специалист по фитооздоровлению
+                - paragraph [ref=e61]: НАМН
+            - listitem [ref=e62]:
+              - img [ref=e63]
+              - paragraph [ref=e66]: Инструктор женской славянской гимнастики «Сила Берегини»
+    - generic [ref=e67]:
+      - heading "С чем я работаю" [level=2] [ref=e68]
+      - generic [ref=e69]:
+        - article [ref=e70]:
+          - img [ref=e72]
+          - heading "Тело и эмоции" [level=3] [ref=e75]
+          - list [ref=e76]:
+            - listitem [ref=e77]:
+              - generic [ref=e79]: Вес, который стоит или растёт, несмотря на усилия
+            - listitem [ref=e80]:
+              - generic [ref=e82]: Эмоциональное переедание, срывы, чувство вины после еды
+            - listitem [ref=e83]:
+              - generic [ref=e85]: Усталость и опустошённость, которые не уходят после отпуска
+            - listitem [ref=e86]:
+              - generic [ref=e88]: Состояния, при которых тело «не слушается», хотя всё делаешь правильно
+            - listitem [ref=e89]:
+              - generic [ref=e91]: ПМС, циклы и состояния, которые сбивают с жизненного ритма
+        - article [ref=e92]:
+          - img [ref=e94]
+          - heading "Жизненные сценарии" [level=3] [ref=e97]
+          - list [ref=e98]:
+            - listitem [ref=e99]:
+              - generic [ref=e101]: «Я всё тащу сама» — усталость от роли сильной
+            - listitem [ref=e102]:
+              - generic [ref=e104]: "Саботаж на пути к целям: не получается ни начать, ни довести до конца"
+            - listitem [ref=e105]:
+              - generic [ref=e107]: В жизни всё вроде бы хорошо, но нет удовлетворения, удовольствия — ощущение, что живёшь не свою жизнь
+            - listitem [ref=e108]:
+              - generic [ref=e110]: Непонимание, куда двигаться в профессии или в отношениях
+            - listitem [ref=e111]:
+              - generic [ref=e113]: "Повторяющиеся сценарии: «меня не выбирают», «я недостаточно хороша»"
+        - article [ref=e114]:
+          - img [ref=e116]
+          - heading "Проявленность и голос" [level=3] [ref=e118]
+          - list [ref=e119]:
+            - listitem [ref=e120]:
+              - generic [ref=e122]: Страх публичности, камеры, синдром самозванца
+            - listitem [ref=e123]:
+              - generic [ref=e125]: Сложности в том, чтобы говорить о себе и своём деле
+            - listitem [ref=e126]:
+              - generic [ref=e128]: Внутренние блоки, которые мешают быть видимой в своей работе
+    - generic [ref=e129]:
+      - heading "Истории клиенток" [level=2] [ref=e130]
+      - generic [ref=e131]:
+        - article [ref=e132]:
+          - generic: "01"
+          - heading "«Вес уходит в последнюю очередь»" [level=3] [ref=e133]
+          - paragraph [ref=e134]: "Клиентка, 35 лет. Пришла с весом и эмоциональными срывами. Работали полгода. Тело менялось постепенно — но главное случилось раньше: она перестала воевать с собой. За эти месяцы её жизнь развернулась — записала песни, отправилась в путешествие, узнала, что ждёт ребёнка."
+        - article [ref=e135]:
+          - generic: "02"
+          - heading "«От страха сцены — к своему голосу»" [level=3] [ref=e136]
+          - paragraph [ref=e137]: Клиентка, 34 года. Пришла с запросом на омоложение. В процессе нашли настоящее — желание масштаба и проявленности, которое блокировал страх публичных выступлений. Через несколько сессий она впервые в жизни вышла на форум как спикер перед залом в 200 человек.
+        - article [ref=e138]:
+          - generic: "03"
+          - heading "«Голос, который было страшно показать»" [level=3] [ref=e139]
+          - paragraph [ref=e140]: "Клиентка, 29 лет. Пришла с запросом на проявленность в Instagram: ступор, страх, редкие ролики. Работали точечно с тем, что внутри мешало проявиться. Через пару месяцев она начала снимать регулярно, в своём стиле — и её аудитория за это время выросла в десять раз. Главное случилось внутри: она перестала ждать «правильного момента»."
+    - generic [ref=e141]:
+      - region "Услуги" [ref=e142]:
+        - generic [ref=e143]:
+          - heading "Услуги" [level=2] [ref=e144]
+          - generic [ref=e145]:
+            - button "Предыдущий слайд" [disabled] [ref=e146]:
+              - img [ref=e147]
+            - button "Следующий слайд" [disabled] [ref=e149]:
+              - img [ref=e150]
+        - generic [ref=e153]:
+          - article [ref=e155]:
+            - generic [ref=e156]: Разовая
+            - generic [ref=e157]:
+              - heading "Консультация" [level=3] [ref=e158]
+              - paragraph [ref=e159]: «Отношения с едой и телом»
+            - paragraph [ref=e160]: Разовая встреча для тех, у кого основной запрос — про вес, переедание, контакт со своим телом. Разбираем, что происходит, ищем психологические причины и намечаем первые шаги.
+            - list [ref=e162]:
+              - listitem [ref=e163]:
+                - generic [ref=e164]: 5 000 ₽
+                - generic [ref=e165]: за 1,5 часа
+            - link "Записаться" [ref=e166] [cursor=pointer]:
+              - /url: https://t.me/xenia_kamensky
+          - article [ref=e168]:
+            - generic [ref=e169]: ★ Основная программа
+            - generic [ref=e170]:
+              - heading "Длительное сопровождение" [level=3] [ref=e171]
+              - paragraph [ref=e172]: «Путь к себе»
+            - paragraph [ref=e173]: "Моя основная программа. Для женщин, готовых к системной работе. Темы: эмоциональное состояние, отношения с едой и телом, самооценка, границы, родовые сценарии, проявленность."
+            - generic [ref=e174]:
+              - list [ref=e175]:
+                - listitem [ref=e176]:
+                  - generic [ref=e177]: 3 / 6
+                  - generic [ref=e178]: месяцев сопровождения
+              - paragraph [ref=e179]: Стоимость — после диагностической встречи
+            - link "Записаться на диагностику" [ref=e180] [cursor=pointer]:
+              - /url: https://t.me/xenia_kamensky
+          - article [ref=e182]:
+            - generic [ref=e183]: Разовая
+            - generic [ref=e184]:
+              - heading "Психологическая сессия" [level=3] [ref=e185]
+              - paragraph [ref=e186]: 1:1 онлайн
+            - paragraph [ref=e187]: Исследование корня проблемы, работа с эмоциями и жизненными сценариями. Подходит для широкого спектра запросов — отношения, страхи, потеря себя, проявленность.
+            - list [ref=e189]:
+              - listitem [ref=e190]:
+                - generic [ref=e191]: 5 000 ₽
+                - generic [ref=e192]: за 1,5 часа
+              - listitem [ref=e193]:
+                - generic [ref=e194]: 12 000 ₽
+                - generic [ref=e195]: пакет из 3 сессий
+            - link "Записаться" [ref=e196] [cursor=pointer]:
+              - /url: https://t.me/xenia_kamensky
+          - article [ref=e198]:
+            - generic [ref=e199]: Телесная практика
+            - generic [ref=e200]:
+              - heading "Женская славянская гимнастика" [level=3] [ref=e201]
+              - paragraph [ref=e202]: «Сила Берегини»
+            - paragraph [ref=e203]: Авторская оздоровительная практика. Мягкие упражнения, которые возвращают контакт с телом, снимают физическое напряжение и помогают чувствовать себя в своём теле спокойно.
+            - list [ref=e205]:
+              - listitem [ref=e206]:
+                - generic [ref=e207]: 3 000 ₽
+                - generic [ref=e208]: видео-комплекс
+              - listitem [ref=e209]:
+                - generic [ref=e210]: 8 000 ₽
+                - generic [ref=e211]: с индивидуальным разбором
+            - button "⚠ Это оздоровительная практика, не лечебная физкультура. При хронических состояниях, беременности, обострениях, онкологических и психиатрических диагнозах — нужна консультация врача. Перед первым занятием попрошу заполнить короткую анкету о здоровье." [ref=e213]:
+              - img [ref=e214]
+              - generic [ref=e216]: ⚠ Это оздоровительная практика, не лечебная физкультура. При хронических состояниях, беременности, обострениях, онкологических и психиатрических диагнозах — нужна консультация врача. Перед первым занятием попрошу заполнить короткую анкету о здоровье.
+            - link "Записаться" [ref=e217] [cursor=pointer]:
+              - /url: https://t.me/xenia_kamensky
+          - article [ref=e219]:
+            - generic [ref=e220]: Бесплатно
+            - generic [ref=e221]:
+              - heading "Бесплатная консультация" [level=3] [ref=e222]
+              - paragraph [ref=e223]: 20 минут
+            - paragraph [ref=e224]: Знакомство, обсуждение запроса, помогу определить подходящий формат.
+            - link "Записаться" [ref=e225] [cursor=pointer]:
+              - /url: https://t.me/xenia_kamensky
+      - generic [ref=e226]:
+        - paragraph [ref=e227]: Не знаешь, с чего начать? Начни с бесплатного звонка.
+        - link "Бесплатная консультация" [ref=e228] [cursor=pointer]:
+          - /url: https://t.me/xenia_kamensky
+    - generic [ref=e229]:
+      - heading "Частые вопросы" [level=2] [ref=e230]
+      - generic [ref=e232]:
+        - generic [ref=e233]:
+          - heading "Это медицинская услуга?" [level=3] [ref=e234]:
+            - button "Это медицинская услуга?" [expanded] [ref=e235]:
+              - generic [ref=e236]: Это медицинская услуга?
+              - img [ref=e237]
+          - region "Это медицинская услуга?":
+            - generic [ref=e239]: Нет. Я психолог, не врач. Не ставлю диагнозы и не назначаю лечение. Если в процессе работы увидим признаки состояния, которое требует врача — открыто скажу и помогу найти специалиста.
+        - heading "В чём разница между разовой сессией и программой?" [level=3] [ref=e241]:
+          - button "В чём разница между разовой сессией и программой?" [ref=e242]:
+            - generic [ref=e243]: В чём разница между разовой сессией и программой?
+            - img [ref=e244]
+        - heading "Как проходят встречи?" [level=3] [ref=e247]:
+          - button "Как проходят встречи?" [ref=e248]:
+            - generic [ref=e249]: Как проходят встречи?
+            - img [ref=e250]
+        - heading "Что если я не пойму, подходит ли мне твой подход?" [level=3] [ref=e253]:
+          - button "Что если я не пойму, подходит ли мне твой подход?" [ref=e254]:
+            - generic [ref=e255]: Что если я не пойму, подходит ли мне твой подход?
+            - img [ref=e256]
+        - heading "Конфиденциально ли это?" [level=3] [ref=e259]:
+          - button "Конфиденциально ли это?" [ref=e260]:
+            - generic [ref=e261]: Конфиденциально ли это?
+            - img [ref=e262]
+        - heading "С какими запросами не работаешь?" [level=3] [ref=e265]:
+          - button "С какими запросами не работаешь?" [ref=e266]:
+            - generic [ref=e267]: С какими запросами не работаешь?
+            - img [ref=e268]
+        - heading "Можно ли вернуть деньги?" [level=3] [ref=e271]:
+          - button "Можно ли вернуть деньги?" [ref=e272]:
+            - generic [ref=e273]: Можно ли вернуть деньги?
+            - img [ref=e274]
+        - heading "Сколько длится программа на самом деле?" [level=3] [ref=e277]:
+          - button "Сколько длится программа на самом деле?" [ref=e278]:
+            - generic [ref=e279]: Сколько длится программа на самом деле?
+            - img [ref=e280]
+    - generic [ref=e284]:
+      - heading "Готова вернуться к себе?" [level=2] [ref=e285]
+      - paragraph [ref=e286]: Начни с бесплатного 20-минутного звонка. Расскажешь, что происходит — я отвечу, смогу ли помочь и как мы будем работать. Без обязательств и давления.
+      - link "Написать в Telegram" [ref=e287] [cursor=pointer]:
+        - /url: https://t.me/xenia_kamensky
+      - paragraph [ref=e288]: Отвечаю лично, обычно в течение дня
+  - contentinfo [ref=e289]:
+    - generic [ref=e290]:
+      - generic [ref=e291]:
+        - generic [ref=e292]:
+          - link "На главную" [ref=e293] [cursor=pointer]:
+            - /url: /
+            - img [ref=e295]
+          - paragraph [ref=e303]: Ксения Каменская
+          - paragraph [ref=e304]: Психолог · Женские практики
+          - paragraph [ref=e305]:
+            - text: Услуги психолога не являются психотерапией
+            - text: и медицинской помощью.
+        - generic [ref=e306]:
+          - paragraph [ref=e307]: Контакты
+          - generic [ref=e308]:
+            - link "@xenia_kamensky Telegram" [ref=e309] [cursor=pointer]:
+              - /url: https://t.me/xenia_kamensky
+              - img [ref=e311]
+              - generic [ref=e314]:
+                - text: "@xenia_kamensky"
+                - generic [ref=e315]: Telegram
+            - link "hello@kamenskaya.ru Email" [ref=e316] [cursor=pointer]:
+              - /url: mailto:hello@kamenskaya.ru
+              - img [ref=e318]
+              - generic [ref=e321]:
+                - text: hello@kamenskaya.ru
+                - generic [ref=e322]: Email
+            - link "t.me/kmensky_case Канал отзывов" [ref=e323] [cursor=pointer]:
+              - /url: https://t.me/kmensky_case
+              - img [ref=e325]
+              - generic [ref=e327]:
+                - text: t.me/kmensky_case
+                - generic [ref=e328]: Канал отзывов
+        - navigation "Навигация в футере" [ref=e329]:
+          - paragraph [ref=e330]: Разделы
+          - list [ref=e331]:
+            - listitem [ref=e332]:
+              - link "Обо мне" [ref=e333] [cursor=pointer]:
+                - /url: /#about
+            - listitem [ref=e334]:
+              - link "С чем работаю" [ref=e335] [cursor=pointer]:
+                - /url: /#work-areas
+            - listitem [ref=e336]:
+              - link "Истории" [ref=e337] [cursor=pointer]:
+                - /url: /#cases
+            - listitem [ref=e338]:
+              - link "Услуги" [ref=e339] [cursor=pointer]:
+                - /url: /#services
+            - listitem [ref=e340]:
+              - link "Вопросы" [ref=e341] [cursor=pointer]:
+                - /url: /#faq
+      - generic [ref=e342]:
+        - paragraph [ref=e343]: ИП Каменская К. С. · ОГРНИП 323784700394015 · ИНН 781435744110
+        - paragraph [ref=e344]:
+          - link "Политика ПДн" [ref=e345] [cursor=pointer]:
+            - /url: /privacy/
+          - text: ·
+          - link "Cookie" [ref=e346] [cursor=pointer]:
+            - /url: /cookies/
+  - button "Open Next.js Dev Tools" [ref=e352] [cursor=pointer]:
+    - img [ref=e353]

@@ -12,7 +12,7 @@ export function ServicesCarousel({ items, heading }: ServicesCarouselProps) {
         <EmblaCarousel
             heading={heading}
             items={items}
-            renderItem={(item) => <ServiceCard item={item} />}
+            renderItem={(item) => <ServiceCard key={item.id} item={item} />}
             getItemKey={(item) => item.id}
             options={{ loop: true }}
             slidesPerView={{ base: 1, lg: 3 }}

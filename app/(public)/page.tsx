@@ -5,6 +5,7 @@ import { Hero } from '@/components/sections/Hero';
 import { PersonJsonLd } from '@/components/seo/PersonJsonLd';
 import { Services } from '@/components/sections/Services';
 import { WorkAreas } from '@/components/sections/WorkAreas';
+import { Offer } from '@/components/sections/Offer';
 import { cases, faq, qualifications, services, workAreas } from '@/content/home';
 
 export default function HomePage() {
@@ -17,6 +18,7 @@ export default function HomePage() {
             <Cases items={cases} />
             <Services items={services} />
             <FAQ items={faq} />
+            <Offer />
         </>
     );
 }

@@ -7,7 +7,7 @@ type AboutProps = { qualifications: Qualification[] };
 export function About({ qualifications }: AboutProps) {
     return (
         <section id="about" className="container-page py-16 lg:py-24">
-            <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 lg:items-center">
+            <div className="grid gap-10 lg:grid-cols-[380px_1fr] lg:gap-16 lg:items-center">
                 <div className="order-1 lg:order-1">
                     <Image
                         src="/images/about.webp"
@@ -15,8 +15,8 @@ export function About({ qualifications }: AboutProps) {
                         width={1086}
                         height={1448}
                         sizes="(min-width: 1024px) 480px, 100vw"
-                        className="w-full rounded-lg object-cover aspect-[3/4] max-w-[480px] mx-auto lg:mx-0"
-                        priority={false}
+                        className="w-full rounded-lg object-cover aspect-[3/4] max-w-[320px] mx-auto lg:max-w-none lg:mx-0"
+                        loading="eager"
                     />
                 </div>
                 <div className="order-2 lg:order-2 flex flex-col gap-8">
