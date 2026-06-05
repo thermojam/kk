@@ -1,4 +1,4 @@
-import { Compass, Mic, Waves } from 'lucide-react';
+import { Compass, HeartPulse, Sparkles } from 'lucide-react';
 import type { WorkAreaIconName } from '@/content/home';
 
 type WorkAreaIconProps = {
@@ -7,9 +7,9 @@ type WorkAreaIconProps = {
 };
 
 const icons = {
-    waves: Waves,
+    'heart-pulse': HeartPulse,
     compass: Compass,
-    mic: Mic,
+    sparkles: Sparkles,
 } as const;
 
 export function WorkAreaIcon({ name, className }: WorkAreaIconProps) {
@@ -18,7 +18,7 @@ export function WorkAreaIcon({ name, className }: WorkAreaIconProps) {
         <Icon
             aria-hidden="true"
             strokeWidth={1.5}
-            className={className ?? 'size-10 text-primary-500'}
+            className={className ?? 'size-7 text-primary-500'}
         />
     );
 }
