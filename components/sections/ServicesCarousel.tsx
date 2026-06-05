@@ -13,6 +13,7 @@ export function ServicesCarousel({ items, heading }: ServicesCarouselProps) {
             heading={heading}
             items={items}
             renderItem={(item) => <ServiceCard item={item} />}
+            getItemKey={(item) => item.id}
             options={{ loop: true }}
             slidesPerView={{ base: 1, lg: 3 }}
             showArrows

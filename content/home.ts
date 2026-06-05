@@ -179,6 +179,7 @@ export const services: Service[] = [
         description: 'Знакомство, обсуждение запроса, помогу определить подходящий формат.',
         prices: [],
         cta: {
+
             label: 'Записаться',
             tgGoal: TG_GOALS.serviceFree,
             tgText: 'Здравствуйте! Хочу записаться на бесплатную консультацию 20 минут.',

@@ -12,6 +12,7 @@ type SlidesPerView = { base: number; lg?: number };
 export type EmblaCarouselProps<T> = {
     items: T[];
     renderItem: (item: T, index: number) => ReactNode;
+    getItemKey?: (item: T, index: number) => string | number;
     options?: EmblaOptionsType;
     showArrows?: boolean;
     showDots?: boolean;
@@ -24,6 +25,7 @@ export type EmblaCarouselProps<T> = {
 export function EmblaCarousel<T>({
     items,
     renderItem,
+    getItemKey,
     options,
     showArrows = false,
     showDots = true,
@@ -82,7 +84,7 @@ export function EmblaCarousel<T>({
             <div ref={viewportRef} className="embla__viewport" style={style}>
                 <div className="embla__container">
                     {items.map((item, i) => (
-                        <div key={i} className="embla__slide">
+                        <div key={getItemKey ? getItemKey(item, i) : i} className="embla__slide">
                             {renderItem(item, i)}
                         </div>
                     ))}
