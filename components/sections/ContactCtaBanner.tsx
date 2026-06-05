@@ -6,8 +6,8 @@ const BANNER_TG_TEXT =
 
 export function ContactCtaBanner() {
     return (
-        <div className="mt-12 flex flex-col items-center gap-4 rounded-lg bg-primary-50 px-6 py-8 text-center lg:flex-row lg:justify-between lg:text-left">
-            <p className="text-body text-neutral-700 max-w-md">
+        <div className="mt-12 flex flex-col items-center gap-5 px-6 py-8 text-center lg:py-12">
+            <p className="max-w-md font-serif text-[28px] italic leading-tight text-neutral-900 lg:text-[34px]">
                 Не знаешь, с чего начать? Начни с бесплатного звонка.
             </p>
             <TelegramButton
