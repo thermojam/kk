@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Check } from 'lucide-react';
 import type { Qualification } from '@/content/home';
 
 type AboutProps = { qualifications: Qualification[] };
@@ -36,27 +37,30 @@ export function About({ qualifications }: AboutProps) {
                             восстановление контакта с телом и свободу быть проявленной.
                         </p>
                     </div>
-                    <ul className="flex flex-col gap-3 text-body text-neutral-700">
-                        {qualifications.map((q) => (
-                            <li key={q.title} className="flex gap-3">
-                                <span
-                                    aria-hidden="true"
-                                    className="mt-2 size-1.5 shrink-0 rounded-full bg-accent-500"
-                                />
-                                <span>
-                                    {q.title}
-                                    {q.institution && (
-                                        <>
-                                            <br />
-                                            <span className="text-neutral-500">
+                    <div>
+                        <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.16em] text-primary-500">
+                            Квалификации
+                        </p>
+                        <ul className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-x-10">
+                            {qualifications.map((q) => (
+                                <li key={q.title} className="flex gap-3">
+                                    <Check
+                                        aria-hidden="true"
+                                        className="mt-0.5 size-5 shrink-0 text-accent-500"
+                                        strokeWidth={2.5}
+                                    />
+                                    <div>
+                                        <p className="text-neutral-900">{q.title}</p>
+                                        {q.institution && (
+                                            <p className="mt-0.5 text-[13px] text-neutral-500">
                                                 {q.institution}
-                                            </span>
-                                        </>
-                                    )}
-                                </span>
-                            </li>
-                        ))}
-                    </ul>
+                                            </p>
+                                        )}
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
