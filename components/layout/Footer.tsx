@@ -19,7 +19,7 @@ export function Footer() {
     ];
 
     return (
-        <footer className="overflow-hidden rounded-t-[20px] bg-neutral-950 text-white/85 lg:rounded-t-[72px]">
+        <footer className="overflow-hidden rounded-t-[42px] bg-neutral-950 text-white/85 lg:rounded-t-[72px]">
             <div className="container-page py-16">
                 <div className="grid gap-10 lg:grid-cols-3">
                     {/* Левая колонка */}

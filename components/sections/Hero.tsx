@@ -24,7 +24,7 @@ export function Hero() {
     return (
         <section
             id="hero"
-            className="relative isolate min-h-[760px] overflow-hidden rounded-b-[20px] bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)] lg:min-h-screen lg:rounded-b-[72px]"
+            className="relative isolate min-h-[760px] overflow-hidden rounded-b-[42px] bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)] lg:min-h-screen lg:rounded-b-[72px]"
         >
             <HeroBackground />
 
