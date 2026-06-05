@@ -1,6 +1,9 @@
 import { TelegramButton } from '@/components/ui/TelegramButton';
 import { TG_GOALS } from '@/lib/telegram';
 
+const OFFER_TG_TEXT =
+    'Здравствуйте, Ксения! Хочу обсудить свой запрос и начать с бесплатной консультации.';
+
 export function Offer() {
     return (
         <section className="relative overflow-hidden bg-[linear-gradient(120deg,var(--color-primary-900),var(--color-primary-700)_55%,#1a0833)] text-white">
@@ -15,7 +18,7 @@ export function Offer() {
                 </p>
                 <TelegramButton
                     goal={TG_GOALS.offer}
-                    text=""
+                    text={OFFER_TG_TEXT}
                     variant="accent"
                     size="lg"
                     className="mt-8"

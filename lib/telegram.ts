@@ -14,7 +14,6 @@ export const TG_GOALS = {
 
 export type TgGoal = (typeof TG_GOALS)[keyof typeof TG_GOALS];
 
-export function tgLink(_text?: string): string {
-    void _text;
-    return CONTACTS.telegram;
+export function tgLink(text: string): string {
+    return `${CONTACTS.telegram}?text=${encodeURIComponent(text)}`;
 }

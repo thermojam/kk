@@ -2,7 +2,7 @@ import { TelegramButton } from '@/components/ui/TelegramButton';
 import { TG_GOALS } from '@/lib/telegram';
 
 const BANNER_TG_TEXT =
-    'Здравствуйте! Хочу начать с бесплатного звонка 20 минут.';
+    'Здравствуйте! Не уверена, какой формат мне подходит. Хочу начать с бесплатного звонка.';
 
 export function ContactCtaBanner() {
     return (
