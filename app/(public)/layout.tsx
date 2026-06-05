@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { CookieBanner } from '@/components/legal/CookieBanner';
 
 export default function PublicLayout({ children }: { children: ReactNode }) {
     return (
@@ -8,6 +9,7 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
+            <CookieBanner />
         </>
     );
 }
