@@ -1,4 +1,7 @@
-export type WorkAreaIconName = 'waves' | 'compass' | 'mic';
+import type { TgGoal } from '@/lib/telegram';
+import { TG_GOALS } from '@/lib/telegram';
+
+export type WorkAreaIconName = 'heart-pulse' | 'compass' | 'sparkles';
 
 export type WorkArea = {
     id: string;
@@ -30,7 +33,7 @@ export type Service = {
     prices: ServicePrice[];
     /** Дополнительная строка курсивом под тарифами. Например, «стоимость — после диагностической встречи». */
     pricingNote?: string;
-    cta: { label: string; href: string };
+    cta: { label: string; tgGoal: TgGoal; tgText: string };
     featured?: boolean;
     disclaimer?: string;
 };
@@ -49,7 +52,7 @@ export type Qualification = {
 export const workAreas: WorkArea[] = [
     {
         id: 'body-emotions',
-        icon: 'waves',
+        icon: 'heart-pulse',
         title: 'Тело и эмоции',
         bullets: [
             'Вес, который стоит или растёт, несмотря на усилия',
@@ -73,7 +76,7 @@ export const workAreas: WorkArea[] = [
     },
     {
         id: 'visibility',
-        icon: 'mic',
+        icon: 'sparkles',
         title: 'Проявленность и голос',
         bullets: [
             'Страх публичности, камеры, синдром самозванца',
@@ -110,7 +113,11 @@ export const services: Service[] = [
         description:
             'Разовая встреча для тех, у кого основной запрос — про вес, переедание, контакт со своим телом. Разбираем, что происходит, ищем психологические причины и намечаем первые шаги.',
         prices: [{ value: '5 000 ₽', meta: 'за 1,5 часа' }],
-        cta: { label: 'Записаться', href: '#contact' },
+        cta: {
+            label: 'Записаться',
+            tgGoal: TG_GOALS.serviceFood,
+            tgText: 'Здравствуйте! Интересует консультация «Отношения с едой и телом».',
+        },
     },
     {
         id: 'path-to-self',
@@ -121,7 +128,11 @@ export const services: Service[] = [
             'Моя основная программа. Для женщин, готовых к системной работе. Темы: эмоциональное состояние, отношения с едой и телом, самооценка, границы, родовые сценарии, проявленность.',
         prices: [{ value: '3 / 6', meta: 'месяцев сопровождения' }],
         pricingNote: 'Стоимость — после диагностической встречи',
-        cta: { label: 'Записаться на диагностику', href: '#contact' },
+        cta: {
+            label: 'Записаться на диагностику',
+            tgGoal: TG_GOALS.serviceProgram,
+            tgText: 'Здравствуйте! Хочу записаться на диагностику по программе «Путь к себе».',
+        },
         featured: true,
     },
     {
@@ -135,7 +146,11 @@ export const services: Service[] = [
             { value: '5 000 ₽', meta: 'за 1,5 часа' },
             { value: '12 000 ₽', meta: 'пакет из 3 сессий' },
         ],
-        cta: { label: 'Записаться', href: '#contact' },
+        cta: {
+            label: 'Записаться',
+            tgGoal: TG_GOALS.serviceSession,
+            tgText: 'Здравствуйте! Интересует психологическая сессия 1:1.',
+        },
     },
     {
         id: 'bereginya',
@@ -148,7 +163,11 @@ export const services: Service[] = [
             { value: '3 000 ₽', meta: 'видео-комплекс' },
             { value: '8 000 ₽', meta: 'с индивидуальным разбором' },
         ],
-        cta: { label: 'Записаться', href: '#contact' },
+        cta: {
+            label: 'Записаться',
+            tgGoal: TG_GOALS.serviceGym,
+            tgText: 'Здравствуйте! Интересует гимнастика «Сила Берегини». Готова заполнить анкету о здоровье.',
+        },
         disclaimer:
             '⚠ Это оздоровительная практика, не лечебная физкультура. При хронических состояниях, беременности, обострениях, онкологических и психиатрических диагнозах — нужна консультация врача. Перед первым занятием попрошу заполнить короткую анкету о здоровье.',
     },
@@ -159,7 +178,11 @@ export const services: Service[] = [
         subtitle: '20 минут',
         description: 'Знакомство, обсуждение запроса, помогу определить подходящий формат.',
         prices: [],
-        cta: { label: 'Записаться', href: '#contact' },
+        cta: {
+            label: 'Записаться',
+            tgGoal: TG_GOALS.serviceFree,
+            tgText: 'Здравствуйте! Хочу записаться на бесплатную консультацию 20 минут.',
+        },
     },
 ];
 
