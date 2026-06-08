@@ -3,7 +3,7 @@ name: Deploy Next.js Static Site to Beget VPS
 on:
     push:
         branches:
-            - main # Сценарий запустится при пуше в ветку main
+            - main # Сценарий запускается при пуше в ветку main
 
 jobs:
     build-and-deploy:
@@ -31,10 +31,13 @@ jobs:
             -   name: Prepare folder structure
                 run: mv out public_html
 
-            # 5. Копируем файлы на VPS по протоколу SSH/Rsync
-            -   name: Deploy to Beget VPS via Rsync
-                uses: JamesIves/github-pages-deploy-action@v4 # Этот экшн отлично подходит для синхронизации папок
+            # 5. Надежная отправка файлов на VPS через SFTP
+            -   name: Deploy to Beget VPS via SSH
+                uses: easingthemes/ssh-deploy@main
                 with:
-                    folder: public_html # Какую папку отправляем
-                    target-folder: /var/www/kk/public_html # Куда складываем файлы на сервере
-                    ssh-key: ${{ secrets.SSH_KEY }}
+                    SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+                    ARGS: "-rlgoDzc --delete" # Синхронизация файлов с удалением старых
+                    REMOTE_HOST: ${{ secrets.HOST }}
+                    REMOTE_USER: ${{ secrets.USERNAME }}
+                    SOURCE: "public_html/" # Какую локальную папку отправляем
+                    TARGET: "/var/www/kk/public_html/" # В какую папку на сервере складываем
