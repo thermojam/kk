@@ -15,6 +15,7 @@ export function ContactCtaBanner() {
                 text={BANNER_TG_TEXT}
                 variant="primary"
                 size="md"
+                className="h-[52px] w-full sm:h-11 sm:w-auto"
             >
                 Начать со звонка
             </TelegramButton>

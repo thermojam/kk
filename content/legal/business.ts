@@ -4,5 +4,5 @@ export const BUSINESS = {
     ogrnip: '323784700394015',
     email: 'hello@kamenskaya.ru',
     tg: '@xenia_kamensky',
-    siteUrl: 'https://kamenskaya.ru',
+    siteUrl: 'https://ksenia-kamenskaya.ru',
 } as const;

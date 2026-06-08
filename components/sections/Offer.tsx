@@ -20,7 +20,7 @@ export function Offer() {
                     text={OFFER_TG_TEXT}
                     variant="accent"
                     size="md"
-                    className="mt-8"
+                    className="mt-8 h-[52px] w-full sm:h-11 sm:w-auto"
                 >
                     Обсудить мой запрос
                 </TelegramButton>

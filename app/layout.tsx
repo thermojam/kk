@@ -18,7 +18,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://kamenskaya.ru'),
+    metadataBase: new URL('https://ksenia-kamenskaya.ru'),
     title: {
         default: 'Ксения Каменская · Психолог · Женские практики',
         template: '%s · Ксения Каменская',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     openGraph: {
         type: 'website',
         locale: 'ru_RU',
-        url: 'https://kamenskaya.ru',
+        url: 'https://ksenia-kamenskaya.ru',
         siteName: 'Ксения Каменская',
         title: 'Ксения Каменская · Психолог · Женские практики',
         description:
