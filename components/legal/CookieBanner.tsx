@@ -29,10 +29,15 @@ export function CookieBanner() {
         initMetrika();
     }
 
+    function handleDecline() {
+        writeConsent('declined');
+        setVisible(false);
+    }
+
     return (
         <div
             role="region"
-            aria-label="Cookie-согласие"
+            aria-label="Согласие на куки"
             className="
                 fixed inset-x-0 bottom-0 z-40 border-t border-neutral-100 bg-neutral-0 p-4
                 shadow-[0_-8px_24px_-18px_rgba(30,30,46,0.2)]
@@ -41,11 +46,11 @@ export function CookieBanner() {
         >
             <div className="container-page flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                 <p className="text-[14px] text-neutral-700 lg:max-w-3xl">
-                    Сайт использует cookie и Яндекс.Метрику для обезличенной статистики посещений
+                    Сайт использует куки и Яндекс.Метрику для обезличенной статистики посещений
                     (IP, страницы, время визита). Оператор данных — ООО «Яндекс». Срок хранения — 12
                     месяцев. Подробнее:{' '}
                     <Link href="/cookies/" className="underline hover:text-primary-500">
-                        Политика cookie
+                        Политика куки
                     </Link>
                     {' · '}
                     <Link href="/privacy/" className="underline hover:text-primary-500">
@@ -53,7 +58,10 @@ export function CookieBanner() {
                     </Link>
                     .
                 </p>
-                <div className="flex shrink-0">
+                <div className="flex shrink-0 gap-3">
+                    <Button variant="secondary" size="md" onClick={handleDecline}>
+                        Отказаться
+                    </Button>
                     <Button variant="accent" size="md" onClick={handleAccept}>
                         Принять
                     </Button>

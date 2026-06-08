@@ -13,8 +13,8 @@ const NAV = [
 
 export function Footer() {
     const contacts = [
-        { href: CONTACTS.telegram, label: '@xenia_kamensky', meta: 'Telegram', Icon: Send },
-        { href: CONTACTS.email, label: 'hello@kamenskaya.ru', meta: 'Email', Icon: Mail },
+        { href: CONTACTS.telegram, label: '@xenia_kamensky', meta: 'Телеграм', Icon: Send },
+        { href: CONTACTS.email, label: 'hello@kamenskaya.ru', meta: 'Эл. почта', Icon: Mail },
         { href: CONTACTS.reviews, label: 't.me/kmensky_case', meta: 'Канал отзывов', Icon: Star },
     ];
 
@@ -98,7 +98,11 @@ export function Footer() {
                         </Link>
                         <span className="mx-2 text-white/30">·</span>
                         <Link href="/cookies/" className="text-white/55 hover:text-accent-500">
-                            Cookie
+                            Куки
+                        </Link>
+                        <span className="mx-2 text-white/30">·</span>
+                        <Link href="/offer/" className="text-white/55 hover:text-accent-500">
+                            Оферта
                         </Link>
                     </p>
                 </div>

@@ -1,0 +1,47 @@
+- generic [ref=e2]:
+  - generic [ref=e3]: WorkAreas / icon background exploration
+  - heading "3 направления для карточек" [level=1] [ref=e4]
+  - generic [ref=e5]: "Карточки собраны так, чтобы быстро сравнить характер иерархии: насколько иконка доминирует, сколько воздуха остаётся у текста и насколько заметен фоновый слой без бордера."
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]: Вариант 1
+      - generic [ref=e10]: Full-bleed icon background
+      - generic:
+        - img
+      - heading "Сильный фоновый жест" [level=2] [ref=e12]
+      - list [ref=e13]:
+        - listitem [ref=e14]:
+          - generic [ref=e16]: Иконка почти занимает всю карточку и задаёт плакатный характер.
+        - listitem [ref=e17]:
+          - generic [ref=e19]: Текст остаётся поверх и должен быть максимально контрастным.
+        - listitem [ref=e20]:
+          - generic [ref=e22]: Лучше всего работает с коротким заголовком и компактным списком.
+      - generic [ref=e23]: Более дерзкий, заметный, риск по читаемости выше
+    - generic [ref=e24]:
+      - generic [ref=e25]: Вариант 2
+      - generic [ref=e27]: Large muted icon behind title
+      - generic:
+        - img
+      - heading "Мягкий арт-слой" [level=2] [ref=e29]
+      - list [ref=e30]:
+        - listitem [ref=e31]:
+          - generic [ref=e33]: Иконка остаётся крупной, но уходит в фон и не спорит с текстом.
+        - listitem [ref=e34]:
+          - generic [ref=e36]: Можно держать карточку без бордера и без тяжёлой рамки.
+        - listitem [ref=e37]:
+          - generic [ref=e39]: Баланс между выразительностью и аккуратностью.
+      - generic [ref=e40]: Самый универсальный и визуально дорогой вариант
+    - generic [ref=e41]:
+      - generic [ref=e42]: Вариант 3
+      - generic [ref=e44]: Icon watermark in corner
+      - generic:
+        - img
+      - heading "Спокойный фон" [level=2] [ref=e46]
+      - list [ref=e47]:
+        - listitem [ref=e48]:
+          - generic [ref=e50]: Иконка живёт в углу и не забивает типографику.
+        - listitem [ref=e51]:
+          - generic [ref=e53]: Самая безопасная схема для длинных списков и мелких экранов.
+        - listitem [ref=e54]:
+          - generic [ref=e56]: Визуально чище, но менее заметный характер.
+      - generic [ref=e57]: Подходит, если нужен минимальный риск

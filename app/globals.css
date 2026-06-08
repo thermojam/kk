@@ -176,11 +176,7 @@ section[id] {
 .embla__slide {
     flex: 0 0 var(--slide-size-base, 85vw);
     min-width: 0;
-    padding-left: 16px;
-}
-
-.embla__slide:first-child {
-    padding-left: 0;
+    padding-inline: 8px;
 }
 
 @media (min-width: 861px) {

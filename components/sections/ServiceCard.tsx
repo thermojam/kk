@@ -8,14 +8,15 @@ type ServiceCardProps = { item: Service };
 
 export function ServiceCard({ item }: ServiceCardProps) {
     const featured = item.featured === true;
+    const showDisclaimerBeforePrices = item.id === 'bereginya' && Boolean(item.disclaimer);
 
     return (
         <article
             className={cn(
-                'relative flex h-full flex-col gap-4 rounded-lg p-6',
+                'relative flex h-full flex-col gap-4 rounded-lg p-6 transition-shadow duration-200',
                 featured
-                    ? 'bg-primary-500 text-neutral-0'
-                    : 'bg-neutral-0 text-neutral-900 border border-neutral-100 shadow-sm'
+                    ? 'bg-primary-500 text-neutral-0 shadow-[0_18px_50px_-28px_rgba(30,30,46,0.3)]'
+                    : 'border border-neutral-100 bg-neutral-0 text-neutral-900 shadow-[0_18px_50px_-32px_rgba(30,30,46,0.18)]'
             )}
         >
             <Badge tone={featured ? 'accent' : 'neutral'} className="self-start">
@@ -51,6 +52,8 @@ export function ServiceCard({ item }: ServiceCardProps) {
             >
                 {item.description}
             </p>
+
+            {showDisclaimerBeforePrices && <DisclaimerToggle text={item.disclaimer} />}
 
             {(item.prices.length > 0 || item.pricingNote) && (
                 <div
@@ -101,7 +104,7 @@ export function ServiceCard({ item }: ServiceCardProps) {
                 </div>
             )}
 
-            {item.disclaimer && <DisclaimerToggle text={item.disclaimer} />}
+            {!showDisclaimerBeforePrices && item.disclaimer && <DisclaimerToggle text={item.disclaimer} />}
 
             <TelegramButton
                 goal={item.cta.tgGoal}

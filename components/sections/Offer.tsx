@@ -8,7 +8,7 @@ export function Offer() {
     return (
         <section className="bg-white">
             <div className="container-page flex flex-col items-center px-6 py-16 text-center lg:py-24">
-                <h2 className="font-serif text-[38px] italic leading-tight text-neutral-900 lg:text-[56px]">
+                <h2 className="font-serif text-[28px] italic leading-tight text-neutral-900 lg:text-[34px]">
                     Готова вернуться к себе?
                 </h2>
                 <p className="mt-5 max-w-2xl text-body text-neutral-700">
@@ -19,10 +19,10 @@ export function Offer() {
                     goal={TG_GOALS.offer}
                     text={OFFER_TG_TEXT}
                     variant="accent"
-                    size="lg"
+                    size="md"
                     className="mt-8"
                 >
-                    Написать в Telegram
+                    Хочу консультацию
                 </TelegramButton>
                 <p className="mt-4 text-sm text-primary-500">Отвечаю лично, обычно в течение дня</p>
             </div>

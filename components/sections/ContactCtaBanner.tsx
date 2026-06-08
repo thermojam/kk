@@ -16,7 +16,7 @@ export function ContactCtaBanner() {
                 variant="primary"
                 size="md"
             >
-                Бесплатная консультация
+                Хочу диагностику
             </TelegramButton>
         </div>
     );

@@ -76,7 +76,7 @@ export function Hero() {
                             size="lg"
                             className="w-full px-8 sm:w-auto"
                         >
-                            Написать в Telegram
+                            Написать в Телеграм
                         </TelegramButton>
                         <Button
                             href="#services"
