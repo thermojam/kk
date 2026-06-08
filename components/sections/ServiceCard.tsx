@@ -53,7 +53,9 @@ export function ServiceCard({ item }: ServiceCardProps) {
                 {item.description}
             </p>
 
-            {showDisclaimerBeforePrices && <DisclaimerToggle text={item.disclaimer} />}
+            {showDisclaimerBeforePrices && item.disclaimer && (
+                <DisclaimerToggle text={item.disclaimer} />
+            )}
 
             {(item.prices.length > 0 || item.pricingNote) && (
                 <div
