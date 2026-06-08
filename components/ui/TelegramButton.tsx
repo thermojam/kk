@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/Button';
 import { reachGoal } from '@/lib/analytics/metrika';
 import { tgLink, type TgGoal } from '@/lib/telegram';
 
-type Variant = 'primary' | 'secondary' | 'ghost' | 'accent';
+type Variant = 'primary' | 'secondary' | 'accent';
 type Size = 'md' | 'lg';
 
 type TelegramButtonProps = {

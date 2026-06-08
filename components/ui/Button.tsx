@@ -1,7 +1,7 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 import { cn } from '@/lib/cn';
 
-type Variant = 'primary' | 'secondary' | 'ghost' | 'accent';
+type Variant = 'primary' | 'secondary' | 'accent';
 type Size = 'md' | 'lg';
 
 type CommonProps = {
@@ -27,7 +27,6 @@ const variantClasses: Record<Variant, string> = {
     primary: 'bg-primary-500 text-neutral-0 hover:bg-primary-600 focus-visible:ring-primary-300',
     secondary:
         'border border-primary-500 text-primary-500 bg-transparent hover:bg-primary-50 focus-visible:ring-primary-300',
-    ghost: 'text-primary-500 bg-transparent hover:underline focus-visible:ring-primary-300',
     accent: 'bg-accent-500 text-neutral-900 hover:opacity-90 focus-visible:ring-accent-500',
 };
 
