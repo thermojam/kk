@@ -8,7 +8,7 @@ export function ContactCtaBanner() {
     return (
         <div className="mt-12 flex flex-col items-center gap-5 px-6 py-8 text-center lg:py-12">
             <p className="max-w-md font-serif text-[28px] italic leading-tight text-neutral-900 lg:text-[34px]">
-                Не знаешь, с чего начать? Начни с бесплатного звонка.
+                Начни с бесплатной 20-минутной консультации.
             </p>
             <TelegramButton
                 goal={TG_GOALS.servicesBanner}
@@ -16,7 +16,7 @@ export function ContactCtaBanner() {
                 variant="primary"
                 size="md"
             >
-                Хочу диагностику
+                Начать со звонка
             </TelegramButton>
         </div>
     );

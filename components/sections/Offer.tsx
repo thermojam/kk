@@ -22,7 +22,7 @@ export function Offer() {
                     size="md"
                     className="mt-8"
                 >
-                    Хочу консультацию
+                    Обсудить мой запрос
                 </TelegramButton>
                 <p className="mt-4 text-sm text-primary-500">Отвечаю лично, обычно в течение дня</p>
             </div>

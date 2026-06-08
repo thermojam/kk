@@ -1,0 +1,40 @@
+name: Deploy Next.js Static Site to Beget VPS
+
+on:
+    push:
+        branches:
+            - main # Сценарий запустится при пуше в ветку main
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            # 1. Скачиваем код из репозитория
+            -   name: Checkout repository
+                uses: actions/checkout@v4
+
+            # 2. Устанавливаем Node.js окружение
+            -   name: Set up Node.js
+                uses: actions/setup-node@v4
+                with:
+                    node-version: 20
+                    cache: 'npm'
+
+            # 3. Устанавливаем зависимости и собираем статику Next.js
+            -   name: Install dependencies & Build static site
+                run: |
+                    npm ci
+                    npm run build
+
+            # 4. Переименовываем папку out в public_html (как настроено в Nginx)
+            -   name: Prepare folder structure
+                run: mv out public_html
+
+            # 5. Копируем файлы на VPS по протоколу SSH/Rsync
+            -   name: Deploy to Beget VPS via Rsync
+                uses: JamesIves/github-pages-deploy-action@v4 # Этот экшн отлично подходит для синхронизации папок
+                with:
+                    folder: public_html # Какую папку отправляем
+                    target-folder: /var/www/kk/public_html # Куда складываем файлы на сервере
+                    ssh-key: ${{ secrets.SSH_KEY }}
