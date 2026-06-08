@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import { Check } from 'lucide-react';
 import type { Qualification } from '@/content/home';
+import { ResponsiveImage } from '@/components/ui/ResponsiveImage';
 
 type AboutProps = { qualifications: Qualification[] };
 
@@ -9,14 +9,15 @@ export function About({ qualifications }: AboutProps) {
         <section id="about" className="container-page py-16 lg:py-24">
             <div className="grid gap-10 lg:grid-cols-[380px_1fr] lg:gap-16 lg:items-center">
                 <div className="order-1 lg:order-1">
-                    <Image
-                        src="/images/about.webp"
+                    <ResponsiveImage
+                        name="about"
                         alt="Ксения Каменская"
+                        widths={[320, 480, 760]}
+                        fallbackWidth={480}
                         width={1086}
                         height={1448}
-                        sizes="(min-width: 1024px) 480px, 100vw"
+                        sizes="(min-width: 1024px) 380px, 320px"
                         className="w-full rounded-lg object-cover aspect-[3/4] max-w-[320px] mx-auto lg:max-w-none lg:mx-0"
-                        loading="eager"
                     />
                 </div>
                 <div className="order-2 lg:order-2 flex flex-col gap-8">
