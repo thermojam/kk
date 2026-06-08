@@ -40,6 +40,6 @@ export const offer = {
             body: `Исполнитель: ${BUSINESS.name}. ИНН ${BUSINESS.inn}, ОГРНИП ${BUSINESS.ogrnip}. Контакты: ${BUSINESS.email}, Телеграм ${BUSINESS.tg}.`,
         },
     ],
-} as const;
+};
 
 export type Offer = typeof offer;
