@@ -38,7 +38,7 @@ export function Hero() {
                         <span className="block">
                             тела <span className="text-accent-500">и</span>
                         </span>
-                        <span className="block text-accent-500">проявленности.</span>
+                        <span className="block text-accent-500">проявленности</span>
                     </h1>
 
                     <p
