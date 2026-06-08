@@ -45,7 +45,7 @@ export function initMetrika(): void {
 
     window.ym?.(YM_ID, 'init', {
         ssr: false,
-        webvisor: false, // явно отключено (см. аудит A3)
+        webvisor: true,
         clickmap: true,
         ecommerce: false,
         accurateTrackBounce: true,
