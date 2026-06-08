@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { cn } from '@/lib/cn';
 
-type BadgeTone = 'neutral' | 'accent' | 'primary' | 'inverse';
+type BadgeTone = 'neutral' | 'accent';
 
 type BadgeProps = {
     tone?: BadgeTone;
@@ -12,8 +12,6 @@ type BadgeProps = {
 const toneClasses: Record<BadgeTone, string> = {
     neutral: 'bg-neutral-50 text-neutral-700 border border-neutral-100',
     accent: 'bg-accent-500 text-neutral-900',
-    primary: 'bg-primary-50 text-primary-500 border border-primary-300',
-    inverse: 'bg-neutral-0 text-primary-500',
 };
 
 export function Badge({ tone = 'neutral', className, children }: BadgeProps) {
