@@ -2,6 +2,7 @@ import { About } from '@/components/sections/About';
 import { Cases } from '@/components/sections/Cases';
 import { FAQ } from '@/components/sections/FAQ';
 import { Hero } from '@/components/sections/Hero';
+import { FaqJsonLd } from '@/components/seo/FaqJsonLd';
 import { PersonJsonLd } from '@/components/seo/PersonJsonLd';
 import { Services } from '@/components/sections/Services';
 import { WorkAreas } from '@/components/sections/WorkAreas';
@@ -12,6 +13,7 @@ export default function HomePage() {
     return (
         <>
             <PersonJsonLd />
+            <FaqJsonLd />
             <Hero />
             <About qualifications={qualifications} />
             <WorkAreas items={workAreas} />

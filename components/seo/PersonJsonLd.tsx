@@ -6,8 +6,16 @@ export function PersonJsonLd() {
         '@type': 'Person',
         name: 'Ксения Каменская',
         jobTitle: 'Психолог, специалист по психосоматике и телесной терапии',
+        description:
+            'Психолог. Консультации, длительное сопровождение «Путь к себе», славянская гимнастика «Сила Берегини».',
+        image: `${BUSINESS.siteUrl}/images/about.webp`,
         url: BUSINESS.siteUrl,
         email: `mailto:${BUSINESS.email}`,
+        knowsAbout: ['Психология', 'Психосоматика', 'Телесная терапия', 'Женские практики'],
+        areaServed: {
+            '@type': 'Country',
+            name: 'Россия',
+        },
         sameAs: [
             'https://t.me/xenia_kamensky',
             'https://t.me/kmensky_case',
