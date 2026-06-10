@@ -16,8 +16,17 @@ export function CookieBanner() {
             return;
         }
         if (decision === null) {
-            const id = requestAnimationFrame(() => setVisible(true));
-            return () => cancelAnimationFrame(id);
+            const show = () => setVisible(true);
+            const events: Array<keyof WindowEventMap> = [
+                'scroll',
+                'touchstart',
+                'pointerdown',
+                'keydown',
+            ];
+            events.forEach((e) =>
+                window.addEventListener(e, show, { once: true, passive: true }),
+            );
+            return () => events.forEach((e) => window.removeEventListener(e, show));
         }
     }, []);
 

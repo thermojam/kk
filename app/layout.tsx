@@ -14,7 +14,7 @@ const cormorant = Cormorant_Garamond({
     subsets: ['latin', 'cyrillic'],
     weight: ['400'],
     style: ['italic'],
-    display: 'swap',
+    display: 'optional',
 });
 
 export const metadata: Metadata = {
