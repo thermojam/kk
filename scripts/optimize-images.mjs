@@ -43,11 +43,41 @@ async function processOne({ name, file, widths }) {
     }
 }
 
+async function processOg() {
+    const srcPath = path.join(SRC_DIR, 'about.webp');
+    const targets = [
+        {
+            file: 'og-cover.webp',
+            encode: (pipeline) => pipeline.webp({ quality: 80 }),
+        },
+        {
+            file: 'og-cover.jpg',
+            encode: (pipeline) => pipeline.jpeg({ quality: 82, mozjpeg: true }),
+        },
+    ];
+    for (const { file, encode } of targets) {
+        const outPath = path.join(SRC_DIR, file);
+        if (await isFresh(srcPath, outPath)) {
+            console.log(`skip   ${file}`);
+            continue;
+        }
+        const buffer = await encode(
+            sharp(srcPath).resize(1200, 630, {
+                fit: 'cover',
+                position: sharp.strategy.attention,
+            }),
+        ).toBuffer();
+        await fs.writeFile(outPath, buffer);
+        console.log(`wrote  ${file} (${(buffer.length / 1024).toFixed(1)} KB)`);
+    }
+}
+
 async function main() {
     await fs.mkdir(OUT_DIR, { recursive: true });
     for (const source of SOURCES) {
         await processOne(source);
     }
+    await processOg();
 }
 
 main().catch((err) => {
