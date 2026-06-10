@@ -27,6 +27,13 @@ export const metadata: Metadata = {
         'Психолог, специалист по работе с телом и эмоциями. Консультации, длительное сопровождение «Путь к себе», славянская гимнастика «Сила Берегини».',
     keywords: ['психолог', 'женские практики', 'консультация психолога', 'Сила Берегини', 'СПб'],
     authors: [{ name: 'Ксения Каменская' }],
+    alternates: {
+        canonical: '/',
+    },
+    verification: {
+        yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
+        google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+    },
     icons: {
         icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
     },
@@ -40,9 +47,9 @@ export const metadata: Metadata = {
             'Психолог, специалист по работе с телом и эмоциями. Консультации, программа «Путь к себе», «Сила Берегини».',
         images: [
             {
-                url: '/images/about.webp',
-                width: 960,
-                height: 1280,
+                url: '/images/og-cover.webp',
+                width: 1200,
+                height: 630,
                 alt: 'Ксения Каменская — психолог',
             },
         ],
@@ -51,7 +58,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'Ксения Каменская · Психолог · Женские практики',
         description: 'Психология женского тела и проявленности.',
-        images: ['/images/about.webp'],
+        images: ['/images/og-cover.webp'],
     },
     robots: { index: true, follow: true },
 };

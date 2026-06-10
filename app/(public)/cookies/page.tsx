@@ -4,6 +4,7 @@ import { cookiesPolicy } from '@/content/legal/cookies';
 
 export const metadata: Metadata = {
     title: 'Политика куки',
+    alternates: { canonical: '/cookies/' },
     robots: { index: false, follow: false },
 };
 

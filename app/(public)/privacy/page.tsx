@@ -4,6 +4,7 @@ import { privacyPolicy } from '@/content/legal/privacy';
 
 export const metadata: Metadata = {
     title: 'Политика обработки персональных данных',
+    alternates: { canonical: '/privacy/' },
     robots: { index: false, follow: false },
 };
 

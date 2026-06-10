@@ -4,6 +4,7 @@ import { offer } from '@/content/legal/offer';
 
 export const metadata: Metadata = {
     title: 'Публичная оферта',
+    alternates: { canonical: '/offer/' },
     robots: { index: false, follow: false },
 };
 
