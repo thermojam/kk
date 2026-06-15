@@ -50,7 +50,7 @@ export function CookieBanner() {
             className="
                 fixed inset-x-0 bottom-0 z-40 border-t border-neutral-100 bg-neutral-0 p-4
                 shadow-[0_-8px_24px_-18px_rgba(30,30,46,0.2)]
-                lg:p-6
+                lg:p-6 rounded-md
             "
         >
             <div className="container-page flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
