@@ -1,36 +1,141 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## О проекте
 
-## Getting Started
+Сайт знакомит посетителя со специалистом, направлениями работы и доступными услугами. Пользователь может изучить подход, посмотреть клиентские истории, получить ответы на частые вопросы и перейти к записи через Telegram.
 
-First, run the development server:
+Проект разработан с упором на мобильную версию, понятную подачу сложного контента, скорость загрузки, доступность и поисковую оптимизацию.
+
+## Основные возможности
+
+- адаптивный интерфейс;
+- первый экран с основным предложением и фотографией специалиста;
+- блоки с направлениями работы;
+- описание подхода и квалификации;
+- реальные истории клиенток;
+- каталог услуг и цен;
+- адаптивная карусель услуг;
+- мобильная карусель клиентских историй;
+- FAQ;
+- Telegram-ссылки с готовым текстом для каждой услуги;
+- отдельные цели аналитики для разных кнопок;
+- Яндекс.Метрика и Вебвизор;
+- управление согласием на cookies;
+- юридические страницы;
+- оптимизированные адаптивные изображения;
+- Open Graph-изображение для социальных сетей и мессенджеров;
+- SEO-метаданные;
+- canonical URL;
+- robots.txt и sitemap.xml;
+- структурированные данные Person и FAQPage;
+- статическая production-сборка.
+
+## Технологии
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Radix UI
+- Embla Carousel
+- Lucide React
+- Sharp
+- Next Metadata API
+- ESLint
+- Prettier
+- Яндекс.Метрика
+- Telegram deep links
+
+## Структура проекта
+
+```text
+kk/
+├── app/                    # страницы, metadata routes и глобальные стили
+├── components/
+│   ├── carousel/           # карусели
+│   ├── sections/           # секции сайта
+│   └── ui/                 # кнопки, логотип и общие элементы
+├── content/                # типизированный контент сайта
+├── lib/                    # аналитика, Telegram и утилиты
+├── public/                 # изображения и иконки
+├── scripts/                # оптимизация изображений
+└── docs/                   # технические материалы проекта
+```
+
+Контент услуг, цен, клиентских историй и FAQ вынесен в отдельный типизированный модуль. Это позволяет менять тексты без переработки компонентов.
+
+## Локальный запуск
+
+### Требования
+
+- Node.js;
+- npm.
+
+### 1. Клонирование и установка
+
+```bash
+git clone https://github.com/thermojam/kk.git
+cd kk
+npm install
+```
+
+### 2. Запуск режима разработки
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Переменные окружения
 
-## Learn More
+Для подтверждения сайта в поисковых системах можно создать `.env.local`:
 
-To learn more about Next.js, take a look at the following resources:
+```env
+NEXT_PUBLIC_YANDEX_VERIFICATION=
+NEXT_PUBLIC_GOOGLE_VERIFICATION=
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Эти переменные необязательны для локального запуска.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Доступные команды
 
-## Deploy on Vercel
+```bash
+npm run dev           # режим разработки
+npm run build         # production-сборка
+npm start             # запуск Next.js
+npm run lint          # проверка ESLint
+npm run format        # форматирование кода
+npm run format:check  # проверка форматирования
+npm run images        # подготовка и оптимизация изображений
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Работа с изображениями
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Для изображений используются заранее подготовленные размеры и современные форматы. Скрипт на базе Sharp создаёт оптимизированные версии, включая обложку для социальных сетей.
+
+```bash
+npm run images
+```
+
+После изменения исходных фотографий рекомендуется повторно запустить эту команду.
+
+## SEO
+
+В проекте реализованы:
+
+- title и description;
+- Open Graph и Twitter Card;
+- canonical URL;
+- robots.txt;
+- sitemap.xml;
+- подтверждение сайта для Яндекс и Google;
+- JSON-LD для специалиста;
+- JSON-LD для FAQ;
+- отдельное изображение 1200 × 630 для публикации ссылки.
+
+## Статус
+
+Проект запущен и работает на реальном домене. Сайт собирается в статические файлы и подходит для размещения без отдельного backend-сервера.
