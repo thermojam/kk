@@ -7,6 +7,7 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
         <>
             <main className="flex-1">{children}</main>
             <Footer />
+            <div className="h-[var(--cookie-banner-h,0px)]" aria-hidden="true" />
             <CookieBanner />
         </>
     );

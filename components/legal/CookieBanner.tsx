@@ -1,13 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { initMetrika } from '@/lib/analytics/metrika';
 import { readConsent, writeConsent } from '@/lib/analytics/consent';
 
 export function CookieBanner() {
     const [visible, setVisible] = useState(false);
+    const bannerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const decision = readConsent();
@@ -30,6 +31,27 @@ export function CookieBanner() {
         }
     }, []);
 
+    // Баннер зафиксирован снизу и перекрывает нижние ссылки футера.
+    // Резервируем под него место в потоке (--cookie-banner-h, см. PublicLayout),
+    // чтобы страницу можно было докрутить и футер не оказался под баннером.
+    useEffect(() => {
+        const root = document.documentElement;
+        if (!visible) {
+            root.style.setProperty('--cookie-banner-h', '0px');
+            return;
+        }
+        const el = bannerRef.current;
+        if (!el) return;
+        const update = () => root.style.setProperty('--cookie-banner-h', `${el.offsetHeight}px`);
+        update();
+        const observer = new ResizeObserver(update);
+        observer.observe(el);
+        return () => {
+            observer.disconnect();
+            root.style.setProperty('--cookie-banner-h', '0px');
+        };
+    }, [visible]);
+
     if (!visible) return null;
 
     function handleAccept() {
@@ -45,6 +67,7 @@ export function CookieBanner() {
 
     return (
         <div
+            ref={bannerRef}
             role="region"
             aria-label="Согласие на куки"
             className="
