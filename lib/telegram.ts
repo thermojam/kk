@@ -8,6 +8,7 @@ export const TG_GOALS = {
     serviceSession: 'tg_click_service_session',
     serviceProgram: 'tg_click_service_program',
     serviceGym: 'tg_click_service_gym',
+    serviceCombo: 'tg_click_service_combo',
     serviceFree: 'tg_click_service_free',
     servicesBanner: 'tg_click_services_banner',
 } as const;
