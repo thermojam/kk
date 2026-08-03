@@ -24,8 +24,8 @@ export function Footer() {
                 <div className="grid gap-10 lg:grid-cols-3">
                     {/* Левая колонка */}
                     <div>
-                        <Link href="/" aria-label="На главную">
-                            <Logo tone="duotone" />
+                        <Link href="/" aria-label="На главную" className="inline-flex">
+                            <Logo size={58} className="text-white" />
                         </Link>
                         <p className="mt-4 text-white">Ксения Каменская</p>
                         <p className="text-white/70">Психолог · Женские практики</p>

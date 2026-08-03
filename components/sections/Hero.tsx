@@ -19,7 +19,7 @@ export function Hero() {
 
             <div className="container-page relative z-20 pt-4 lg:pt-6">
                 <Link href="/" aria-label="На главную" className="inline-flex">
-                    <Logo size={58} tone="mono" className="text-white" />
+                    <Logo size={58} className="text-white" />
                 </Link>
             </div>
 
