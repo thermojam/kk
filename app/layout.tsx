@@ -20,7 +20,7 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
     metadataBase: new URL('https://ksenia-kamenskaya.ru'),
     title: {
-        default: 'Ксения Каменская · Психолог · Женские практики',
+        default: 'Ксения Каменская · Психолог · Консультант по рациональному питанию',
         template: '%s · Ксения Каменская',
     },
     description:
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
         locale: 'ru_RU',
         url: 'https://ksenia-kamenskaya.ru',
         siteName: 'Ксения Каменская',
-        title: 'Ксения Каменская · Психолог · Женские практики',
+        title: 'Ксения Каменская · Психолог · Консультант по рациональному питанию',
         description:
             'Психолог, специалист по работе с телом и эмоциями. Консультации, программа «Путь к себе», «Сила Берегини».',
         images: [
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Ксения Каменская · Психолог · Женские практики',
+        title: 'Ксения Каменская · Психолог · Консультант по рациональному питанию',
         description: 'Психология женского тела и проявленности.',
         images: ['/images/og-cover.webp'],
     },

@@ -1054,7 +1054,7 @@ export function Footer() {
                             <Logo tone="duotone" />
                         </Link>
                         <p className="mt-4 text-white">Ксения Каменская</p>
-                        <p className="text-white/70">Психолог · Женские практики</p>
+                        <p className="text-white/70">Психолог · Консультант по рациональному питанию</p>
                         <p className="mt-6 text-[13px] text-white/55">
                             Услуги психолога не являются психотерапией
                             <br />
@@ -1560,7 +1560,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     metadataBase: new URL('https://kamenskaya.ru'),
     title: {
-        default: 'Ксения Каменская · Психолог · Женские практики',
+        default: 'Ксения Каменская · Психолог · Консультант по рациональному питанию',
         template: '%s · Ксения Каменская',
     },
     description:
@@ -1572,7 +1572,7 @@ export const metadata: Metadata = {
         locale: 'ru_RU',
         url: 'https://kamenskaya.ru',
         siteName: 'Ксения Каменская',
-        title: 'Ксения Каменская · Психолог · Женские практики',
+        title: 'Ксения Каменская · Психолог · Консультант по рациональному питанию',
         description:
             'Психолог, специалист по работе с телом и эмоциями. Консультации, программа «Путь к себе», «Сила Берегини».',
         images: [

@@ -28,7 +28,7 @@ export function Footer() {
                             <Logo size={58} className="text-white" />
                         </Link>
                         <p className="mt-4 text-white">Ксения Каменская</p>
-                        <p className="text-white/70">Психолог · Женские практики</p>
+                        <p className="text-white/70">Психолог · Консультант по рациональному питанию</p>
                         <p className="mt-6 text-[13px] text-white/55">
                             Услуги психолога не являются психотерапией
                             <br />и медицинской помощью.

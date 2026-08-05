@@ -1184,7 +1184,7 @@ export function Footer() {
           {/* Левая колонка */}
           <div className="flex flex-col gap-3 text-neutral-700">
             <Logo variant="mark+text" />
-            <p className="text-body">Психолог · Женские практики</p>
+            <p className="text-body">Психолог · Консультант по рациональному питанию</p>
             <p className="text-[13px] text-neutral-500">
               Услуги психолога не являются психотерапией и медицинской помощью.
             </p>
