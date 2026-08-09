@@ -1,7 +1,9 @@
 import { TelegramButton } from '@/components/ui/TelegramButton';
+import { BuyButton } from '@/components/payment/BuyButton';
 import { Badge } from '@/components/ui/Badge';
 import { DisclaimerToggle } from '@/components/sections/DisclaimerToggle';
 import type { Service } from '@/content/home';
+import { formatPrice, getProduct } from '@/lib/payments/catalog';
 import { cn } from '@/lib/cn';
 
 type ServiceCardProps = { item: Service };
@@ -9,6 +11,13 @@ type ServiceCardProps = { item: Service };
 export function ServiceCard({ item }: ServiceCardProps) {
     const featured = item.featured === true;
     const showDisclaimerBeforePrices = item.id === 'bereginya' && Boolean(item.disclaimer);
+
+    // У платной услуги prices намеренно пуст: цена приходит из каталога —
+    // из того же места, откуда её берёт register.do.
+    const prices =
+        item.cta.kind === 'payment'
+            ? [{ value: formatPrice(getProduct(item.cta.productId).priceKopecks) }]
+            : item.prices;
 
     return (
         <article
@@ -57,16 +66,16 @@ export function ServiceCard({ item }: ServiceCardProps) {
                 <DisclaimerToggle text={item.disclaimer} />
             )}
 
-            {(item.prices.length > 0 || item.pricingNote) && (
+            {(prices.length > 0 || item.pricingNote) && (
                 <div
                     className={cn(
                         'mt-auto flex flex-col gap-2 border-t pt-3.5',
                         featured ? 'border-neutral-0/20' : 'border-neutral-100'
                     )}
                 >
-                    {item.prices.length > 0 && (
+                    {prices.length > 0 && (
                         <ul className="flex flex-col gap-2">
-                            {item.prices.map((price) => (
+                            {prices.map((price) => (
                                 <li
                                     key={price.value + (price.meta ?? '')}
                                     className="flex flex-wrap items-baseline gap-x-3 gap-y-1"
@@ -108,17 +117,29 @@ export function ServiceCard({ item }: ServiceCardProps) {
 
             {!showDisclaimerBeforePrices && item.disclaimer && <DisclaimerToggle text={item.disclaimer} />}
 
-            <TelegramButton
-                goal={item.cta.tgGoal}
-                text={item.cta.tgText}
-                variant="primary"
-                className={cn(
-                    item.prices.length === 0 && !item.pricingNote && 'mt-auto',
-                    featured && '!bg-neutral-0 !text-primary-500 hover:!bg-neutral-50'
-                )}
-            >
-                {item.cta.label}
-            </TelegramButton>
+            {item.cta.kind === 'payment' ? (
+                <BuyButton
+                    productId={item.cta.productId}
+                    label={item.cta.label}
+                    variant="primary"
+                    size="md"
+                    className={cn(
+                        featured && '!bg-neutral-0 !text-primary-500 hover:!bg-neutral-50'
+                    )}
+                />
+            ) : (
+                <TelegramButton
+                    goal={item.cta.tgGoal}
+                    text={item.cta.tgText}
+                    variant="primary"
+                    className={cn(
+                        prices.length === 0 && !item.pricingNote && 'mt-auto',
+                        featured && '!bg-neutral-0 !text-primary-500 hover:!bg-neutral-50'
+                    )}
+                >
+                    {item.cta.label}
+                </TelegramButton>
+            )}
         </article>
     );
 }

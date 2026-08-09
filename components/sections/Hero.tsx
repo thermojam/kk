@@ -1,6 +1,4 @@
-import Link from 'next/link';
 import { TelegramButton } from '@/components/ui/TelegramButton';
-import { Logo } from '@/components/ui/Logo';
 import { TG_GOALS } from '@/lib/telegram';
 import { HeroBackground } from '@/components/sections/HeroBackground';
 import { Button } from '@/components/ui/Button';
@@ -13,17 +11,13 @@ export function Hero() {
     return (
         <section
             id="hero"
-            className="relative isolate min-h-[760px] overflow-hidden rounded-b-[42px] bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)] lg:min-h-screen lg:rounded-b-[72px]"
+            // -mt-[72px] и pt-[72px] — ровно высота хедера: он занимает место
+            // в потоке, а тёмный градиент должен уходить ему под низ.
+            className="relative isolate -mt-[72px] min-h-[760px] overflow-hidden rounded-b-[42px] bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)] pt-[72px] lg:min-h-screen lg:rounded-b-[72px]"
         >
             <HeroBackground />
 
-            <div className="container-page relative z-20 pt-4 lg:pt-6">
-                <Link href="/" aria-label="На главную" className="inline-flex">
-                    <Logo size={58} className="text-white" />
-                </Link>
-            </div>
-
-            <div className="container-page relative z-10 grid gap-10 pb-24 pt-14 lg:min-h-[calc(100vh-82px)] lg:grid-cols-[minmax(0,1.12fr)_minmax(420px,0.88fr)] lg:items-center lg:pb-0 lg:pt-4">
+            <div className="container-page relative z-10 grid gap-10 pb-24 pt-14 lg:min-h-[calc(100vh-72px)] lg:grid-cols-[minmax(0,1.12fr)_minmax(420px,0.88fr)] lg:items-center lg:pb-0 lg:pt-4">
                 <div className="flex flex-col items-start gap-6 lg:max-w-[720px] lg:pb-8">
                     <span className="hero-reveal font-sans text-[11px] font-bold uppercase tracking-[0.38em] text-accent-500 lg:text-[12px]">
                         Ксения Каменская

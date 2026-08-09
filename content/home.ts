@@ -1,5 +1,6 @@
 import type { TgGoal } from '@/lib/telegram';
 import { TG_GOALS } from '@/lib/telegram';
+import type { ProductId } from '@/lib/payments/catalog';
 
 export type WorkAreaIconName = 'heart-pulse' | 'compass' | 'sparkles';
 
@@ -23,6 +24,15 @@ export type ServicePrice = {
     meta?: string;
 };
 
+/**
+ * Кнопка карточки: либо переписка в Телеграме, либо оплата на сайте.
+ * У оплаты нет ни цены, ни текста сообщения — цена берётся из catalog.ts
+ * по productId, чтобы на кнопке и в заказе не оказалось двух разных сумм.
+ */
+export type ServiceCta =
+    | { kind: 'telegram'; label: string; tgGoal: TgGoal; tgText: string }
+    | { kind: 'payment'; label: string; productId: ProductId };
+
 export type Service = {
     id: string;
     badge: string;
@@ -33,7 +43,7 @@ export type Service = {
     prices: ServicePrice[];
     /** Дополнительная строка курсивом под тарифами. Например, «стоимость — после диагностической встречи». */
     pricingNote?: string;
-    cta: { label: string; tgGoal: TgGoal; tgText: string };
+    cta: ServiceCta;
     featured?: boolean;
     disclaimer?: string;
 };
@@ -114,10 +124,25 @@ export const services: Service[] = [
             'Разовая встреча для тех, у кого основной запрос — про вес, переедание, контакт со своим телом. Разбираем, что происходит, ищем психологические причины и намечаем первые шаги.',
         prices: [{ value: '5 000 ₽', meta: 'за 1,5 часа' }],
         cta: {
+            kind: 'telegram',
             label: 'Записаться',
             tgGoal: TG_GOALS.serviceFood,
             tgText: 'Здравствуйте! Интересует консультация «Отношения с едой и телом».',
         },
+    },
+    {
+        // Курс стоит вторым намеренно: на десктопе слайдер показывает три
+        // карточки, и вторая оказывается по центру — там же, куда падает взгляд.
+        id: 'course',
+        badge: '★ Новый курс',
+        title: 'Три ступени к телу',
+        subtitle: 'Групповой курс',
+        description:
+            'Три ступени: психокоррекция, питание и образ жизни, славянская гимнастика. Четыре недели, одна глубокая сессия в неделю. Оплата на сайте, доступ в закрытый чат сразу после оплаты.',
+        // Цена не дублируется: карточка возьмёт её из catalog.ts по productId.
+        prices: [],
+        cta: { kind: 'payment', label: 'Купить', productId: 'course' },
+        featured: true,
     },
     {
         id: 'path-to-self',
@@ -129,11 +154,13 @@ export const services: Service[] = [
         prices: [{ value: '3 / 6', meta: 'месяцев сопровождения' }],
         pricingNote: 'Стоимость — после диагностической встречи',
         cta: {
+            kind: 'telegram',
             label: 'Записаться на диагностику',
             tgGoal: TG_GOALS.serviceProgram,
             tgText: 'Здравствуйте! Хочу записаться на диагностику по программе «Путь к себе».',
         },
-        featured: true,
+        // featured снят: выделенная карточка на слайдере теперь одна — курс.
+        // Бейдж «★ Основная программа» остаётся.
     },
     {
         id: 'session',
@@ -147,6 +174,7 @@ export const services: Service[] = [
             { value: '12 000 ₽', meta: 'пакет из 3 сессий' },
         ],
         cta: {
+            kind: 'telegram',
             label: 'Записаться',
             tgGoal: TG_GOALS.serviceSession,
             tgText: 'Здравствуйте! Интересует психологическая сессия 1:1.',
@@ -164,6 +192,7 @@ export const services: Service[] = [
             { value: '8 000 ₽', meta: 'с индивидуальным разбором' },
         ],
         cta: {
+            kind: 'telegram',
             label: 'Записаться',
             tgGoal: TG_GOALS.serviceGym,
             tgText: 'Здравствуйте! Интересует гимнастика «Сила Берегини».',
@@ -180,6 +209,7 @@ export const services: Service[] = [
             'На стыке нутрициологии и психосоматики: разбираем пищевые привычки, ритм жизни и телесные реакции, которые стоят за срывами и усталостью. Быстрый практический старт для тех, кто хочет действовать, а не только разбираться.',
         prices: [{ value: '7 500 ₽', meta: '2 сессии для активного старта' }],
         cta: {
+            kind: 'telegram',
             label: 'Записаться',
             tgGoal: TG_GOALS.serviceCombo,
             tgText: 'Здравствуйте! Интересует комбо «Питание и образ жизни + психосоматика».',
@@ -194,7 +224,7 @@ export const services: Service[] = [
             'Знакомство, обсуждение запроса, помогу определить подходящий формат. За 20 минут сможем понять, с чего лучше начать работу. Обсудим ваш запрос, ожидания и возможные дальнейшие шаги. Если формат не подойдёт, честно скажу об этом.',
         prices: [],
         cta: {
-
+            kind: 'telegram',
             label: 'Записаться',
             tgGoal: TG_GOALS.serviceFree,
             tgText: 'Здравствуйте! Хочу записаться на бесплатную консультацию 20 минут.',

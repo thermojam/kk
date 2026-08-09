@@ -15,6 +15,17 @@ export const TG_GOALS = {
 
 export type TgGoal = (typeof TG_GOALS)[keyof typeof TG_GOALS];
 
+/** Цели воронки оплаты: клик → отправка формы → возврат из банка. */
+export const PAY_GOALS = {
+    headerClick: 'pay_header_click',
+    buyClick: 'pay_click',
+    submit: 'pay_submit',
+    success: 'pay_success',
+    fail: 'pay_fail',
+} as const;
+
+export type PayGoal = (typeof PAY_GOALS)[keyof typeof PAY_GOALS];
+
 export function tgLink(text: string): string {
     return `${CONTACTS.telegram}?text=${encodeURIComponent(text)}`;
 }
