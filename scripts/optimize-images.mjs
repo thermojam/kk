@@ -10,6 +10,10 @@ const OUT_DIR = path.join(ROOT, 'public', 'images', 'generated');
 const SOURCES = [
     { name: 'hero', file: 'hero.webp', widths: [960, 1440, 1920] },
     { name: 'about', file: 'about.webp', widths: [320, 480, 760] },
+    // Вырезанная фигура на прозрачном фоне: у исходника по 90px пустых полей
+    // слева и справа. Без trim фигура заняла бы половину своей рамки, а
+    // выравнивание по правому краю колонки цеплялось бы за пустоту.
+    { name: 'course', file: 'course-img.png', widths: [360, 500], trim: true },
 ];
 
 const FORMATS = [
@@ -26,7 +30,7 @@ async function isFresh(srcPath, outPath) {
     }
 }
 
-async function processOne({ name, file, widths }) {
+async function processOne({ name, file, widths, trim = false }) {
     const srcPath = path.join(SRC_DIR, file);
     for (const width of widths) {
         for (const { ext, encode } of FORMATS) {
@@ -36,7 +40,8 @@ async function processOne({ name, file, widths }) {
                 console.log(`skip   ${outName}`);
                 continue;
             }
-            const buffer = await encode(sharp(srcPath).resize({ width })).toBuffer();
+            const source = trim ? sharp(srcPath).trim() : sharp(srcPath);
+            const buffer = await encode(source.resize({ width })).toBuffer();
             await fs.writeFile(outPath, buffer);
             console.log(`wrote  ${outName} (${(buffer.length / 1024).toFixed(1)} KB)`);
         }

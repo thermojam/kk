@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { TelegramButton } from '@/components/ui/TelegramButton';
 import { BuyButton } from '@/components/payment/BuyButton';
 import { Badge } from '@/components/ui/Badge';
@@ -11,6 +12,9 @@ type ServiceCardProps = { item: Service };
 export function ServiceCard({ item }: ServiceCardProps) {
     const featured = item.featured === true;
     const showDisclaimerBeforePrices = item.id === 'bereginya' && Boolean(item.disclaimer);
+    // Курс — единственная услуга с отдельной страницей: вся карточка ведёт
+    // туда, а кнопка покупки остаётся поверх ссылки как быстрый путь к оплате.
+    const href = item.id === 'course' ? '/course' : undefined;
 
     // У платной услуги prices намеренно пуст: цена приходит из каталога —
     // из того же места, откуда её берёт register.do.
@@ -28,6 +32,12 @@ export function ServiceCard({ item }: ServiceCardProps) {
                     : 'border border-neutral-100 bg-neutral-0 text-neutral-900 shadow-[0_18px_50px_-32px_rgba(30,30,46,0.18)]'
             )}
         >
+            {href && (
+                <Link href={href} className="absolute inset-0" aria-label={item.title}>
+                    <span className="sr-only">{item.title}</span>
+                </Link>
+            )}
+
             <Badge tone={featured ? 'accent' : 'neutral'} className="self-start">
                 {item.badge}
             </Badge>
@@ -124,6 +134,7 @@ export function ServiceCard({ item }: ServiceCardProps) {
                     variant="primary"
                     size="md"
                     className={cn(
+                        'relative z-10',
                         featured && '!bg-neutral-0 !text-primary-500 hover:!bg-neutral-50'
                     )}
                 />

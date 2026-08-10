@@ -13,7 +13,7 @@ export function Hero() {
             id="hero"
             // -mt-[72px] и pt-[72px] — ровно высота хедера: он занимает место
             // в потоке, а тёмный градиент должен уходить ему под низ.
-            className="relative isolate -mt-[72px] min-h-[760px] overflow-hidden rounded-b-[42px] bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)] pt-[72px] lg:min-h-screen lg:rounded-b-[72px]"
+            className="relative isolate -mt-[72px] min-h-[760px] overflow-hidden rounded-b-[clamp(42px,7vw,72px)] bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)] pt-[72px] lg:min-h-screen"
         >
             <HeroBackground />
 

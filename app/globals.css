@@ -160,12 +160,35 @@ section[id] {
 }
 
 /* ============================================================
+   Браузерные поверхности: выделение, каретка, скроллбар,
+   подчёркивание — по палитре, а не по умолчанию браузера.
+   ============================================================ */
+::selection {
+    background: var(--color-accent-500);
+    color: var(--color-neutral-900);
+}
+
+html {
+    scrollbar-color: var(--color-primary-300) var(--color-neutral-50);
+}
+
+input,
+textarea {
+    caret-color: var(--color-primary-500);
+}
+
+a {
+    text-underline-offset: 3px;
+}
+
+/* ============================================================
    Embla — базовые правила слайдов.
    Ширина слайда задаётся CSS-переменными --slide-size-base /
    --slide-size-lg, которые EmblaCarousel прокидывает inline.
    ============================================================ */
 .embla__viewport {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 .embla__container {

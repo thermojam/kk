@@ -31,8 +31,8 @@ export default function CoursePage() {
         <>
             <CourseHero />
             <CourseSteps />
-            <CourseAudience />
             <CourseProgram />
+            <CourseAudience />
             <CoursePricing />
             <FAQ items={course.faq} />
             <ContactCtaBanner />

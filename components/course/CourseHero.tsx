@@ -1,60 +1,103 @@
-import { Badge } from '@/components/ui/Badge';
 import { BuyButton } from '@/components/payment/BuyButton';
+import { CourseHeroBackground } from '@/components/course/CourseHeroBackground';
+import { Button } from '@/components/ui/Button';
+import { ResponsiveImage } from '@/components/ui/ResponsiveImage';
 import { course } from '@/content/course';
 import { formatPrice, getProduct } from '@/lib/payments/catalog';
 
 /**
- * Тёмный первый экран в стиле Hero главной, но ниже и без фотографии.
+ * Тёмный первый экран в стиле Hero главной: слева обещание и решение,
+ * справа портрет ведущей — с десктопа, как на главной.
  * Отрицательный отступ сверху — под хедер, как на главной.
  */
 export function CourseHero() {
     const price = formatPrice(getProduct(course.productId).priceKopecks);
 
     return (
-        <section className="relative isolate -mt-[72px] min-h-[560px] overflow-hidden rounded-b-[42px] bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)] pt-[72px] lg:rounded-b-[72px]">
-            <div className="container-page flex flex-col items-start gap-6 pb-20 pt-14 lg:pb-28 lg:pt-20">
-                <Badge tone="accent" className="hero-reveal">
-                    Курс
-                </Badge>
+        <section className="relative isolate -mt-[72px] overflow-hidden rounded-b-[clamp(42px,7vw,72px)] bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)] pt-[72px]">
+            <CourseHeroBackground />
+            <div className="container-page relative z-10 grid items-center gap-10 pt-14 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.62fr)] lg:gap-8 lg:pt-16">
+                {/* Нижний воздух на мобильном держит эта колонка: соседняя там скрыта целиком. */}
+                <div className="hero-reveal flex flex-col items-start gap-8 pb-20 lg:gap-9 lg:pb-28">
+                    <div className="flex flex-col items-start gap-5">
+                        <h1 className="font-display text-white">
+                            <span className="block">Три ступени</span>
+                            <span className="block text-accent-500">к телу</span>
+                        </h1>
 
-                <h1 className="hero-reveal font-display text-white" style={{ animationDelay: '0.05s' }}>
-                    <span className="block">Три ступени</span>
-                    <span className="block text-accent-500">к телу</span>
-                </h1>
+                        <p className="my-6 max-w-[560px] font-serif text-[24px] italic leading-[1.15] text-white/90 lg:my-8 lg:text-[30px]">
+                            <span className="block">
+                                {course.hero.lead}
+                            </span>
+                            <span className="mt-1 block text-accent-500">
+                                {course.hero.leadAccent}
+                            </span>
+                        </p>
+                    </div>
 
-                <p
-                    className="hero-reveal text-body max-w-[560px] text-white/[0.78] lg:text-[17px] lg:leading-[1.55]"
-                    style={{ animationDelay: '0.15s' }}
-                >
-                    {course.tagline}
-                </p>
+                    <div className="flex flex-col items-start gap-4">
+                        {/* Разделитель ведущий, а не замыкающий: при переносе на узком
+                            экране точка уходит на новую строку вместе со своим фактом,
+                            а не повисает в конце предыдущей. */}
+                        <ul className="flex max-w-[560px] flex-wrap items-center gap-x-3 gap-y-1 font-serif text-[20px] font-medium italic leading-none text-accent-500 lg:text-[24px]">
+                            {course.hero.facts.map((fact, i) => (
+                                <li key={fact} className="flex items-center gap-3">
+                                    {i > 0 && (
+                                        <span
+                                            aria-hidden="true"
+                                            className="h-1 w-1 rounded-full bg-white/40"
+                                        />
+                                    )}
+                                    {fact}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
 
-                <p
-                    className="hero-reveal font-serif text-[28px] italic leading-none text-accent-500 lg:text-[32px]"
-                    style={{ animationDelay: '0.2s' }}
-                >
-                    {price}
-                    {course.startsAt && (
-                        <span className="text-white/70"> · старт {course.startsAt}</span>
-                    )}
-                </p>
+                    <div className="flex w-full flex-col items-start gap-4 sm:w-auto">
+                        <div className="flex w-full flex-col items-start gap-3 sm:w-auto sm:flex-row sm:items-center">
+                            <BuyButton
+                                productId={course.productId}
+                                label={`Купить курс · ${price}`}
+                                variant="accent"
+                                size="lg"
+                                className="w-full px-8 sm:w-auto"
+                            />
+                            <Button
+                                href="#program"
+                                variant="secondary"
+                                size="lg"
+                                className="w-full border-white/50 text-white hover:bg-white/10 sm:w-auto"
+                            >
+                                Программа курса
+                            </Button>
+                        </div>
 
-                <div className="hero-reveal w-full sm:w-auto" style={{ animationDelay: '0.25s' }}>
-                    <BuyButton
-                        productId={course.productId}
-                        label="Купить курс"
-                        variant="accent"
-                        size="lg"
-                        className="w-full px-8 sm:w-auto"
-                    />
+                        <p className="font-sans text-[13px] text-white/70">{course.hero.note}</p>
+                    </div>
                 </div>
 
-                <p
-                    className="hero-reveal -mt-2 font-sans text-[13px] text-white/50"
-                    style={{ animationDelay: '0.3s' }}
+                {/* Портрет только с десктопа: на мобильном он украл бы весь первый
+                    экран у оффера. Размеры — от обрезанного исходника
+                    (см. trim в scripts/optimize-images.mjs).
+                    hidden нужен на обоих элементах: на обёртке — чтобы колонка не
+                    занимала строку сетки и не тянула gap, на самой картинке — чтобы
+                    lazy-загрузка её не запросила (скрыт только предок — Chrome качает). */}
+                <div
+                    className="hero-reveal hidden transition-transform duration-[550ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.035] lg:flex lg:justify-end"
+                    style={{ animationDelay: '0.12s' }}
                 >
-                    Оплата картой или через СБП на защищённой странице Альфа-Банка
-                </p>
+                    <ResponsiveImage
+                        name="course"
+                        alt={course.author.name}
+                        widths={[360, 500]}
+                        fallbackWidth={500}
+                        width={932}
+                        height={1117}
+                        sizes="500px"
+                        className="hidden h-auto w-full max-w-[500px] object-contain object-bottom lg:block"
+                    />
+                </div>
             </div>
         </section>
     );

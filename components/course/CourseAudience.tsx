@@ -44,8 +44,8 @@ export function CourseAudience() {
     }));
 
     return (
-        <section id="audience" className="container-page py-16 lg:py-24">
-            <h2 className="text-h2 mb-3 text-neutral-900">Кому этот курс</h2>
+        <section id="audience" className="container-page pt-16 lg:pt-24">
+            <h2 className="text-h2 mb-3 text-neutral-900">Для кого этот курс</h2>
             <p className="text-body mb-8 max-w-2xl text-neutral-700">
                 Узнаёшь себя хотя бы в одном — значит, курс про тебя.
             </p>
@@ -54,9 +54,12 @@ export function CourseAudience() {
                 <Accordion items={items} />
             </div>
 
-            <p className="mt-10 max-w-2xl font-serif text-[28px] italic leading-tight text-neutral-900 lg:text-[34px]">
-                {course.closing}
-            </p>
+            <div className="mx-auto mt-10 max-w-2xl text-center">
+                <p className="font-serif text-[28px] italic leading-tight text-primary-700 lg:text-[34px]">
+                    {course.closingAccent}
+                </p>
+                <p className="text-body mt-4 text-neutral-700">{course.closing}</p>
+            </div>
         </section>
     );
 }

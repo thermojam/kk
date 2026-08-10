@@ -24,10 +24,9 @@ type ButtonAsLink = CommonProps &
 export type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantClasses: Record<Variant, string> = {
-    primary: 'bg-primary-500 text-neutral-0 hover:bg-primary-600 focus-visible:ring-primary-300',
-    secondary:
-        'border border-primary-500 text-primary-500 bg-transparent hover:bg-primary-50 focus-visible:ring-primary-300',
-    accent: 'bg-accent-500 text-neutral-900 hover:opacity-90 focus-visible:ring-accent-500',
+    primary: 'bg-primary-500 text-neutral-0 hover:bg-primary-600',
+    secondary: 'border border-primary-500 text-primary-500 bg-transparent hover:bg-primary-50',
+    accent: 'bg-accent-500 text-neutral-900 hover:bg-accent-300',
 };
 
 const sizeClasses: Record<Size, string> = {
@@ -35,10 +34,12 @@ const sizeClasses: Record<Size, string> = {
     lg: 'h-[52px] px-7 text-[16px]',
 };
 
+// Кольцо двухтонное: белое кольцо читается на тёмном герое, тёмная полоса
+// offset — на белых секциях. Кнопки accent живут и там, и там.
 const base =
-    'inline-flex items-center justify-center gap-2 rounded-full font-sans font-bold ' +
+    'inline-flex cursor-pointer items-center justify-center gap-2 rounded-full font-sans font-bold ' +
     'transition-colors duration-150 outline-none ' +
-    'focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-0 ' +
+    'focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900 ' +
     'disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none';
 
 export function Button({
