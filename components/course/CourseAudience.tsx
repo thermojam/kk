@@ -45,9 +45,9 @@ export function CourseAudience() {
 
     return (
         <section id="audience" className="container-page pt-16 lg:pt-24">
-            <h2 className="text-h2 mb-3 text-neutral-900">Для кого этот курс</h2>
+            <h2 className="text-h2 mb-3 text-neutral-900">Для кого эта программа</h2>
             <p className="text-body mb-8 max-w-2xl text-neutral-700">
-                Узнаёшь себя хотя бы в одном — значит, курс про тебя.
+                Узнаёшь себя хотя бы в одном — значит, программа про тебя.
             </p>
 
             <div className="max-w-4xl">

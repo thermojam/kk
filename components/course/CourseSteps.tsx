@@ -20,7 +20,7 @@ export function CourseSteps() {
                 renderItem={(step) => <StepCard step={step} />}
                 getItemKey={(step) => step.id}
                 slidesPerView={{ base: 1, lg: 3 }}
-                ariaLabel="Ступени курса"
+                ariaLabel="Ступени программы"
             />
         </section>
     );
