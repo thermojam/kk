@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Logo } from '@/components/ui/Logo';
 import { Button } from '@/components/ui/Button';
 import { reachGoal } from '@/lib/analytics/metrika';
-import { PAY_GOALS } from '@/lib/telegram';
+import { TG_GOALS } from '@/lib/telegram';
 import { cn } from '@/lib/cn';
 
 /**
@@ -45,7 +45,7 @@ export function Header() {
                         href="/course/"
                         variant="accent"
                         size="md"
-                        onClick={() => reachGoal(PAY_GOALS.headerClick)}
+                        onClick={() => reachGoal(TG_GOALS.courseHeader)}
                     >
                         <span className="hidden sm:inline">Записаться на курс</span>
                         <span className="sm:hidden">На курс</span>
