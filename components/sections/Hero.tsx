@@ -36,12 +36,15 @@ export function Hero() {
                     </h1>
 
                     <p
-                        className="hero-reveal text-body max-w-[560px] text-white/[0.78] lg:text-[17px] lg:leading-[1.55]"
+                        className="hero-reveal my-[14px] max-w-[560px] overflow-hidden font-serif text-[18px] italic leading-[1.5] text-white lg:text-[20px]"
                         style={{ animationDelay: '0.15s' }}
                     >
-                        Помогаю женщинам перестать носить эмоции в&nbsp;теле, разобраться
-                        с&nbsp;эмоциональным перееданием и&nbsp;вернуть себе ощущение «я&nbsp;живу
-                        свою жизнь».
+                        <span className="float-left mr-2 mt-0.5 text-[64px] leading-[0.78] text-accent-500">
+                            П
+                        </span>
+                        омогаю женщинам перестать носить эмоции в&nbsp;теле, разобраться
+                        с&nbsp;эмоциональным перееданием и&nbsp;вернуть себе ощущение{' '}
+                        <span className="text-accent-500">«я&nbsp;живу свою жизнь»</span>.
                     </p>
 
                     <div

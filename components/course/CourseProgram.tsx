@@ -7,7 +7,7 @@ export function CourseProgram() {
             className="overflow-hidden rounded-[clamp(42px,7vw,72px)] bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)] text-neutral-0"
         >
             <div className="container-page py-16 lg:py-24">
-                <div className="mb-8 flex items-end justify-between gap-6 border-b border-white/20 pb-5 lg:mb-10">
+                <div className="mb-8 flex items-end justify-between gap-6 border-b border-accent-500 pb-5 lg:mb-10">
                     <div>
                         <p className="mb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-accent-500">
                             Первая ступень
@@ -34,7 +34,7 @@ export function CourseProgram() {
                     ))}
                 </ol>
 
-                <div className="mb-24 flex items-end justify-between gap-6 border-b border-white/20 pb-5 lg:mb-10">
+                <div className="mb-8 flex items-end justify-between gap-6 border-b border-accent-500 pb-5 lg:mb-10">
                     <div>
                         <p className="mb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-accent-500">
                             Вторая ступень
@@ -62,7 +62,7 @@ export function CourseProgram() {
                     {course.nutrition.intro} Здесь нет рационов и подсчёта калорий — есть физиология и привычки.
                 </p>
 
-                <div className="flex items-end justify-between gap-6 border-b border-white/20 pb-5">
+                <div className="mb-8 flex items-end justify-between gap-6 border-b border-accent-500 pb-5">
                     <div>
                         <p className="mb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-accent-500">
                             Третья ступень
