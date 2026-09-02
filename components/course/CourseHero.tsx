@@ -1,9 +1,9 @@
-import { BuyButton } from '@/components/payment/BuyButton';
+import { TelegramButton } from '@/components/ui/TelegramButton';
 import { CourseHeroBackground } from '@/components/course/CourseHeroBackground';
 import { Button } from '@/components/ui/Button';
 import { ResponsiveImage } from '@/components/ui/ResponsiveImage';
 import { course } from '@/content/course';
-import { formatPrice, getProduct } from '@/lib/payments/catalog';
+import { TG_GOALS } from '@/lib/telegram';
 
 /**
  * Тёмный первый экран в стиле Hero главной: слева обещание и решение,
@@ -11,7 +11,7 @@ import { formatPrice, getProduct } from '@/lib/payments/catalog';
  * Отрицательный отступ сверху — под хедер, как на главной.
  */
 export function CourseHero() {
-    const price = formatPrice(getProduct(course.productId).priceKopecks);
+    const price = course.price;
 
     return (
         <section className="relative isolate -mt-[72px] overflow-hidden rounded-b-[clamp(42px,7vw,72px)] bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)] pt-[72px]">
@@ -56,13 +56,15 @@ export function CourseHero() {
 
                     <div className="flex w-full flex-col items-start gap-4 sm:w-auto">
                         <div className="flex w-full flex-col items-start gap-3 sm:w-auto sm:flex-row sm:items-center">
-                            <BuyButton
-                                productId={course.productId}
-                                label={`Купить курс · ${price}`}
+                            <TelegramButton
+                                goal={TG_GOALS.courseHero}
+                                text="Здравствуйте! Интересует курс «Три ступени к телу». Расскажите, как записаться."
                                 variant="accent"
                                 size="lg"
                                 className="w-full px-8 sm:w-auto"
-                            />
+                            >
+                                Записаться на курс · {price}
+                            </TelegramButton>
                             <Button
                                 href="#program"
                                 variant="secondary"

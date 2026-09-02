@@ -1,9 +1,9 @@
-import { BuyButton } from '@/components/payment/BuyButton';
+import { TelegramButton } from '@/components/ui/TelegramButton';
 import { course } from '@/content/course';
-import { formatPrice, getProduct } from '@/lib/payments/catalog';
+import { TG_GOALS } from '@/lib/telegram';
 
 export function CoursePricing() {
-    const price = formatPrice(getProduct(course.productId).priceKopecks);
+    const price = course.price;
 
     return (
         <section id="pricing" className="container-page pb-16 pt-10 lg:pb-24 lg:pt-14">
@@ -30,13 +30,15 @@ export function CoursePricing() {
                     <span className="font-serif text-[48px] italic font-medium leading-none text-accent-300">
                         {price}
                     </span>
-                    <BuyButton
-                        productId={course.productId}
-                        label="Купить курс"
+                    <TelegramButton
+                        goal={TG_GOALS.coursePricing}
+                        text="Здравствуйте! Готова начать курс «Три ступени к телу». Подскажите, как оплатить."
                         variant="primary"
                         size="lg"
                         className="w-full !bg-neutral-0 !text-primary-700 hover:!bg-neutral-50"
-                    />
+                    >
+                        Записаться на курс
+                    </TelegramButton>
                     <p className="text-[13px] leading-[1.5] text-white/60">
                         {course.hero.note}
                     </p>
