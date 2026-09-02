@@ -93,24 +93,6 @@ export function Footer() {
                     <p className="text-[13px] text-white/55">
                         {BUSINESS.name} · ОГРНИП {BUSINESS.ogrnip} · ИНН {BUSINESS.inn}
                     </p>
-                    {/* Банк проверяет наличие принимаемых платёжных систем
-                        при финальном мониторинге ресурса. Фон у PNG прозрачный,
-                        и марки ложатся прямо на чёрный футер: пропадает только
-                        микроподпись под значком СБП — она нечитаема в любом
-                        случае, там 6 пикселей. */}
-                    {/* next/image здесь ни к чему: это статичный PNG на 12 КБ
-                        в самом низу страницы, и перегонять его через лоадер
-                        нечего. В проекте next/image не используется вообще. */}
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                        src="/images/HorizontalLogos5.png"
-                        alt="Принимаем к оплате: Visa, Mastercard, МИР, СБП. Платежи защищает PayKeeper"
-                        width={506}
-                        height={39}
-                        loading="lazy"
-                        decoding="async"
-                        className="mt-4 block h-[26px] w-auto max-w-full"
-                    />
                     <p className="mt-2 text-[13px]">
                         <Link href="/privacy/" className="text-white/55 hover:text-accent-500">
                             Политика ПДн

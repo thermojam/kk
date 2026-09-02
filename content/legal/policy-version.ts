@@ -1,2 +1,2 @@
 /** Версия политик. Инкремент → cookie-баннер показывается повторно. */
-export const POLICY_VERSION = 3;
+export const POLICY_VERSION = 4;
