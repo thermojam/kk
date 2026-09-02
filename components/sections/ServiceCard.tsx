@@ -1,10 +1,8 @@
 import Link from 'next/link';
 import { TelegramButton } from '@/components/ui/TelegramButton';
-import { BuyButton } from '@/components/payment/BuyButton';
 import { Badge } from '@/components/ui/Badge';
 import { DisclaimerToggle } from '@/components/sections/DisclaimerToggle';
 import type { Service } from '@/content/home';
-import { formatPrice, getProduct } from '@/lib/payments/catalog';
 import { cn } from '@/lib/cn';
 
 type ServiceCardProps = { item: Service };
@@ -16,12 +14,7 @@ export function ServiceCard({ item }: ServiceCardProps) {
     // туда, а кнопка покупки остаётся поверх ссылки как быстрый путь к оплате.
     const href = item.id === 'course' ? '/course' : undefined;
 
-    // У платной услуги prices намеренно пуст: цена приходит из каталога —
-    // из того же места, откуда её берёт register.do.
-    const prices =
-        item.cta.kind === 'payment'
-            ? [{ value: formatPrice(getProduct(item.cta.productId).priceKopecks) }]
-            : item.prices;
+    const prices = item.prices;
 
     return (
         <article
@@ -127,30 +120,17 @@ export function ServiceCard({ item }: ServiceCardProps) {
 
             {!showDisclaimerBeforePrices && item.disclaimer && <DisclaimerToggle text={item.disclaimer} />}
 
-            {item.cta.kind === 'payment' ? (
-                <BuyButton
-                    productId={item.cta.productId}
-                    label={item.cta.label}
-                    variant="primary"
-                    size="md"
-                    className={cn(
-                        'relative z-10',
-                        featured && '!bg-neutral-0 !text-primary-500 hover:!bg-neutral-50'
-                    )}
-                />
-            ) : (
-                <TelegramButton
-                    goal={item.cta.tgGoal}
-                    text={item.cta.tgText}
-                    variant="primary"
-                    className={cn(
-                        prices.length === 0 && !item.pricingNote && 'mt-auto',
-                        featured && '!bg-neutral-0 !text-primary-500 hover:!bg-neutral-50'
-                    )}
-                >
-                    {item.cta.label}
-                </TelegramButton>
-            )}
+            <TelegramButton
+                goal={item.cta.tgGoal}
+                text={item.cta.tgText}
+                variant="primary"
+                className={cn(
+                    prices.length === 0 && !item.pricingNote && 'mt-auto',
+                    featured && '!bg-neutral-0 !text-primary-500 hover:!bg-neutral-50'
+                )}
+            >
+                {item.cta.label}
+            </TelegramButton>
         </article>
     );
 }
