@@ -11,7 +11,7 @@ export function ServiceCard({ item }: ServiceCardProps) {
     const featured = item.featured === true;
     const showDisclaimerBeforePrices = item.id === 'bereginya' && Boolean(item.disclaimer);
     // Курс — единственная услуга с отдельной страницей: вся карточка ведёт
-    // туда, а кнопка покупки остаётся поверх ссылки как быстрый путь к оплате.
+    // туда, а кнопка «Записаться» остаётся поверх ссылки как быстрый диплинк в Телеграм.
     const href = item.id === 'course' ? '/course' : undefined;
 
     const prices = item.prices;
