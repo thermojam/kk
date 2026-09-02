@@ -5,7 +5,7 @@ import { BUSINESS, CONTACTS } from '@/lib/constants';
 
 const NAV = [
     { href: '/#about', label: 'Обо мне' },
-    { href: '/course/', label: 'Курс' },
+    { href: '/course/', label: 'Программа' },
     { href: '/#work-areas', label: 'С чем работаю' },
     { href: '/#cases', label: 'Истории' },
     { href: '/#services', label: 'Услуги' },

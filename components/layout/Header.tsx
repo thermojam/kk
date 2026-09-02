@@ -47,8 +47,7 @@ export function Header() {
                         size="md"
                         onClick={() => reachGoal(TG_GOALS.courseHeader)}
                     >
-                        <span className="hidden sm:inline">Записаться на курс</span>
-                        <span className="sm:hidden">На курс</span>
+                        Записаться
                     </Button>
                 )}
             </div>

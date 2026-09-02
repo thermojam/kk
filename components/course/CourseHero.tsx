@@ -11,8 +11,6 @@ import { TG_GOALS } from '@/lib/telegram';
  * Отрицательный отступ сверху — под хедер, как на главной.
  */
 export function CourseHero() {
-    const price = course.price;
-
     return (
         <section className="relative isolate -mt-[72px] overflow-hidden rounded-b-[clamp(42px,7vw,72px)] bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)] pt-[72px]">
             <CourseHeroBackground />
@@ -58,12 +56,12 @@ export function CourseHero() {
                         <div className="flex w-full flex-col items-start gap-3 sm:w-auto sm:flex-row sm:items-center">
                             <TelegramButton
                                 goal={TG_GOALS.courseHero}
-                                text="Здравствуйте! Интересует курс «Три ступени к телу». Расскажите, как записаться."
+                                text="Здравствуйте! Хочу записаться на программу «Три ступени к телу». Как оплатить?"
                                 variant="accent"
                                 size="lg"
                                 className="w-full px-8 sm:w-auto"
                             >
-                                Записаться на курс · {price}
+                                Записаться
                             </TelegramButton>
                             <Button
                                 href="#program"
@@ -71,7 +69,7 @@ export function CourseHero() {
                                 size="lg"
                                 className="w-full border-white/50 text-white hover:bg-white/10 sm:w-auto"
                             >
-                                Программа курса
+                                Что в программе
                             </Button>
                         </div>
 
