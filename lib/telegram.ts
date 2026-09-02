@@ -11,6 +11,10 @@ export const TG_GOALS = {
     serviceCombo: 'tg_click_service_combo',
     serviceFree: 'tg_click_service_free',
     servicesBanner: 'tg_click_services_banner',
+    serviceCourse: 'tg_click_service_course',
+    courseHero: 'tg_click_course_hero',
+    coursePricing: 'tg_click_course_pricing',
+    courseHeader: 'course_header_click',
 } as const;
 
 export type TgGoal = (typeof TG_GOALS)[keyof typeof TG_GOALS];
