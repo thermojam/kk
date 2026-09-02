@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { CourseHero } from '@/components/course/CourseHero';
+import { CourseIntro } from '@/components/course/CourseIntro';
 import { CourseSteps } from '@/components/course/CourseSteps';
 import { CourseAudience } from '@/components/course/CourseAudience';
 import { CourseProgram } from '@/components/course/CourseProgram';
@@ -30,6 +31,7 @@ export default function CoursePage() {
     return (
         <>
             <CourseHero />
+            <CourseIntro />
             <CourseSteps />
             <CourseProgram />
             <CourseAudience />
