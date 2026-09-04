@@ -4,7 +4,7 @@ import { TG_GOALS } from '@/lib/telegram';
 
 export function CoursePricing() {
     return (
-        <section id="pricing" className="container-page pb-16 pt-10 lg:pb-24 lg:pt-14">
+        <section id="pricing" className="container-page py-16 lg:py-24">
             <div className="mx-auto grid max-w-[1030px] gap-10 rounded-[28px] bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)] p-8 text-neutral-0 sm:p-12 lg:grid-cols-[minmax(0,1fr)_336px] lg:items-center lg:gap-16 lg:p-16">
                 <div>
                     <h2 className="mb-6 text-h2 text-neutral-0">Что входит в программу</h2>
