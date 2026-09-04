@@ -20,7 +20,7 @@ export function CourseHero() {
                     <div className="flex flex-col items-start gap-5">
                         <h1 className="font-display text-white">
                             <span className="block">Три ступени</span>
-                            <span className="block text-accent-500">к телу</span>
+                            <span className="block text-accent-500">к телу 2.0</span>
                         </h1>
 
                         <p className="my-6 max-w-[560px] font-serif text-[24px] italic leading-[1.15] text-white/90 lg:my-8 lg:text-[30px]">
