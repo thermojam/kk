@@ -14,7 +14,7 @@ export function CourseIntro() {
                     {course.intro.accent}
                 </p>
 
-                <p>{course.intro.closingLine}</p>
+                {course.intro.closingLine && <p>{course.intro.closingLine}</p>}
             </div>
         </section>
     );
