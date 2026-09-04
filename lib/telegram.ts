@@ -15,6 +15,7 @@ export const TG_GOALS = {
     courseHero: 'tg_click_course_hero',
     coursePricing: 'tg_click_course_pricing',
     courseHeader: 'course_header_click',
+    notFound: 'tg_click_not_found',
 } as const;
 
 export type TgGoal = (typeof TG_GOALS)[keyof typeof TG_GOALS];
