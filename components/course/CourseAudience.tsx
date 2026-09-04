@@ -13,33 +13,17 @@ export function CourseAudience() {
         id: persona.id,
         q: persona.title,
         a: (
-            <div className="flex flex-col gap-5">
-                <ul className="flex flex-col gap-2">
-                    {persona.bullets.map((bullet) => (
-                        <li key={bullet} className="flex gap-3">
-                            <span
-                                aria-hidden="true"
-                                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-500"
-                            />
-                            <span>{bullet}</span>
-                        </li>
-                    ))}
-                </ul>
-
-                <div className="flex flex-col gap-1">
-                    <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-primary-500">
-                        На самом деле
-                    </span>
-                    <p>{persona.truth}</p>
-                </div>
-
-                <div className="flex flex-col gap-1">
-                    <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-primary-500">
-                        Что нужно
-                    </span>
-                    <p>{persona.need}</p>
-                </div>
-            </div>
+            <ul className="flex flex-col gap-2">
+                {persona.bullets.map((bullet) => (
+                    <li key={bullet} className="flex gap-3">
+                        <span
+                            aria-hidden="true"
+                            className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-500"
+                        />
+                        <span>{bullet}</span>
+                    </li>
+                ))}
+            </ul>
         ),
     }));
 

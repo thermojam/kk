@@ -6,7 +6,7 @@ import type { ReactNode } from 'react';
 import { course } from '@/content/course';
 
 const CONTENT_ANIMATION_CLASS =
-    'overflow-hidden data-[state=open]:animate-[accordion-down_200ms_ease] data-[state=closed]:animate-[accordion-up_200ms_ease]';
+    'grid overflow-hidden data-[state=open]:animate-[accordion-down_200ms_ease] data-[state=closed]:animate-[accordion-up_200ms_ease]';
 
 export function CourseProgram() {
     return (
@@ -19,7 +19,7 @@ export function CourseProgram() {
                     <RA.Item value="psycho">
                         <StepTrigger eyebrow="Первая ступень" title="Психокоррекция" meta="Одна сессия в неделю" />
                         <RA.Content className={CONTENT_ANIMATION_CLASS}>
-                            <ol className="pb-24">
+                            <ol className="min-h-0 pb-24">
                                 {course.sessions.map((session) => (
                                     <li
                                         key={session.n}
@@ -31,7 +31,11 @@ export function CourseProgram() {
                                         <h3 className="text-[17px] font-bold leading-tight text-neutral-0">
                                             {session.title}
                                         </h3>
-                                        <p className="text-[16px] leading-[1.55] text-white/65">{session.body}</p>
+                                        <div className="flex flex-col gap-3 text-[16px] leading-[1.55] text-white/65">
+                                            {session.body.split(/\n\s*\n/).map((paragraph, i) => (
+                                                <p key={i}>{paragraph.trim()}</p>
+                                            ))}
+                                        </div>
                                     </li>
                                 ))}
                             </ol>
@@ -39,9 +43,9 @@ export function CourseProgram() {
                     </RA.Item>
 
                     <RA.Item value="nutrition">
-                        <StepTrigger eyebrow="Вторая ступень" title="Питание и образ жизни" meta="Между сессиями" />
+                        <StepTrigger eyebrow="Вторая ступень" title="Питание и образ жизни" />
                         <RA.Content className={CONTENT_ANIMATION_CLASS}>
-                            <div className="pb-24 lg:pb-28">
+                            <div className="min-h-0 pb-24 lg:pb-28">
                                 <div className="mb-8">
                                     {course.nutrition.topics.map((topic, index) => (
                                         <div
@@ -58,10 +62,6 @@ export function CourseProgram() {
                                         </div>
                                     ))}
                                 </div>
-                                <p className="max-w-[560px] text-[13px] leading-[1.6] text-white/55">
-                                    {course.nutrition.intro} Здесь нет рационов и подсчёта калорий — есть физиология и
-                                    привычки.
-                                </p>
                             </div>
                         </RA.Content>
                     </RA.Item>
@@ -73,7 +73,7 @@ export function CourseProgram() {
                             meta="4 комплекса — по одному на каждую неделю программы"
                         />
                         <RA.Content className={CONTENT_ANIMATION_CLASS}>
-                            <div>
+                            <div className="min-h-0">
                                 <div className="grid gap-2 border-b border-white/10 py-6 sm:grid-cols-[80px_280px_minmax(0,1fr)] sm:gap-3 sm:py-7">
                                     <span className="font-serif text-[36px] italic leading-none text-accent-500 lg:text-[44px]">
                                         01
@@ -97,7 +97,7 @@ export function CourseProgram() {
     );
 }
 
-function StepTrigger({ eyebrow, title, meta }: { eyebrow: string; title: ReactNode; meta: string }) {
+function StepTrigger({ eyebrow, title, meta }: { eyebrow: string; title: ReactNode; meta?: string }) {
     return (
         <RA.Header asChild>
             <div>
@@ -107,7 +107,7 @@ function StepTrigger({ eyebrow, title, meta }: { eyebrow: string; title: ReactNo
                             {eyebrow}
                         </p>
                         <h2 className="text-h2 text-neutral-0">{title}</h2>
-                        <p className="mt-2 text-[13px] text-white/65">{meta}</p>
+                        {meta && <p className="mt-2 text-[13px] text-white/65">{meta}</p>}
                     </div>
                     <span
                         aria-hidden="true"

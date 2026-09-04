@@ -44,12 +44,12 @@ export function Accordion({ items, defaultOpenId, className }: AccordionProps) {
                     </RA.Header>
                     <RA.Content
                         className={cn(
-                            'overflow-hidden',
+                            'grid overflow-hidden',
                             'data-[state=open]:animate-[accordion-down_200ms_ease]',
                             'data-[state=closed]:animate-[accordion-up_200ms_ease]'
                         )}
                     >
-                        <div className="pb-4 text-body text-neutral-700">{item.a}</div>
+                        <div className="min-h-0 pb-4 text-body text-neutral-700">{item.a}</div>
                     </RA.Content>
                 </RA.Item>
             ))}

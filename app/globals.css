@@ -208,22 +208,25 @@ a {
     }
 }
 
-/* Radix Accordion — анимация collapse через CSS-переменную --radix-accordion-content-height */
+/* Radix Accordion — grid-template-rows вместо height: var(--radix-accordion-content-height):
+   в Safari @keyframes ненадёжно резолвит CSS-переменную, выставляемую Radix через JS,
+   из-за чего секции не разворачивались. grid-template-rows 0fr→1fr работает без переменных
+   и кроссбраузерно (см. .accordion-content > * { min-height: 0 } — обязательное условие трюка). */
 @keyframes accordion-down {
     from {
-        height: 0;
+        grid-template-rows: 0fr;
     }
     to {
-        height: var(--radix-accordion-content-height);
+        grid-template-rows: 1fr;
     }
 }
 
 @keyframes accordion-up {
     from {
-        height: var(--radix-accordion-content-height);
+        grid-template-rows: 1fr;
     }
     to {
-        height: 0;
+        grid-template-rows: 0fr;
     }
 }
 

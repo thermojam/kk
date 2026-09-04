@@ -14,6 +14,21 @@ export function CourseHero() {
     return (
         <section className="relative isolate -mt-[72px] overflow-hidden rounded-b-[clamp(42px,7vw,72px)] bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)] pt-[72px]">
             <CourseHeroBackground />
+            {/* Портрет-фон только на мобилке/планшете: с десктопа фигура уже отдельной
+                колонкой справа (см. ниже), здесь дублировать её не нужно. */}
+            <div aria-hidden="true" className="absolute inset-0 lg:hidden">
+                <ResponsiveImage
+                    name="course"
+                    alt=""
+                    widths={[360, 500]}
+                    fallbackWidth={500}
+                    width={932}
+                    height={1117}
+                    sizes="100vw"
+                    className="absolute inset-x-0 bottom-0 h-[92%] w-full object-contain object-bottom"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(34,11,61,0)_0%,rgba(30,10,55,0.55)_40%,rgba(24,8,44,0.94)_72%,rgba(20,6,38,0.99)_100%)]" />
+            </div>
             <div className="container-page relative z-10 grid items-center gap-10 pt-14 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.62fr)] lg:gap-8 lg:pt-16">
                 {/* Нижний воздух на мобильном держит эта колонка: соседняя там скрыта целиком. */}
                 <div className="hero-reveal flex flex-col items-start gap-8 pb-20 lg:gap-9 lg:pb-28">
