@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
     return (
-        <section className="relative isolate flex min-h-screen flex-1 items-center overflow-hidden bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)]">
+        <section className="relative isolate flex min-h-screen flex-1 items-center overflow-hidden bg-dark-gradient">
             <div className="container-page py-20 text-center">
                 <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.16em] text-accent-500">
                     Ошибка 404

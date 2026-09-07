@@ -6,13 +6,13 @@ import type { ReactNode } from 'react';
 import { course } from '@/content/course';
 
 const CONTENT_ANIMATION_CLASS =
-    'grid overflow-hidden data-[state=open]:animate-[accordion-down_200ms_ease] data-[state=closed]:animate-[accordion-up_200ms_ease]';
+    'grid overflow-hidden contain-content data-[state=open]:animate-[accordion-down_200ms_ease] data-[state=closed]:animate-[accordion-up_200ms_ease]';
 
 export function CourseProgram() {
     return (
         <section
             id="program"
-            className="overflow-hidden rounded-[clamp(42px,7vw,72px)] bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)] text-neutral-0"
+            className="overflow-hidden rounded-[clamp(42px,7vw,72px)] bg-dark-gradient text-neutral-0"
         >
             <div className="container-page py-16 lg:py-24">
                 <RA.Root type="single" collapsible defaultValue="psycho">

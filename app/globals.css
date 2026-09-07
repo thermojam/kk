@@ -100,6 +100,11 @@ section[id] {
    Типографика (SPEC.md §T1)
    ============================================================ */
 @layer utilities {
+    /* Фирменный тёмный градиент первых экранов (главная, /course, 404). */
+    .bg-dark-gradient {
+        background: linear-gradient(112deg, #351058 0%, #4e1b78 52%, #220b3d 100%);
+    }
+
     .font-display {
         font-family: var(--font-serif);
         font-style: italic;
@@ -170,6 +175,11 @@ section[id] {
 
 html {
     scrollbar-color: var(--color-primary-300) var(--color-neutral-50);
+    /* Резервирует место под скроллбар всегда — иначе при раскрытии
+       аккордея (см. CourseProgram) высота страницы может пересечь
+       порог вьюпорта, скроллбар появится/исчезнет и весь layout
+       дёрнется по горизонтали в такт анимации. */
+    scrollbar-gutter: stable;
 }
 
 input,
