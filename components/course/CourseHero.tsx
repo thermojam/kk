@@ -12,7 +12,7 @@ import { TG_GOALS } from '@/lib/telegram';
  */
 export function CourseHero() {
     return (
-        <section className="relative isolate -mt-[72px] overflow-hidden rounded-b-[clamp(42px,7vw,72px)] bg-[linear-gradient(112deg,#351058_0%,#4e1b78_52%,#220b3d_100%)] pt-[72px]">
+        <section className="relative isolate -mt-[72px] overflow-hidden rounded-b-[clamp(42px,7vw,72px)] bg-dark-gradient pt-[72px]">
             <CourseHeroBackground />
             {/* Портрет-фон только на мобилке/планшете: с десктопа фигура уже отдельной
                 колонкой справа (см. ниже), здесь дублировать её не нужно. */}

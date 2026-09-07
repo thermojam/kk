@@ -128,7 +128,7 @@ export const services: Service[] = [
         subtitle: 'Групповая программа',
         description:
             'Три ступени: психокоррекция, питание и образ жизни, славянская гимнастика. Четыре недели, одна глубокая сессия в неделю. Запись — в Телеграм.',
-        prices: [{ value: '6 900 ₽' }],
+        prices: [{ value: '7 000 ₽' }],
         cta: {
             label: 'Записаться',
             tgGoal: TG_GOALS.serviceCourse,
