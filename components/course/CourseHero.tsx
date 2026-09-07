@@ -15,7 +15,10 @@ export function CourseHero() {
         <section className="relative isolate -mt-[72px] overflow-hidden rounded-b-[clamp(42px,7vw,72px)] bg-dark-gradient pt-[72px]">
             <CourseHeroBackground />
             {/* Портрет-фон только на мобилке/планшете: с десктопа фигура уже отдельной
-                колонкой справа (см. ниже), здесь дублировать её не нужно. */}
+                колонкой справа (см. ниже), здесь дублировать её не нужно.
+                priority: на мобильном это LCP-элемент первого экрана, без него
+                картинка уходит в lazy и откладывает отрисовку. Лишнего запроса на
+                десктопе не создаёт — там тот же файл берёт портрет справа. */}
             <div aria-hidden="true" className="absolute inset-0 lg:hidden">
                 <ResponsiveImage
                     name="course"
@@ -24,6 +27,7 @@ export function CourseHero() {
                     fallbackWidth={500}
                     width={932}
                     height={1117}
+                    priority
                     sizes="100vw"
                     className="absolute inset-x-0 bottom-0 h-[92%] w-full object-contain object-bottom"
                 />
