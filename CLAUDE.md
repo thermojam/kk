@@ -63,3 +63,35 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 ---
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+
+---
+
+## Проект
+
+Лендинг психолога (ksenia-kamenskaya.ru): Next.js 16 App Router, React 19, TS strict, Tailwind 4. Алиас `@/*` → корень.
+
+### Команды
+```bash
+npm run dev            # localhost:3000
+npm run build          # статический экспорт в out/
+npm run lint
+npx tsc --noEmit       # отдельного скрипта нет
+npm run format:check
+npm run images         # пересобрать public/images/generated/ после замены исходников
+```
+Автотестов нет намеренно: проверка — lint + tsc + ручной просмотр в браузере.
+
+### Структура
+- `app/(public)/` — страницы: главная, `course/`, `offer/`, `privacy/`, `cookies/`
+- `content/` — все тексты, цены, FAQ, юр. тексты (`content/legal/`). Правки контента — здесь, не в компонентах.
+- `components/sections/` (главная), `components/course/`, `components/ui/`, `components/seo/` (JSON-LD)
+- `lib/telegram.ts` — deep links и цели Метрики `TG_GOALS`; `lib/analytics/` — Метрика грузится только после согласия на cookies
+
+### Подвохи
+- `output: 'export'`: нет серверного рантайма — API-роуты, `headers()`, ISR не работают. Оплата живёт в ветке `feat/payments`.
+- `trailingSlash: true` не менять — URL со слэшем уже в индексе. Внутренние ссылки писать со слэшем (`/course/`).
+- Картинки не через `next/image` (unoptimized), а через `ResponsiveImage` + файлы из `npm run images`; новое изображение добавлять в `SOURCES` в `scripts/optimize-images.mjs`.
+- Новая CTA-кнопка в Telegram → новая цель в `TG_GOALS`, её же завести в Метрике.
+- `NEXT_PUBLIC_YM_ID` задан только в `.env.production`; локально Метрика не грузится — это норма.
+- Отступ 4 пробела, одинарные кавычки, printWidth 100 (Prettier).
+- Ветки: работа в `dev`, релиз — merge в `main`.
