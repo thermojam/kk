@@ -19,10 +19,11 @@ import { cn } from '@/lib/cn';
  */
 export function Header() {
     const pathname = usePathname();
-    const onCourse = pathname === '/course/';
+    const PROGRAM_PATHS = ['/course/', '/food-bogina/'];
+    const onProgramPage = PROGRAM_PATHS.includes(pathname);
     // Над тёмным градиентом логотип белый. Везде ещё фон белый, и на нём
     // белый логотип не виден.
-    const darkFirstScreen = pathname === '/' || onCourse;
+    const darkFirstScreen = pathname === '/' || onProgramPage;
 
     return (
         <header
@@ -38,9 +39,9 @@ export function Header() {
                     <Logo size={48} className={darkFirstScreen ? 'text-white' : 'text-primary-500'} />
                 </Link>
 
-                {/* На самом курсе кнопка не нужна: страница целиком про него,
-                    а блок цен всё равно ниже по этой же странице. */}
-                {!onCourse && (
+                {/* На главной и на самой курсе/программной странице кнопка не нужна:
+                    CTA уже есть в карточках услуг или ниже по самой странице. */}
+                {pathname !== '/' && !onProgramPage && (
                     <Button
                         href="/course/"
                         variant="accent"

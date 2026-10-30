@@ -1,6 +1,6 @@
 import { cn } from '@/lib/cn';
 
-type ResponsiveImageName = 'hero' | 'about' | 'course';
+type ResponsiveImageName = 'hero' | 'about' | 'course' | 'food-bogina' | 'food-bogina-author';
 
 type ResponsiveImageProps = {
     /** Базовое имя источника (без размера и расширения). */

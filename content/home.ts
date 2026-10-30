@@ -33,7 +33,10 @@ export type Service = {
     prices: ServicePrice[];
     /** Дополнительная строка курсивом под тарифами. Например, «стоимость — после диагностической встречи». */
     pricingNote?: string;
-    cta: { label: string; tgGoal: TgGoal; tgText: string };
+    /** tgGoal/tgText нужны только для CTA-Телеграм (у услуг со своей страницей кнопка ведёт на href). */
+    cta: { label: string; tgGoal?: TgGoal; tgText?: string };
+    /** Услуга со своей страницей — вся карточка ведёт туда (см. ServiceCard). */
+    href?: string;
     featured?: boolean;
     disclaimer?: string;
 };
@@ -129,12 +132,24 @@ export const services: Service[] = [
         description:
             'Три ступени: психокоррекция, питание и образ жизни, славянская гимнастика. Четыре недели, одна глубокая сессия в неделю. Запись — в Телеграм.',
         prices: [{ value: '7 000 ₽' }],
+        href: '/course/',
         cta: {
-            label: 'Записаться',
-            tgGoal: TG_GOALS.serviceCourse,
-            tgText: 'Здравствуйте! Хочу записаться на программу «Три ступени к телу». Как оплатить?',
+            label: 'К программе',
         },
         featured: true,
+    },
+    {
+        id: 'food-bogina',
+        badge: 'Бестселлер',
+        title: 'Food-Богиня',
+        subtitle: 'Курс по питанию · предзапись',
+        description:
+            'Три месяца, один день на готовку в неделю. Новая программа готовится — оставь заявку, напишем первой.',
+        prices: [],
+        href: '/food-bogina/',
+        cta: {
+            label: 'В лист предзаписи',
+        },
     },
     {
         id: 'path-to-self',

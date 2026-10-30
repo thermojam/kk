@@ -25,25 +25,9 @@ export function CoursePricing() {
                 </div>
 
                 <div className="flex flex-col gap-5 rounded-[20px] bg-white/10 p-7 text-center">
-                    <div className="flex flex-col gap-2">
-                        <div className="flex flex-col items-center gap-0.5">
-                            <span className="font-serif text-[40px] italic font-medium leading-none text-accent-300">
-                                {course.price.early}
-                            </span>
-                            <span className="text-[13px] text-white/60">
-                                при оплате до {course.price.earlyDeadline}
-                            </span>
-                        </div>
-                        <div className="flex items-baseline justify-center gap-2">
-                            <span className="font-serif text-[22px] italic font-medium leading-none text-white/50">
-                                {course.price.regular}
-                            </span>
-                            <span className="text-[13px] text-white/60">после</span>
-                        </div>
-                        <p className="font-serif text-[22px] italic font-medium leading-none text-neutral-0">
-                            Старт {course.startsAt}
-                        </p>
-                    </div>
+                    <span className="font-serif text-[40px] italic font-medium leading-none text-accent-300">
+                        {course.price}
+                    </span>
                     <TelegramButton
                         goal={TG_GOALS.coursePricing}
                         text="Здравствуйте! Хочу записаться на программу «Три ступени к телу». Как оплатить?"
@@ -51,11 +35,9 @@ export function CoursePricing() {
                         size="lg"
                         className="w-full !bg-neutral-0 !text-primary-700 hover:!bg-neutral-50"
                     >
-                        Записаться
+                        Предзапись
                     </TelegramButton>
-                    <p className="text-[13px] leading-[1.5] text-white/60">
-                        {course.hero.note}
-                    </p>
+                    <p className="text-[13px] leading-[1.5] text-white/60">{course.hero.note}</p>
                 </div>
             </div>
         </section>

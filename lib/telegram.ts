@@ -11,10 +11,11 @@ export const TG_GOALS = {
     serviceCombo: 'tg_click_service_combo',
     serviceFree: 'tg_click_service_free',
     servicesBanner: 'tg_click_services_banner',
-    serviceCourse: 'tg_click_service_course',
     courseHero: 'tg_click_course_hero',
     coursePricing: 'tg_click_course_pricing',
     courseHeader: 'course_header_click',
+    foodBoginaHero: 'tg_click_food_bogina_hero',
+    foodBoginaFormat: 'tg_click_food_bogina_format',
     notFound: 'tg_click_not_found',
 } as const;
 

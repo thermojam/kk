@@ -1,5 +1,5 @@
 import { TelegramButton } from '@/components/ui/TelegramButton';
-import { CourseHeroBackground } from '@/components/course/CourseHeroBackground';
+import { DarkHeroBackground } from '@/components/ui/DarkHeroBackground';
 import { Button } from '@/components/ui/Button';
 import { ResponsiveImage } from '@/components/ui/ResponsiveImage';
 import { course } from '@/content/course';
@@ -13,7 +13,7 @@ import { TG_GOALS } from '@/lib/telegram';
 export function CourseHero() {
     return (
         <section className="relative isolate -mt-[72px] overflow-hidden rounded-b-[clamp(42px,7vw,72px)] bg-dark-gradient pt-[72px]">
-            <CourseHeroBackground />
+            <DarkHeroBackground />
             {/* Портрет-фон только на мобилке/планшете: с десктопа фигура уже отдельной
                 колонкой справа (см. ниже), здесь дублировать её не нужно.
                 priority: на мобильном это LCP-элемент первого экрана, без него
@@ -80,7 +80,7 @@ export function CourseHero() {
                                 size="lg"
                                 className="w-full px-8 sm:w-auto"
                             >
-                                Записаться
+                                Предзапись
                             </TelegramButton>
                             <Button
                                 href="#program"
