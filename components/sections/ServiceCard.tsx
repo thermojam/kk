@@ -10,9 +10,10 @@ type ServiceCardProps = { item: Service };
 export function ServiceCard({ item }: ServiceCardProps) {
     const featured = item.featured === true;
     const showDisclaimerBeforePrices = item.id === 'bereginya' && Boolean(item.disclaimer);
-    // Курс — единственная услуга с отдельной страницей: вся карточка ведёт
-    // туда, а кнопка «Записаться» остаётся поверх ссылки как быстрый диплинк в Телеграм.
-    const href = item.id === 'course' ? '/course' : undefined;
+    // Услуги со своей страницей задают href в контенте (см. content/home.ts) —
+    // вся карточка ведёт туда, а кнопка «Записаться» остаётся поверх ссылки как
+    // быстрый диплинк в Телеграм.
+    const href = item.href;
 
     const prices = item.prices;
 
