@@ -131,7 +131,7 @@ export const services: Service[] = [
         description:
             'Три ступени: психокоррекция, питание и образ жизни, славянская гимнастика. Четыре недели, одна глубокая сессия в неделю. Запись — в Телеграм.',
         prices: [{ value: '7 000 ₽' }],
-        href: '/course',
+        href: '/course/',
         cta: {
             label: 'Записаться',
             tgGoal: TG_GOALS.serviceCourse,
@@ -147,7 +147,7 @@ export const services: Service[] = [
         description:
             'Три месяца, один день на готовку в неделю. Новая программа готовится — оставь заявку, напишем первой.',
         prices: [],
-        href: '/food-bogina',
+        href: '/food-bogina/',
         cta: {
             label: 'Узнать первой',
             tgGoal: TG_GOALS.foodBoginaCard,
