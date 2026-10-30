@@ -27,13 +27,7 @@ export type CourseIntro = { paragraphs: string[]; accent: string; closingLine: s
 
 export const course = {
     title: 'Три ступени к телу 2.0',
-    /** Ранняя цена действует до `earlyDeadline`, после — `regular`. */
-    price: {
-        early: '7 000 ₽',
-        earlyDeadline: '15.09',
-        regular: '10 000 ₽',
-    },
-    startsAt: '26.09',
+    price: '7 000 ₽',
     lead: 'Я создала эту программу не для того, чтобы ты похудела. Хотя вес уйдёт. Я создала её, чтобы ты вернула себя.',
 
     /**
