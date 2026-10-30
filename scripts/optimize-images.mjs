@@ -14,6 +14,10 @@ const SOURCES = [
     // слева и справа. Без trim фигура заняла бы половину своей рамки, а
     // выравнивание по правому краю колонки цеплялось бы за пустоту.
     { name: 'course', file: 'course-img.png', widths: [360, 500], trim: true },
+    // Вырез rembg (isnet-general-use) из IMG_8463.JPG/photo_cook.jpg — тот же
+    // приём, что у course: прозрачный фон с полями, trim перед ресайзом.
+    { name: 'food-bogina', file: 'food-bogina-img.png', widths: [360, 500], trim: true },
+    { name: 'food-bogina-author', file: 'food-bogina-author-img.png', widths: [220, 320], trim: true },
 ];
 
 const FORMATS = [
