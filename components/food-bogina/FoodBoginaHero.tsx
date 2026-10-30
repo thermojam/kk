@@ -39,7 +39,9 @@ export function FoodBoginaHero() {
                         </p>
                         <p className="my-6 max-w-[560px] font-serif text-[24px] italic leading-[1.15] text-white/90 lg:my-8 lg:text-[30px]">
                             <span className="block">{foodBogina.hero.lead}</span>
-                            <span className="mt-1 block text-accent-500">{foodBogina.hero.leadAccent}</span>
+                            <span className="mt-1 block text-accent-500">
+                                {foodBogina.hero.leadAccent}
+                            </span>
                         </p>
                     </div>
 
@@ -47,7 +49,10 @@ export function FoodBoginaHero() {
                         {foodBogina.hero.facts.map((fact, i) => (
                             <li key={fact} className="flex items-center gap-3">
                                 {i > 0 && (
-                                    <span aria-hidden="true" className="h-1 w-1 rounded-full bg-white/40" />
+                                    <span
+                                        aria-hidden="true"
+                                        className="h-1 w-1 rounded-full bg-white/40"
+                                    />
                                 )}
                                 {fact}
                             </li>
@@ -74,7 +79,9 @@ export function FoodBoginaHero() {
                                 Узнать формат
                             </Button>
                         </div>
-                        <p className="font-sans text-[13px] text-white/70">{foodBogina.hero.note}</p>
+                        <p className="font-sans text-[13px] text-white/70">
+                            {foodBogina.hero.note}
+                        </p>
                     </div>
                 </div>
             </div>
