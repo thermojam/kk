@@ -15,6 +15,9 @@ export const TG_GOALS = {
     courseHero: 'tg_click_course_hero',
     coursePricing: 'tg_click_course_pricing',
     courseHeader: 'course_header_click',
+    foodBoginaCard: 'tg_click_food_bogina_card',
+    foodBoginaHero: 'tg_click_food_bogina_hero',
+    foodBoginaFormat: 'tg_click_food_bogina_format',
     notFound: 'tg_click_not_found',
 } as const;
 
