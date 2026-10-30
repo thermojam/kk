@@ -35,7 +35,7 @@ export function CoursePricing() {
                         size="lg"
                         className="w-full !bg-neutral-0 !text-primary-700 hover:!bg-neutral-50"
                     >
-                        Записаться
+                        Предзапись
                     </TelegramButton>
                     <p className="text-[13px] leading-[1.5] text-white/60">{course.hero.note}</p>
                 </div>

@@ -39,9 +39,9 @@ export function Header() {
                     <Logo size={48} className={darkFirstScreen ? 'text-white' : 'text-primary-500'} />
                 </Link>
 
-                {/* На самом курсе/программной странице кнопка не нужна: страница
-                    целиком про неё, а CTA всё равно есть ниже по этой же странице. */}
-                {!onProgramPage && (
+                {/* На главной и на самой курсе/программной странице кнопка не нужна:
+                    CTA уже есть в карточках услуг или ниже по самой странице. */}
+                {pathname !== '/' && !onProgramPage && (
                     <Button
                         href="/course/"
                         variant="accent"

@@ -15,7 +15,7 @@ export function FoodBoginaAudienceMobileCarousel({ items }: FoodBoginaAudienceMo
             slidesPerView={{ base: 1 }}
             showArrows={false}
             showDots
-            ariaLabel="Причины выбрать курс"
+            ariaLabel="Причины выбрать программу"
         />
     );
 }

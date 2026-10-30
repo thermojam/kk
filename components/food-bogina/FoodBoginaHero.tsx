@@ -1,6 +1,5 @@
 import { TelegramButton } from '@/components/ui/TelegramButton';
 import { Button } from '@/components/ui/Button';
-import { Badge } from '@/components/ui/Badge';
 import { DarkHeroBackground } from '@/components/ui/DarkHeroBackground';
 import { ResponsiveImage } from '@/components/ui/ResponsiveImage';
 import { foodBogina } from '@/content/food-bogina';
@@ -30,8 +29,6 @@ export function FoodBoginaHero() {
                 </div>
 
                 <div className="flex flex-col items-start gap-8 pb-20 lg:gap-9 lg:pb-28">
-                    <Badge tone="accent">✨ Новая программа</Badge>
-
                     <div className="flex flex-col items-start gap-5">
                         <h1 className="font-display text-white">{foodBogina.title}</h1>
                         <p className="max-w-[460px] font-sans text-[15px] text-white/80">

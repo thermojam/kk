@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Button } from '@/components/ui/Button';
 import { TelegramButton } from '@/components/ui/TelegramButton';
 import { Badge } from '@/components/ui/Badge';
 import { DisclaimerToggle } from '@/components/sections/DisclaimerToggle';
@@ -11,8 +12,8 @@ export function ServiceCard({ item }: ServiceCardProps) {
     const featured = item.featured === true;
     const showDisclaimerBeforePrices = item.id === 'bereginya' && Boolean(item.disclaimer);
     // Услуги со своей страницей задают href в контенте (см. content/home.ts) —
-    // вся карточка ведёт туда, а кнопка «Записаться» остаётся поверх ссылки как
-    // быстрый диплинк в Телеграм.
+    // вся карточка ведёт туда, и кнопка CTA дублирует этот переход, а не
+    // открывает Телеграм напрямую (это делает CTA уже на самой странице).
     const href = item.href;
 
     const prices = item.prices;
@@ -121,17 +122,33 @@ export function ServiceCard({ item }: ServiceCardProps) {
 
             {!showDisclaimerBeforePrices && item.disclaimer && <DisclaimerToggle text={item.disclaimer} />}
 
-            <TelegramButton
-                goal={item.cta.tgGoal}
-                text={item.cta.tgText}
-                variant="primary"
-                className={cn(
-                    prices.length === 0 && !item.pricingNote && 'mt-auto',
-                    featured && '!bg-neutral-0 !text-primary-500 hover:!bg-neutral-50'
-                )}
-            >
-                {item.cta.label}
-            </TelegramButton>
+            {href ? (
+                <Button
+                    href={href}
+                    variant="primary"
+                    className={cn(
+                        prices.length === 0 && !item.pricingNote && 'mt-auto',
+                        featured && '!bg-neutral-0 !text-primary-500 hover:!bg-neutral-50'
+                    )}
+                >
+                    {item.cta.label}
+                </Button>
+            ) : (
+                item.cta.tgGoal &&
+                item.cta.tgText && (
+                    <TelegramButton
+                        goal={item.cta.tgGoal}
+                        text={item.cta.tgText}
+                        variant="primary"
+                        className={cn(
+                            prices.length === 0 && !item.pricingNote && 'mt-auto',
+                            featured && '!bg-neutral-0 !text-primary-500 hover:!bg-neutral-50'
+                        )}
+                    >
+                        {item.cta.label}
+                    </TelegramButton>
+                )
+            )}
         </article>
     );
 }

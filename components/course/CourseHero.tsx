@@ -80,7 +80,7 @@ export function CourseHero() {
                                 size="lg"
                                 className="w-full px-8 sm:w-auto"
                             >
-                                Записаться
+                                Предзапись
                             </TelegramButton>
                             <Button
                                 href="#program"

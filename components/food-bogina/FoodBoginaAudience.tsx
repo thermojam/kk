@@ -5,7 +5,7 @@ import { FoodBoginaAudienceMobileCarousel } from '@/components/food-bogina/FoodB
 export function FoodBoginaAudience() {
     return (
         <section id="audience" className="container-page py-16 lg:py-24">
-            <h2 className="text-h2 mb-8 text-neutral-900">Этот курс для тебя, если хочешь</h2>
+            <h2 className="text-h2 mb-8 text-neutral-900">Эта программа для тебя, если хочешь</h2>
 
             <div className="hidden min-[861px]:grid min-[861px]:grid-cols-3 min-[861px]:gap-6">
                 {foodBogina.reasons.map((reason) => (

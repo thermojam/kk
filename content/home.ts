@@ -33,7 +33,8 @@ export type Service = {
     prices: ServicePrice[];
     /** Дополнительная строка курсивом под тарифами. Например, «стоимость — после диагностической встречи». */
     pricingNote?: string;
-    cta: { label: string; tgGoal: TgGoal; tgText: string };
+    /** tgGoal/tgText нужны только для CTA-Телеграм (у услуг со своей страницей кнопка ведёт на href). */
+    cta: { label: string; tgGoal?: TgGoal; tgText?: string };
     /** Услуга со своей страницей — вся карточка ведёт туда (см. ServiceCard). */
     href?: string;
     featured?: boolean;
@@ -133,15 +134,13 @@ export const services: Service[] = [
         prices: [{ value: '7 000 ₽' }],
         href: '/course/',
         cta: {
-            label: 'Записаться',
-            tgGoal: TG_GOALS.serviceCourse,
-            tgText: 'Здравствуйте! Хочу записаться на программу «Три ступени к телу». Как оплатить?',
+            label: 'К программе',
         },
         featured: true,
     },
     {
         id: 'food-bogina',
-        badge: '✨ Новая программа',
+        badge: 'Бестселлер',
         title: 'Food-Богиня',
         subtitle: 'Курс по питанию · предзапись',
         description:
@@ -149,9 +148,7 @@ export const services: Service[] = [
         prices: [],
         href: '/food-bogina/',
         cta: {
-            label: 'Узнать первой',
-            tgGoal: TG_GOALS.foodBoginaCard,
-            tgText: 'Здравствуйте! Хочу записаться в лист предзаписи на курс «Food-Богиня».',
+            label: 'В лист предзаписи',
         },
     },
     {

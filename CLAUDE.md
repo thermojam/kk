@@ -76,7 +76,7 @@ npm run dev            # localhost:3000
 npm run build          # статический экспорт в out/
 npm run lint
 npx tsc --noEmit       # отдельного скрипта нет
-npm run format:check
+npm run format:check   # сейчас падает на 16 файлах, унаследовано от 645800c; не форматировать чужое при правках
 npm run images         # пересобрать public/images/generated/ после замены исходников
 ```
 Автотестов нет намеренно: проверка — lint + tsc + ручной просмотр в браузере.
@@ -93,5 +93,6 @@ npm run images         # пересобрать public/images/generated/ пос�
 - Картинки не через `next/image` (unoptimized), а через `ResponsiveImage` + файлы из `npm run images`; новое изображение добавлять в `SOURCES` в `scripts/optimize-images.mjs`.
 - Новая CTA-кнопка в Telegram → новая цель в `TG_GOALS`, её же завести в Метрике.
 - `NEXT_PUBLIC_YM_ID` задан только в `.env.production`; локально Метрика не грузится — это норма.
+- Секреты: `.env` (gitignored), шаблон — `.env.example`. `.env.production` содержит только `NEXT_PUBLIC_YM_ID`, без секретов.
 - Отступ 4 пробела, одинарные кавычки, printWidth 100 (Prettier).
 - Ветки: работа в `dev`, релиз — merge в `main`.

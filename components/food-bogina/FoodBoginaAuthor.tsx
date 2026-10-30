@@ -20,7 +20,7 @@ export function FoodBoginaAuthor() {
                 </div>
 
                 <div className="flex flex-col gap-8">
-                    <h2 className="text-h2 text-neutral-900">Автор и ведущая курса</h2>
+                    <h2 className="text-h2 text-neutral-900">Автор и ведущая программы</h2>
                     <div>
                         <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.16em] text-primary-500">
                             Квалификации
