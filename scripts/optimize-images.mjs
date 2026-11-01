@@ -29,14 +29,14 @@ const SOURCES = [
     // Freddie Addery — https://unsplash.com/photos/person-in-flowing-white-dress-blurred-motion-outdoors-s_Hf6mBTc7Y
     // Vikas Kumar — https://unsplash.com/photos/bowl-of-fresh-vegetable-salad-with-carrots-and-herbs-PUem1HziEqY
     // All photos are published under the Unsplash License.
-    { name: 'service-abstract', file: 'service-abstract.jpg', widths: [180, 360] },
-    { name: 'service-spices', file: 'service-spices.jpg', widths: [180, 360] },
-    { name: 'service-bowl', file: 'service-bowl.jpg', widths: [180, 360] },
-    { name: 'service-conversation', file: 'service-conversation.jpg', widths: [180, 360] },
-    { name: 'service-path', file: 'service-path.jpg', widths: [180, 360] },
-    { name: 'service-session', file: 'service-session.jpg', widths: [180, 360] },
+    { name: 'service-consultation', file: 'service-consultation.jpg', widths: [180, 360] },
+    { name: 'service-course', file: 'service-course.jpg', widths: [180, 360] },
+    { name: 'service-food-boginya', file: 'service-food-boginya.jpg', widths: [180, 360] },
+    { name: 'service-free-consultation', file: 'service-free-consultation.jpg', widths: [180, 360] },
     { name: 'service-gymnastics', file: 'service-gymnastics.jpg', widths: [180, 360] },
-    { name: 'service-combo', file: 'service-combo.jpg', widths: [180, 360] },
+    { name: 'service-long-support', file: 'service-long-support.jpg', widths: [180, 360] },
+    { name: 'service-nutrition-psychosomatics', file: 'service-nutrition-psychosomatics.jpg', widths: [180, 360] },
+    { name: 'service-psych-session', file: 'service-psych-session.jpg', widths: [180, 360] },
 ];
 
 const FORMATS = [
