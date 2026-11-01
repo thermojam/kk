@@ -24,14 +24,14 @@ export type ServicePrice = {
 };
 
 export type ServiceImage =
-    | 'service-bowl'
-    | 'service-abstract'
-    | 'service-spices'
-    | 'service-conversation'
-    | 'service-path'
-    | 'service-session'
+    | 'service-consultation'
+    | 'service-course'
+    | 'service-food-boginya'
+    | 'service-free-consultation'
     | 'service-gymnastics'
-    | 'service-combo';
+    | 'service-long-support'
+    | 'service-nutrition-psychosomatics'
+    | 'service-psych-session';
 
 export type Service = {
     id: string;
@@ -121,7 +121,7 @@ export const cases: Case[] = [
 export const services: Service[] = [
     {
         id: 'consult-food-body',
-        image: 'service-bowl',
+        image: 'service-consultation',
         badge: 'Разовая',
         title: 'Консультация',
         subtitle: '«Отношения с едой и телом»',
@@ -138,13 +138,13 @@ export const services: Service[] = [
         // Курс стоит вторым намеренно: на десктопе слайдер показывает три
         // карточки, и вторая оказывается по центру — там же, куда падает взгляд.
         id: 'course',
-        image: 'service-abstract',
+        image: 'service-course',
         badge: '✨ Новая программа',
         title: 'Три ступени к телу',
         subtitle: 'Групповая программа',
         description:
             'Три ступени: психокоррекция, питание и образ жизни, славянская гимнастика. Четыре недели, одна глубокая сессия в неделю. Запись — в Телеграм.',
-        prices: [{ value: '7 000 ₽' }],
+        prices: [],
         href: '/course/',
         cta: {
             label: 'Подробнее',
@@ -153,7 +153,7 @@ export const services: Service[] = [
     },
     {
         id: 'food-bogina',
-        image: 'service-spices',
+        image: 'service-food-boginya',
         badge: 'Бестселлер',
         title: 'Food-Богиня',
         subtitle: 'Кулинарный курс от нутрициолога-технолога с 13-летним опытом',
@@ -166,7 +166,7 @@ export const services: Service[] = [
     },
     {
         id: 'path-to-self',
-        image: 'service-path',
+        image: 'service-long-support',
         badge: '★ Основная программа',
         title: 'Длительное сопровождение',
         subtitle: '«Путь к себе»',
@@ -184,7 +184,7 @@ export const services: Service[] = [
     },
     {
         id: 'session',
-        image: 'service-session',
+        image: 'service-psych-session',
         badge: 'Разовая',
         title: 'Психологическая сессия',
         subtitle: '1:1 онлайн',
@@ -222,7 +222,7 @@ export const services: Service[] = [
     },
     {
         id: 'nutrition-psychosomatics-combo',
-        image: 'service-combo',
+        image: 'service-nutrition-psychosomatics',
         badge: 'Комбо',
         title: 'Питание и образ жизни + психосоматика',
         subtitle: 'Интегральный онлайн-подход',
@@ -237,7 +237,7 @@ export const services: Service[] = [
     },
     {
         id: 'free-consult',
-        image: 'service-conversation',
+        image: 'service-free-consultation',
         badge: 'Бесплатно',
         title: 'Бесплатная консультация',
         subtitle: '20 минут',

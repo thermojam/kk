@@ -4,12 +4,18 @@ import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SRC_DIR = path.join(ROOT, 'public', 'images');
-const OUT_DIR = path.join(ROOT, 'public', 'images', 'generated');
+const SRC_DIR = path.join(ROOT, 'assets', 'images-src');
+const PUBLIC_IMAGES_DIR = path.join(ROOT, 'public', 'images');
+const OUT_DIR = path.join(PUBLIC_IMAGES_DIR, 'generated');
 
 const SOURCES = [
     { name: 'hero', file: 'hero.webp', widths: [960, 1440, 1920] },
-    { name: 'about', file: 'about.webp', widths: [320, 480, 760] },
+    {
+        name: 'about',
+        file: 'about.webp',
+        srcDir: PUBLIC_IMAGES_DIR,
+        widths: [320, 480, 760],
+    },
     // Вырезанная фигура на прозрачном фоне: у исходника по 90px пустых полей
     // слева и справа. Без trim фигура заняла бы половину своей рамки, а
     // выравнивание по правому краю колонки цеплялось бы за пустоту.
@@ -29,14 +35,14 @@ const SOURCES = [
     // Freddie Addery — https://unsplash.com/photos/person-in-flowing-white-dress-blurred-motion-outdoors-s_Hf6mBTc7Y
     // Vikas Kumar — https://unsplash.com/photos/bowl-of-fresh-vegetable-salad-with-carrots-and-herbs-PUem1HziEqY
     // All photos are published under the Unsplash License.
-    { name: 'service-abstract', file: 'service-abstract.jpg', widths: [180, 360] },
-    { name: 'service-spices', file: 'service-spices.jpg', widths: [180, 360] },
-    { name: 'service-bowl', file: 'service-bowl.jpg', widths: [180, 360] },
-    { name: 'service-conversation', file: 'service-conversation.jpg', widths: [180, 360] },
-    { name: 'service-path', file: 'service-path.jpg', widths: [180, 360] },
-    { name: 'service-session', file: 'service-session.jpg', widths: [180, 360] },
+    { name: 'service-consultation', file: 'service-consultation.jpg', widths: [180, 360] },
+    { name: 'service-course', file: 'service-course.jpg', widths: [180, 360] },
+    { name: 'service-food-boginya', file: 'service-food-boginya.jpg', widths: [180, 360] },
+    { name: 'service-free-consultation', file: 'service-free-consultation.jpg', widths: [180, 360] },
     { name: 'service-gymnastics', file: 'service-gymnastics.jpg', widths: [180, 360] },
-    { name: 'service-combo', file: 'service-combo.jpg', widths: [180, 360] },
+    { name: 'service-long-support', file: 'service-long-support.jpg', widths: [180, 360] },
+    { name: 'service-nutrition-psychosomatics', file: 'service-nutrition-psychosomatics.jpg', widths: [180, 360] },
+    { name: 'service-psych-session', file: 'service-psych-session.jpg', widths: [180, 360] },
 ];
 
 const FORMATS = [
@@ -53,8 +59,8 @@ async function isFresh(srcPath, outPath) {
     }
 }
 
-async function processOne({ name, file, widths, trim = false }) {
-    const srcPath = path.join(SRC_DIR, file);
+async function processOne({ name, file, srcDir = SRC_DIR, widths, trim = false }) {
+    const srcPath = path.join(srcDir, file);
     for (const width of widths) {
         for (const { ext, encode } of FORMATS) {
             const outName = `${name}-${width}.${ext}`;
@@ -72,7 +78,7 @@ async function processOne({ name, file, widths, trim = false }) {
 }
 
 async function processOg() {
-    const srcPath = path.join(SRC_DIR, 'about.webp');
+    const srcPath = path.join(PUBLIC_IMAGES_DIR, 'about.webp');
     const targets = [
         {
             file: 'og-cover.webp',
@@ -84,7 +90,7 @@ async function processOg() {
         },
     ];
     for (const { file, encode } of targets) {
-        const outPath = path.join(SRC_DIR, file);
+        const outPath = path.join(PUBLIC_IMAGES_DIR, file);
         if (await isFresh(srcPath, outPath)) {
             console.log(`skip   ${file}`);
             continue;

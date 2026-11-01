@@ -6,14 +6,14 @@ type ResponsiveImageName =
     | 'course'
     | 'food-bogina'
     | 'food-bogina-author'
-    | 'service-abstract'
-    | 'service-spices'
-    | 'service-bowl'
-    | 'service-conversation'
-    | 'service-path'
-    | 'service-session'
+    | 'service-consultation'
+    | 'service-course'
+    | 'service-food-boginya'
+    | 'service-free-consultation'
     | 'service-gymnastics'
-    | 'service-combo';
+    | 'service-long-support'
+    | 'service-nutrition-psychosomatics'
+    | 'service-psych-session';
 
 type ResponsiveImageProps = {
     /** Базовое имя источника (без размера и расширения). */
