@@ -20,6 +20,23 @@ const SOURCES = [
     // Без вырезания фона — как about.webp: обычное прямоугольное фото,
     // кадрируется в aspect-[3/4] через object-cover на уровне компонента.
     { name: 'food-bogina-author', file: 'photo_cook.jpg', widths: [320, 480, 760] },
+    // Фото Unsplash: Liana S — https://unsplash.com/photos/sunlight-filtering-through-green-leaves-and-shadows-StbRd1g8Kr0
+    // Zed Can — https://unsplash.com/photos/herbal-tea-blend-in-a-glass-rY-gCLojJcc
+    // To Uyen — https://unsplash.com/photos/a-plate-of-food-R2elv0WpyQU
+    // Vitaly Gariev — https://unsplash.com/photos/two-women-talking-and-drinking-coffee-at-a-cafe-RZSSsQGxH88
+    // Kenzie Kraft — https://unsplash.com/photos/young-woman-looking-out-a-window-thoughtfully-VAKvEL5Njuo
+    // Kelly Sikkema — https://unsplash.com/photos/a-woman-sitting-at-a-table-writing-on-a-notebook-oyEknUl5LUM
+    // Freddie Addery — https://unsplash.com/photos/person-in-flowing-white-dress-blurred-motion-outdoors-s_Hf6mBTc7Y
+    // Vikas Kumar — https://unsplash.com/photos/bowl-of-fresh-vegetable-salad-with-carrots-and-herbs-PUem1HziEqY
+    // All photos are published under the Unsplash License.
+    { name: 'service-abstract', file: 'service-abstract.jpg', widths: [180, 360] },
+    { name: 'service-spices', file: 'service-spices.jpg', widths: [180, 360] },
+    { name: 'service-bowl', file: 'service-bowl.jpg', widths: [180, 360] },
+    { name: 'service-conversation', file: 'service-conversation.jpg', widths: [180, 360] },
+    { name: 'service-path', file: 'service-path.jpg', widths: [180, 360] },
+    { name: 'service-session', file: 'service-session.jpg', widths: [180, 360] },
+    { name: 'service-gymnastics', file: 'service-gymnastics.jpg', widths: [180, 360] },
+    { name: 'service-combo', file: 'service-combo.jpg', widths: [180, 360] },
 ];
 
 const FORMATS = [

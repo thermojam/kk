@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Варианты иконок для карточек услуг</title>
+        <style>
+            :root {
+                color-scheme: light;
+                --ink: #1e1e2e;
+                --muted: #6b6b80;
+                --line: #e6e6ec;
+                --purple: #7b2cbf;
+                --purple-dark: #4d167a;
+                --purple-pale: #f7f1fc;
+                --orange: #ffa552;
+                --serif: Georgia, 'Times New Roman', serif;
+                --sans: 'Nunito Sans', Nunito, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            }
+
+            * { box-sizing: border-box; }
+
+            body {
+                margin: 0;
+                background: #faf8fc;
+                color: var(--ink);
+                font-family: var(--sans);
+            }
+
+            /*
+            THESIS — пять способов вынести смысловую иконку из текстового потока, сохранив карточку услуги.
+            OWN-WORLD — светлый фон, белые карточки, фирменный фиолетовый и оранжевый, тонкая обводка и засечки только в цене.
+            STORY — посетитель сравнивает композиции и сразу видит, как один знак различает кулинарную программу и курс из трёх этапов.
+            FIRST VIEWPORT — заголовок выбора сверху; ниже идут пять пар одинаковых карточек шириной 348px и высотой 500px.
+            FORM — пять локальных вариантов расположения иконки внутри существующей структуры карточек.
+            */
+            .page {
+                max-width: 1240px;
+                margin: 0 auto;
+                padding: 52px 28px 72px;
+            }
+
+            .intro { max-width: 760px; margin-bottom: 34px; }
+            .eyebrow {
+                margin: 0 0 10px;
+                color: var(--purple);
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: .12em;
+                text-transform: uppercase;
+            }
+            h1 { margin: 0; font-size: clamp(28px, 4vw, 42px); line-height: 1.1; letter-spacing: -.035em; }
+            .intro p:last-child { margin: 12px 0 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+
+            .option { padding: 26px 0 30px; border-top: 1px solid var(--line); }
+            .option-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+            .option-number { color: var(--purple); font: italic 22px var(--serif); }
+            h2 { margin: 0; font-size: 19px; line-height: 1.3; }
+            .option-note { margin: 3px 0 18px 38px; color: var(--muted); font-size: 13px; }
+            .pair { display: flex; gap: 18px; overflow-x: auto; padding: 0 0 8px; }
+
+            .card {
+                position: relative;
+                flex: 0 0 348px;
+                width: 348px;
+                height: 500px;
+                padding: 24px;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                overflow: hidden;
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                background: white;
+                box-shadow: 0 18px 50px -32px rgba(30, 30, 46, .18);
+            }
+
+            .card.featured {
+                border-color: var(--purple);
+                background: var(--purple);
+                color: white;
+                box-shadow: 0 18px 50px -28px rgba(30, 30, 46, .3);
+            }
+
+            .badge {
+                align-self: flex-start;
+                display: inline-flex;
+                align-items: center;
+                min-height: 25px;
+                padding: 4px 10px;
+                border: 1px solid #eadcf5;
+                border-radius: 999px;
+                color: var(--purple-dark);
+                background: var(--purple-pale);
+                font-size: 11px;
+                font-weight: 700;
+                line-height: 1.2;
+                white-space: nowrap;
+            }
+            .featured .badge { border-color: rgba(255,255,255,.25); color: white; background: rgba(255,255,255,.14); }
+
+            .heading { min-height: 88px; display: flex; flex-direction: column; gap: 4px; }
+            h3 { margin: 0; font-size: 24px; font-weight: 800; line-height: 1.25; letter-spacing: -.025em; }
+            .subtitle { margin: 0; color: var(--purple); font: italic 16px/1.35 var(--serif); }
+            .featured .subtitle { color: rgba(255,255,255,.9); }
+            .description { margin: 0; flex: 1; color: #3a3a52; font-size: 15px; line-height: 1.55; }
+            .featured .description { color: rgba(255,255,255,.9); }
+            .price { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); color: var(--purple); font: italic 36px/1 var(--serif); }
+            .featured .price { border-color: rgba(255,255,255,.2); color: var(--orange); }
+            .button {
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 6px;
+                background: var(--purple);
+                color: white;
+                font-size: 15px;
+                font-weight: 700;
+                text-decoration: none;
+            }
+            .featured .button { background: white; color: var(--purple); }
+
+            .icon {
+                width: 24px;
+                height: 24px;
+                display: block;
+                fill: none;
+                stroke: currentColor;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 1.7;
+            }
+            .icon-box { width: 46px; height: 46px; display: grid; place-items: center; flex: 0 0 auto; color: var(--purple); background: var(--purple-pale); border-radius: 10px; }
+            .featured .icon-box { color: white; background: rgba(255,255,255,.13); }
+            .icon-box .icon { width: 27px; height: 27px; }
+
+            /* 01: icon has a dedicated corner cell in the badge row. */
+            .v1 .topline { min-height: 46px; display: flex; align-items: flex-start; justify-content: space-between; }
+            .v1 .icon-box { margin-top: -1px; }
+
+            /* 02: a circular crop fills the icon mark; both stay in a separate row above the copy. */
+            .v2 { gap: 8px; }
+            .v2 .media-row { height: 92px; display: flex; align-items: center; justify-content: center; }
+            .v2 .media-circle { position: relative; width: 92px; height: 92px; flex: 0 0 92px; overflow: hidden; border: 2px solid white; border-radius: 50%; box-shadow: 0 0 0 1px rgba(123,44,191,.25); }
+            .v2 .media-photo { width: 100%; height: 100%; display: block; object-fit: cover; }
+            .v2 .description { font-size: 14px; line-height: 1.45; }
+            .v2.featured .media-circle { border-color: rgba(255,255,255,.9); box-shadow: 0 0 0 1px rgba(255,255,255,.35); }
+            .v2 .heading { text-align: center; }
+            .v2 .option-note a { color: var(--purple); text-underline-offset: 2px; }
+
+            /* 03: a narrow icon rail sits beside the title block with a clear divider. */
+            .v3 .title-rail { min-height: 88px; display: grid; grid-template-columns: 51px 1fr; gap: 14px; align-items: start; }
+            .v3 .title-rail .icon-box { width: 44px; height: 44px; border-radius: 8px; }
+            .v3 .title-rail .heading { border-left: 1px solid #ded0ea; padding-left: 14px; }
+            .v3.featured .title-rail .heading { border-color: rgba(255,255,255,.3); }
+
+            /* 04: icon sits in a small labeled seal, separated from the copy by a full-width rule. */
+            .v4 { gap: 13px; }
+            .v4 .seal-row { min-height: 50px; display: flex; align-items: center; gap: 12px; padding: 7px 0; border-block: 1px solid var(--line); }
+            .v4 .icon-box { width: 34px; height: 34px; border-radius: 50%; }
+            .v4 .icon-box .icon { width: 21px; height: 21px; }
+            .v4 .seal-caption { color: var(--muted); font-size: 11px; line-height: 1.3; }
+            .v4.featured .seal-row { border-color: rgba(255,255,255,.24); }
+            .v4.featured .seal-caption { color: rgba(255,255,255,.78); }
+
+            /* 05: icon lives in its own bottom stamp, with whitespace around it. */
+            .v5 .stamp { min-height: 38px; display: flex; align-items: center; gap: 9px; margin-top: auto; color: var(--purple); }
+            .v5 .stamp .icon { width: 22px; height: 22px; }
+            .v5 .stamp-label { font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+            .v5 .price { margin-top: 0; }
+            .v5.featured .stamp { color: rgba(255,255,255,.88); }
+
+            .footer-note { margin-top: 10px; color: var(--muted); font-size: 12px; }
+
+            @media (max-width: 600px) {
+                .page { padding: 32px 16px 48px; }
+                .option { padding-top: 20px; }
+                .card { flex-basis: 320px; width: 320px; height: 500px; padding: 22px; }
+                h3 { font-size: 22px; }
+                .pair { margin-right: -16px; }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="page">
+            <header class="intro">
+                <p class="eyebrow">Услуги · варианты оформления</p>
+                <h1>Иконка внутри карточки, отдельно от текста</h1>
+                <p>Пять способов разместить знак и сохранить текущий контент, стиль и размер карточек. Каждая компоновка показана на «Трёх ступенях» и «Food-Богине».</p>
+            </header>
+
+            <svg aria-hidden="true" width="0" height="0" style="position:absolute">
+                <symbol id="icon-steps" viewBox="0 0 32 32">
+                    <path d="M5 25h7v-6h7v-6h8V7" />
+                    <path d="M5 25v3h22V7" />
+                    <path d="M9 19v6M16 13v6M23 7v6" />
+                </symbol>
+                <symbol id="icon-food" viewBox="0 0 32 32">
+                    <path d="M5 18h18a8 8 0 0 1-16 0Z" />
+                    <path d="M9 14c1.4-1.7 3.3-2.5 5.7-2.5 2.2 0 4.1.8 5.6 2.5" />
+                    <path d="M16 11c.2-4 2.4-6.4 6-7-0.1 3.4-1.8 5.9-5.2 7" />
+                    <path d="M25 7v13M28 7v6M25 12h3M7 27h19" />
+                </symbol>
+            </svg>
+
+            <section class="option" aria-labelledby="option-1">
+                <div class="option-head"><span class="option-number">01</span><h2 id="option-1">Знак в отдельной ячейке шапки</h2></div>
+                <p class="option-note">Иконка уравновешивает бейдж, до заголовка остаётся чистый интервал.</p>
+                <div class="pair">
+                    <article class="card featured v1">
+                        <div class="topline"><span class="badge">✨ Новая программа</span><span class="icon-box"><svg class="icon"><use href="#icon-steps" /></svg></span></div>
+                        <div class="heading"><h3>Три ступени к телу</h3><p class="subtitle">Групповая программа</p></div>
+                        <p class="description">Три ступени: психокоррекция, питание и образ жизни, славянская гимнастика. Четыре недели, одна глубокая сессия в неделю. Запись — в Телеграм.</p>
+                        <div class="price">7 000 ₽</div><a class="button" href="/course/">Подробнее</a>
+                    </article>
+                    <article class="card v1">
+                        <div class="topline"><span class="badge">Бестселлер</span><span class="icon-box"><svg class="icon"><use href="#icon-food" /></svg></span></div>
+                        <div class="heading"><h3>Food-Богиня</h3><p class="subtitle">Кулинарный курс от нутрициолога-технолога с 13-летним опытом</p></div>
+                        <p class="description">Вкусно, как в ресторане, и полезно, как у нутрициолога. Всего один день в неделю.</p>
+                        <div class="price" aria-hidden="true"></div><a class="button" href="/food-bogina/" style="margin-top:auto">Подробнее</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="option" aria-labelledby="option-2">
+                <div class="option-head"><span class="option-number">02</span><h2 id="option-2">Круглое фото по центру</h2></div>
+                <p class="option-note">Фото без пиктограмм, по центру карточки. Этот вариант применяется к услугам на сайте.</p>
+                <div class="pair">
+                    <article class="card featured v2">
+                        <span class="badge">✨ Новая программа</span><div class="media-row"><span class="media-circle"><img class="media-photo" src="https://images.unsplash.com/photo-1763918525936-502af6fa1ccc?auto=format&amp;fit=crop&amp;w=400&amp;h=400&amp;q=80" alt="Свет и тени листьев, абстрактная природная фактура" loading="lazy" /></span></div>
+                        <div class="heading"><h3>Три ступени к телу</h3><p class="subtitle">Групповая программа</p></div>
+                        <p class="description">Три ступени: психокоррекция, питание и образ жизни, славянская гимнастика. Четыре недели, одна глубокая сессия в неделю. Запись — в Телеграм.</p>
+                        <div class="price">7 000 ₽</div><a class="button" href="/course/">Подробнее</a>
+                    </article>
+                    <article class="card v2">
+                        <span class="badge">Бестселлер</span><div class="media-row"><span class="media-circle"><img class="media-photo" src="https://images.unsplash.com/photo-1754513345373-680a66b2518e?auto=format&amp;fit=crop&amp;w=400&amp;h=400&amp;q=80" alt="Цветные специи и травы крупным планом" loading="lazy" /></span></div>
+                        <div class="heading"><h3>Food-Богиня</h3><p class="subtitle">Кулинарный курс от нутрициолога-технолога с 13-летним опытом</p></div>
+                        <p class="description">Вкусно, как в ресторане, и полезно, как у нутрициолога. Всего один день в неделю.</p>
+                        <div class="price" aria-hidden="true"></div><a class="button" href="/food-bogina/" style="margin-top:auto">Подробнее</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="option" aria-labelledby="option-3">
+                <div class="option-head"><span class="option-number">03</span><h2 id="option-3">Боковая иконка-рейка</h2></div>
+                <p class="option-note">Знак и заголовок стоят рядом, но отделены вертикальной линией и собственными полями.</p>
+                <div class="pair">
+                    <article class="card featured v3">
+                        <span class="badge">✨ Новая программа</span>
+                        <div class="title-rail"><span class="icon-box"><svg class="icon"><use href="#icon-steps" /></svg></span><div class="heading"><h3>Три ступени к телу</h3><p class="subtitle">Групповая программа</p></div></div>
+                        <p class="description">Три ступени: психокоррекция, питание и образ жизни, славянская гимнастика. Четыре недели, одна глубокая сессия в неделю. Запись — в Телеграм.</p>
+                        <div class="price">7 000 ₽</div><a class="button" href="/course/">Подробнее</a>
+                    </article>
+                    <article class="card v3">
+                        <span class="badge">Бестселлер</span>
+                        <div class="title-rail"><span class="icon-box"><svg class="icon"><use href="#icon-food" /></svg></span><div class="heading"><h3>Food-Богиня</h3><p class="subtitle">Кулинарный курс от нутрициолога-технолога с 13-летним опытом</p></div></div>
+                        <p class="description">Вкусно, как в ресторане, и полезно, как у нутрициолога. Всего один день в неделю.</p>
+                        <div class="price" aria-hidden="true"></div><a class="button" href="/food-bogina/" style="margin-top:auto">Подробнее</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="option" aria-labelledby="option-4">
+                <div class="option-head"><span class="option-number">04</span><h2 id="option-4">Знак на отдельной разделительной полосе</h2></div>
+                <p class="option-note">Иконка получает собственную строку с правилом; текст начинается ниже.</p>
+                <div class="pair">
+                    <article class="card featured v4">
+                        <span class="badge">✨ Новая программа</span>
+                        <div class="seal-row"><span class="icon-box"><svg class="icon"><use href="#icon-steps" /></svg></span><span class="seal-caption">Структура<br />программы</span></div>
+                        <div class="heading"><h3>Три ступени к телу</h3><p class="subtitle">Групповая программа</p></div>
+                        <p class="description">Три ступени: психокоррекция, питание и образ жизни, славянская гимнастика. Четыре недели, одна глубокая сессия в неделю. Запись — в Телеграм.</p>
+                        <div class="price">7 000 ₽</div><a class="button" href="/course/">Подробнее</a>
+                    </article>
+                    <article class="card v4">
+                        <span class="badge">Бестселлер</span>
+                        <div class="seal-row"><span class="icon-box"><svg class="icon"><use href="#icon-food" /></svg></span><span class="seal-caption">Кулинарная<br />программа</span></div>
+                        <div class="heading"><h3>Food-Богиня</h3><p class="subtitle">Кулинарный курс от нутрициолога-технолога с 13-летним опытом</p></div>
+                        <p class="description">Вкусно, как в ресторане, и полезно, как у нутрициолога. Всего один день в неделю.</p>
+                        <div class="price" aria-hidden="true"></div><a class="button" href="/food-bogina/" style="margin-top:auto">Подробнее</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="option" aria-labelledby="option-5">
+                <div class="option-head"><span class="option-number">05</span><h2 id="option-5">Иконка-подпись перед действием</h2></div>
+                <p class="option-note">Знак отделён от описания и работает как небольшая метка рядом с ценой и кнопкой.</p>
+                <div class="pair">
+                    <article class="card featured v5">
+                        <span class="badge">✨ Новая программа</span>
+                        <div class="heading"><h3>Три ступени к телу</h3><p class="subtitle">Групповая программа</p></div>
+                        <p class="description">Три ступени: психокоррекция, питание и образ жизни, славянская гимнастика. Четыре недели, одна глубокая сессия в неделю. Запись — в Телеграм.</p>
+                        <div class="stamp"><svg class="icon"><use href="#icon-steps" /></svg><span class="stamp-label">Три этапа программы</span></div>
+                        <div class="price">7 000 ₽</div><a class="button" href="/course/">Подробнее</a>
+                    </article>
+                    <article class="card v5">
+                        <span class="badge">Бестселлер</span>
+                        <div class="heading"><h3>Food-Богиня</h3><p class="subtitle">Кулинарный курс от нутрициолога-технолога с 13-летним опытом</p></div>
+                        <p class="description">Вкусно, как в ресторане, и полезно, как у нутрициолога. Всего один день в неделю.</p>
+                        <div class="stamp"><svg class="icon"><use href="#icon-food" /></svg><span class="stamp-label">Кулинарный курс</span></div>
+                        <div class="price" aria-hidden="true"></div><a class="button" href="/food-bogina/" style="margin-top:auto">Подробнее</a>
+                    </article>
+                </div>
+            </section>
+            <p class="footer-note">Превью показывает только расположение иконок. Размер каждой карточки в вариантах одинаковый: 348 × 500 px на широком экране.</p>
+        </main>
+    </body>
+</html>

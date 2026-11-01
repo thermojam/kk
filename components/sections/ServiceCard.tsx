@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/Button';
 import { TelegramButton } from '@/components/ui/TelegramButton';
 import { Badge } from '@/components/ui/Badge';
 import { DisclaimerToggle } from '@/components/sections/DisclaimerToggle';
+import { ResponsiveImage } from '@/components/ui/ResponsiveImage';
 import type { Service } from '@/content/home';
 import { cn } from '@/lib/cn';
 
@@ -21,7 +22,7 @@ export function ServiceCard({ item }: ServiceCardProps) {
     return (
         <article
             className={cn(
-                'relative flex h-full flex-col gap-4 rounded-lg p-6 transition-shadow duration-200',
+                'relative flex h-full flex-col gap-1 rounded-lg p-5 transition-shadow duration-200',
                 featured
                     ? 'bg-primary-500 text-neutral-0 shadow-[0_18px_50px_-28px_rgba(30,30,46,0.3)]'
                     : 'border border-neutral-100 bg-neutral-0 text-neutral-900 shadow-[0_18px_50px_-32px_rgba(30,30,46,0.18)]'
@@ -36,6 +37,27 @@ export function ServiceCard({ item }: ServiceCardProps) {
             <Badge tone={featured ? 'accent' : 'neutral'} className="self-start">
                 {item.badge}
             </Badge>
+            <div className="flex min-h-[92px] justify-center">
+                <div
+                    aria-hidden="true"
+                    className={cn(
+                        'pointer-events-none relative z-10 size-[92px] shrink-0 overflow-hidden rounded-full border-2 shadow-[0_0_0_1px_rgba(123,44,191,0.25)]',
+                        featured ? 'border-neutral-0' : 'border-neutral-50'
+                    )}
+                >
+                    <ResponsiveImage
+                        name={item.image}
+                        alt=""
+                        widths={[180, 360]}
+                        fallbackWidth={180}
+                        width={92}
+                        height={92}
+                        sizes="92px"
+                        loading="eager"
+                        className="block h-full w-full object-cover"
+                    />
+                </div>
+            </div>
 
             <div className="flex min-h-[5.5rem] flex-col gap-1">
                 <h3
