@@ -23,8 +23,19 @@ export type ServicePrice = {
     meta?: string;
 };
 
+export type ServiceImage =
+    | 'service-bowl'
+    | 'service-abstract'
+    | 'service-spices'
+    | 'service-conversation'
+    | 'service-path'
+    | 'service-session'
+    | 'service-gymnastics'
+    | 'service-combo';
+
 export type Service = {
     id: string;
+    image: ServiceImage;
     badge: string;
     title: string;
     subtitle?: string;
@@ -110,6 +121,7 @@ export const cases: Case[] = [
 export const services: Service[] = [
     {
         id: 'consult-food-body',
+        image: 'service-bowl',
         badge: 'Разовая',
         title: 'Консультация',
         subtitle: '«Отношения с едой и телом»',
@@ -126,6 +138,7 @@ export const services: Service[] = [
         // Курс стоит вторым намеренно: на десктопе слайдер показывает три
         // карточки, и вторая оказывается по центру — там же, куда падает взгляд.
         id: 'course',
+        image: 'service-abstract',
         badge: '✨ Новая программа',
         title: 'Три ступени к телу',
         subtitle: 'Групповая программа',
@@ -134,25 +147,26 @@ export const services: Service[] = [
         prices: [{ value: '7 000 ₽' }],
         href: '/course/',
         cta: {
-            label: 'К программе',
+            label: 'Подробнее',
         },
         featured: true,
     },
     {
         id: 'food-bogina',
+        image: 'service-spices',
         badge: 'Бестселлер',
         title: 'Food-Богиня',
-        subtitle: 'Курс по питанию · предзапись',
-        description:
-            'Три месяца, один день на готовку в неделю. Новая программа готовится — оставь заявку, напишем первой.',
+        subtitle: 'Кулинарный курс от нутрициолога-технолога с 13-летним опытом',
+        description: 'Вкусно, как в ресторане, и полезно, как у нутрициолога. Всего один день в неделю.',
         prices: [],
         href: '/food-bogina/',
         cta: {
-            label: 'В лист предзаписи',
+            label: 'Подробнее',
         },
     },
     {
         id: 'path-to-self',
+        image: 'service-path',
         badge: '★ Основная программа',
         title: 'Длительное сопровождение',
         subtitle: '«Путь к себе»',
@@ -170,6 +184,7 @@ export const services: Service[] = [
     },
     {
         id: 'session',
+        image: 'service-session',
         badge: 'Разовая',
         title: 'Психологическая сессия',
         subtitle: '1:1 онлайн',
@@ -187,6 +202,7 @@ export const services: Service[] = [
     },
     {
         id: 'bereginya',
+        image: 'service-gymnastics',
         badge: 'Телесная практика',
         title: 'Женская славянская гимнастика',
         subtitle: '«Сила Берегини»',
@@ -206,12 +222,13 @@ export const services: Service[] = [
     },
     {
         id: 'nutrition-psychosomatics-combo',
+        image: 'service-combo',
         badge: 'Комбо',
         title: 'Питание и образ жизни + психосоматика',
         subtitle: 'Интегральный онлайн-подход',
         description:
             'На стыке нутрициологии и психосоматики: разбираем пищевые привычки, ритм жизни и телесные реакции, которые стоят за срывами и усталостью. Быстрый практический старт для тех, кто хочет действовать, а не только разбираться.',
-        prices: [{ value: '7 500 ₽', meta: '2 сессии для активного старта' }],
+        prices: [{ value: '10 000 ₽', meta: '2 сессии для активного старта' }],
         cta: {
             label: 'Записаться',
             tgGoal: TG_GOALS.serviceCombo,
@@ -220,6 +237,7 @@ export const services: Service[] = [
     },
     {
         id: 'free-consult',
+        image: 'service-conversation',
         badge: 'Бесплатно',
         title: 'Бесплатная консультация',
         subtitle: '20 минут',

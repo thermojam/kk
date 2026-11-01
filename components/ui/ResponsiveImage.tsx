@@ -1,6 +1,19 @@
 import { cn } from '@/lib/cn';
 
-type ResponsiveImageName = 'hero' | 'about' | 'course' | 'food-bogina' | 'food-bogina-author';
+type ResponsiveImageName =
+    | 'hero'
+    | 'about'
+    | 'course'
+    | 'food-bogina'
+    | 'food-bogina-author'
+    | 'service-abstract'
+    | 'service-spices'
+    | 'service-bowl'
+    | 'service-conversation'
+    | 'service-path'
+    | 'service-session'
+    | 'service-gymnastics'
+    | 'service-combo';
 
 type ResponsiveImageProps = {
     /** Базовое имя источника (без размера и расширения). */
@@ -16,6 +29,8 @@ type ResponsiveImageProps = {
     sizes: string;
     /** true => loading="eager" + fetchpriority="high". По умолчанию lazy. */
     priority?: boolean;
+    /** Небольшие изображения в карусели лучше загрузить до прокрутки. */
+    loading?: 'eager' | 'lazy';
     className?: string;
 };
 
@@ -32,6 +47,7 @@ export function ResponsiveImage({
     height,
     sizes,
     priority = false,
+    loading = 'lazy',
     className,
 }: ResponsiveImageProps) {
     return (
@@ -43,7 +59,7 @@ export function ResponsiveImage({
                 alt={alt}
                 width={width}
                 height={height}
-                loading={priority ? 'eager' : 'lazy'}
+                loading={priority ? 'eager' : loading}
                 fetchPriority={priority ? 'high' : 'auto'}
                 decoding="async"
                 className={cn(className)}
